@@ -1,9 +1,8 @@
-<!-- Arquivo: metas_salariais.html -->
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Metas Salariais</title>
   <style>
     body {
@@ -40,9 +39,9 @@
       padding: 1rem;
       border: 1px solid #ccc;
     }
-    .atingida { background-color: #e5fbe5; }
-    .parcial { background-color: #fffad5; }
-    .naoatingida { background-color: #ffe5e5; }
+    .card.atingida { background-color: #e5fbe5; }
+    .card.parcial { background-color: #fffad5; }
+    .card.naoatingida { background-color: #ffe5e5; }
   </style>
 </head>
 <body>
@@ -50,52 +49,18 @@
     <img src="logo-BIZAxGHT.png" alt="BIZA">
     <h1>Metas Salariais – Junho 2025</h1>
   </header>
-
   <div class="filters">
     <button onclick="window.location.href='index.html'">⬅ Voltar</button>
-    <select id="mesFiltro"></select>
-    <select id="anoFiltro"></select>
+    <select id="mesFiltro">
+      <option value="Janeiro">Janeiro</option>
+      <option value="Fevereiro">Fevereiro</option>
+    </select>
+    <select id="anoFiltro">
+      <option value="2025">2025</option>
+    </select>
   </div>
-
   <div id="conteudo"></div>
-
-  <!-- Scripts -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
   <script src="script.js"></script>
-
-  <script>
-    // Preencher dinamicamente os meses
-    const meses = [
-      "Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho",
-      "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"
-    ];
-    const selectMes = document.getElementById("mesFiltro");
-    meses.forEach(mes => {
-      const opt = document.createElement("option");
-      opt.value = mes;
-      opt.textContent = mes;
-      selectMes.appendChild(opt);
-    });
-
-    // Preencher anos de forma dinâmica (2024 a 2027)
-    const selectAno = document.getElementById("anoFiltro");
-    const anoAtual = new Date().getFullYear();
-    for (let i = 0; i < 4; i++) {
-      const opt = document.createElement("option");
-      const ano = anoAtual + i;
-      opt.value = String(ano);
-      opt.textContent = ano;
-      selectAno.appendChild(opt);
-    }
-
-    // Chamada da função do script externo após carregar
-    window.onload = () => {
-      document.getElementById("mesFiltro").value = "Junho";
-      document.getElementById("anoFiltro").value = "2025";
-      if (typeof carregarMetas === "function") {
-        carregarMetas();
-      }
-    };
-  </script>
 </body>
 </html>

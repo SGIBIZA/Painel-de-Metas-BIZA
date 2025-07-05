@@ -7,47 +7,43 @@ const mensagensFaixa = {
   'Faixa 6': 'Atingido, excelente resultado, parabéns!'
 };
 
-function carregarMetas() {
-  Papa.parse("Base Painel de metas BIZA.csv", {
-    download: true,
-    header: true,
-    complete: function(results) {
-      const dados = results.data;
+Papa.parse("base_metas_biza.csv", {
+  download: true,
+  header: true,
+  complete: function(results) {
+    const dados = results.data;
 
-      const mes = document.getElementById("mesFiltro").value;
-      const ano = document.getElementById("anoFiltro").value;
+    const mes = document.getElementById("mesFiltro").value;
+    const ano = document.getElementById("anoFiltro").value;
 
-      const container = document.getElementById("conteudo");
-      container.innerHTML = '';
+    const container = document.getElementById("conteudo");
+    container.innerHTML = '';
 
-      const filtrado = dados.filter(row => row.MêsTexto === mes && row.Ano === ano);
+    const filtrado = dados.filter(row => row.MêsTexto === mes && row.Ano === ano);
 
-      filtrado.forEach(row => {
-        if (!row.Meta) return;
+    filtrado.forEach(row => {
+      if (!row.Meta) return;
 
-        let resultadoFormatado = row.Resultado;
-        const num = parseFloat(resultadoFormatado);
-        if (!isNaN(num)) {
-          resultadoFormatado = (num * 100).toFixed(2).replace('.', ',') + '%';
-        }
+      let resultadoFormatado = row.Resultado;
+      const num = parseFloat(resultadoFormatado);
+      if (!isNaN(num)) {
+        resultadoFormatado = (num * 100).toFixed(2).replace('.', ',') + '%';
+      }
 
-        let statusClass = '';
-        if (row.Status === 'Atingida') statusClass = 'atingida';
-        else if (row.Status === 'Parcial') statusClass = 'parcial';
-        else statusClass = 'naoatingida';
+      let statusClass = '';
+      if (row.Status === 'Atingida') statusClass = 'atingida';
+      else if (row.Status === 'Parcial') statusClass = 'parcial';
+      else statusClass = 'naoatingida';
 
-        const faixa = row["Faixa atingida"];
-
-        const card = document.createElement("div");
-        card.className = `card ${statusClass}`;
-        card.innerHTML = `
-          <strong>${row.Meta}</strong><br>
-          <strong>Resultado:</strong> ${resultadoFormatado}<br>
-          <strong>Faixa:</strong> ${faixa}<br>
-          ${mensagensFaixa[faixa] || ''}
-        `;
-        container.appendChild(card);
-      });
-    }
-  });
-}
+      const card = document.createElement("div");
+      card.className = `card ${statusClass}`;
+      card.innerHTML = `
+        <strong>${row.Meta}</strong><br>
+        <strong>Resultado:</strong> ${resultadoFormatado}<br>
+        <strong>Faixa:</strong> ${row["Faixa atingida"]}<br>
+        ${mensagensFaixa[row["Faixa atingida"]] || ''}
+      `;
+      container.appendChild(card);
+    });
+  }
+});
