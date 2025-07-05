@@ -1,0 +1,11 @@
+Mês;Código Mês;Meta;Descrição da Meta;Peso;Valor da meta;Resultado;Faixa atingida;MêsTexto;Ano;Status
+45658;1;Meta 1;Faturamento GHT;0.2;1;0.9618;Faixa 3;Janeiro;2025;Atingida;
+45658;1;Meta 2;Aderencia a Programação;0.2;0.8;0.8271;Faixa 4;Janeiro;2025;Atingida além da meta;
+45658;1;Meta 3;Grupos de GGF (Gastos Gerais de Fabricação) BIZA;0.2;0.45;0.709;Faixa 3;Janeiro;2025;Atingida;
+45658;1;Meta 4;Acuracidade de Estoques;0.15;0.945;0.95;Faixa 4;Janeiro;2025;Atingida além da meta;
+45658;1;Meta 5;Garantia Procedentes BIZA;0.15;0.41;0.236;Faixa 6;Janeiro;2025;Atingida além da meta;
+45689;2;Meta 1;Faturamento GHT;0.2;1;0.9;Faixa 1;Fevereiro;2025;Não atingida;
+45689;2;Meta 2;Aderencia a Programação;0.2;0.8;0.75;Faixa 2;Fevereiro;2025;Não atingida;
+45689;2;Meta 3;Grupos de GGF (Gastos Gerais de Fabricação) BIZA;0.2;0.45;0.4;Faixa 6;Fevereiro;2025;Atingida além da meta;
+45689;2;Meta 4;Acuracidade de Estoques;0.15;0.945;0.97;Faixa 6;Fevereiro;2025;Atingida além da meta;
+45689;2;Meta 5;Garantia Procedentes BIZA;0.15;0.41;0.4;Faixa 4;Fevereiro;2025;Atingida além da meta;
