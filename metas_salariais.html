@@ -32,25 +32,51 @@
     select, button {
       padding: 0.5rem;
       font-size: 1rem;
-    }
-    .card {
-      border: 2px solid #ccc;
-      border-radius: 10px;
-      padding: 1rem;
-      margin: 1rem auto;
-      width: 90%;
-      max-width: 600px;
-      background-color: #f9f9f9;
-    }
-    .card.atingida {
-      border-color: green;
-    }
-    .card.parcial {
-      border-color: orange;
-    }
-    .card.naoatingida {
-      border-color: red;
-    }
+    }.card {
+  background-color: #f9f9f9;
+  border-radius: 16px;
+  padding: 1rem 1.5rem;
+  margin: 1rem auto;
+  max-width: 700px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  font-size: 1rem;
+  transition: transform 0.2s ease;
+  border-left: 6px solid transparent;
+}
+
+.card:hover {
+  transform: scale(1.01);
+}
+
+/* Cores conforme classe definida no script */
+.card.atingida {
+  border-left-color: green;
+}
+
+.card.parcial {
+  border-left-color: orange;
+}
+
+.card.naoatingida {
+  border-left-color: red;
+}
+
+.card strong {
+  font-size: 1.05rem;
+  color: #111;
+}
+
+.card .faixa {
+  font-weight: bold;
+  color: #555;
+  margin-bottom: 0.2rem;
+}
+
+.card .mensagem {
+  margin-top: 0.5rem;
+  color: #333;
+  font-style: italic;
+}
   </style>
 </head>
 <body>

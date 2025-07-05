@@ -1,9 +1,11 @@
+// Arquivo: index.html (MENU PRINCIPAL)
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Painel de Metas BIZA</title>
+  <link rel="icon" type="image/png" href="logo-BIZAxGHT.png">
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -36,6 +38,9 @@
       background-color: #fff;
       cursor: pointer;
     }
+    .btn-meta:focus {
+      outline: 3px solid #F8AD1E;
+    }
   </style>
 </head>
 <body>
@@ -44,10 +49,10 @@
     <h1>Painel de Metas BIZA</h1>
   </header>
   <div class="container">
-    <button class="btn-meta" onclick="location.href='metas_salariais.html'">Metas Salariais</button>
-    <button class="btn-meta">Metas N3</button>
-    <button class="btn-meta">Metas de Rotina</button>
-    <button class="btn-meta">Metas PLR</button>
+    <button type="button" class="btn-meta" onclick="location.href='metas_salariais.html'">Metas Salariais</button>
+    <button type="button" class="btn-meta">Metas N3</button>
+    <button type="button" class="btn-meta">Metas de Rotina</button>
+    <button type="button" class="btn-meta">Metas PLR</button>
   </div>
 </body>
 </html>
