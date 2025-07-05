@@ -1,8 +1,9 @@
+<!-- Arquivo: metas_salariais.html -->
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Metas Salariais</title>
   <style>
     body {
@@ -33,15 +34,23 @@
       font-size: 1rem;
     }
     .card {
-      max-width: 700px;
-      margin: 1rem auto;
-      border-radius: 8px;
+      border: 2px solid #ccc;
+      border-radius: 10px;
       padding: 1rem;
-      border: 1px solid #ccc;
+      margin: 1rem auto;
+      width: 90%;
+      max-width: 600px;
+      background-color: #f9f9f9;
     }
-    .card.atingida { background-color: #e5fbe5; }
-    .card.parcial { background-color: #fffad5; }
-    .card.naoatingida { background-color: #ffe5e5; }
+    .card.atingida {
+      border-color: green;
+    }
+    .card.parcial {
+      border-color: orange;
+    }
+    .card.naoatingida {
+      border-color: red;
+    }
   </style>
 </head>
 <body>
@@ -49,17 +58,32 @@
     <img src="logo-BIZAxGHT.png" alt="BIZA">
     <h1>Metas Salariais – Junho 2025</h1>
   </header>
+
   <div class="filters">
     <button onclick="window.location.href='index.html'">⬅ Voltar</button>
     <select id="mesFiltro">
-      <option value="Janeiro">Janeiro</option>
-      <option value="Fevereiro">Fevereiro</option>
+      <option>Janeiro</option>
+      <option>Fevereiro</option>
+      <option>Março</option>
+      <option>Abril</option>
+      <option>Maio</option>
+      <option selected>Junho</option>
+      <option>Julho</option>
+      <option>Agosto</option>
+      <option>Setembro</option>
+      <option>Outubro</option>
+      <option>Novembro</option>
+      <option>Dezembro</option>
     </select>
     <select id="anoFiltro">
-      <option value="2025">2025</option>
+      <option>2024</option>
+      <option selected>2025</option>
     </select>
   </div>
+
   <div id="conteudo"></div>
+
+  <!-- Scripts -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
   <script src="script.js"></script>
 </body>
