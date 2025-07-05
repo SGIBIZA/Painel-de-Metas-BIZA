@@ -1,0 +1,58 @@
+// Arquivo: index.html (MENU PRINCIPAL)
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Painel de Metas BIZA</title>
+  <link rel="icon" type="image/png" href="logo-BIZAxGHT.png">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #fff;
+      margin: 0;
+    }
+    header {
+      background-color: #000;
+      color: #F8AD1E;
+      text-align: center;
+      padding: 1rem;
+    }
+    header img {
+      height: 40px;
+      margin: 0 10px;
+    }
+    .container {
+      max-width: 600px;
+      margin: 2rem auto;
+      text-align: center;
+    }
+    .btn-meta {
+      display: block;
+      width: 100%;
+      margin: 1rem 0;
+      padding: 1rem;
+      font-size: 1.2rem;
+      border-radius: 10px;
+      border: 2px solid #333;
+      background-color: #fff;
+      cursor: pointer;
+    }
+    .btn-meta:focus {
+      outline: 3px solid #F8AD1E;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="logo-BIZAxGHT.png" alt="BIZA">
+    <h1>Painel de Metas BIZA</h1>
+  </header>
+  <div class="container">
+    <button type="button" class="btn-meta" onclick="location.href='metas_salariais.html'">Metas Salariais</button>
+    <button type="button" class="btn-meta">Metas N3</button>
+    <button type="button" class="btn-meta">Metas de Rotina</button>
+    <button type="button" class="btn-meta">Metas PLR</button>
+  </div>
+</body>
+</html>
