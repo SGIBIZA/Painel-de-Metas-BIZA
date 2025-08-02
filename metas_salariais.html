@@ -1,4 +1,3 @@
-<!-- Arquivo: metas_salariais.html -->
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -32,57 +31,88 @@
     select, button {
       padding: 0.5rem;
       font-size: 1rem;
-    }.card {
-  background-color: #f9f9f9;
-  border-radius: 16px;
-  padding: 1rem 1.5rem;
-  margin: 1rem auto;
-  max-width: 700px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
-  font-size: 1rem;
-  transition: transform 0.2s ease;
-  border-left: 6px solid transparent;
-}
+    }
+    .card {
+      background-color: #f9f9f9;
+      border-radius: 16px;
+      padding: 1rem 1.5rem;
+      margin: 1rem auto;
+      max-width: 700px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+      font-size: 1rem;
+      transition: transform 0.2s ease;
+      border-left: 6px solid transparent;
+    }
+    .card:hover { transform: scale(1.01); }
+    .card.atingida { border-left-color: green; }
+    .card.parcial { border-left-color: orange; }
+    .card.naoatingida { border-left-color: red; }
+    .card strong { font-size: 1.05rem; color: #111; }
+    .card .faixa { font-weight: bold; color: #555; margin-bottom: 0.2rem; }
+    .card .mensagem { margin-top: 0.5rem; color: #333; font-style: italic; }
 
-.card:hover {
-  transform: scale(1.01);
-}
-
-/* Cores conforme classe definida no script */
-.card.atingida {
-  border-left-color: green;
-}
-
-.card.parcial {
-  border-left-color: orange;
-}
-
-.card.naoatingida {
-  border-left-color: red;
-}
-
-.card strong {
-  font-size: 1.05rem;
-  color: #111;
-}
-
-.card .faixa {
-  font-weight: bold;
-  color: #555;
-  margin-bottom: 0.2rem;
-}
-
-.card .mensagem {
-  margin-top: 0.5rem;
-  color: #333;
-  font-style: italic;
-}
+    #modal {
+      display: none;
+      position: fixed;
+      z-index: 999;
+      left: 0; top: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+    }
+    #modal-content {
+      background: #fff;
+      border-radius: 10px;
+      width: 400px;
+      margin: 5% auto;
+      padding: 1.5rem;
+      text-align: center;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    }
+    .faixa-input {
+      width: 100%;
+      margin: 0.4rem 0;
+      padding: 0.5rem;
+      font-size: 1rem;
+    }
+    .modal-buttons button {
+      margin: 0.5rem;
+      padding: 0.6rem 1.2rem;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+    .btn-salario {
+      background-color: #F8AD1E;
+      color: #000;
+      border: none;
+    }
+    .btn-close {
+      background-color: #ccc;
+      color: #000;
+      border: none;
+    }
+    #tabelaMetasCalculadora {
+      margin-top: 1rem;
+      font-size: 0.85rem;
+      width: 100%;
+    }
+    #tabelaMetasCalculadora table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+    #tabelaMetasCalculadora th, #tabelaMetasCalculadora td {
+      border: 1px solid #ddd;
+      padding: 6px;
+      text-align: center;
+    }
+    #tabelaMetasCalculadora th {
+      background-color: #eee;
+    }
   </style>
 </head>
 <body>
   <header>
     <img src="logo-BIZAxGHT.png" alt="BIZA">
-    <h1>Metas Salariais</h1>
+    <h1 id="titulo-pagina">Metas Salariais</h1>
   </header>
 
   <div class="filters">
@@ -105,9 +135,23 @@
       <option>2024</option>
       <option selected>2025</option>
     </select>
+    <button onclick="abrirCalculadora()">🧮 Calculadora de Salário</button>
   </div>
 
   <div id="conteudo"></div>
+
+  <!-- Modal -->
+  <div id="modal">
+    <div id="modal-content">
+      <h3>Informe os valores de cada faixa</h3>
+      <div id="inputs-faixas"></div>
+      <div id="tabelaMetasCalculadora"></div>
+      <div class="modal-buttons">
+        <button class="btn-salario" onclick="calcularSalario()">Calcular Salário</button>
+        <button class="btn-close" onclick="fecharModal()">Fechar</button>
+      </div>
+    </div>
+  </div>
 
   <!-- Scripts -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>

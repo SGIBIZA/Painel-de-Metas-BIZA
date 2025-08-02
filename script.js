@@ -19,10 +19,9 @@ function carregarMetas() {
       const mes = mesSelect.value;
       const mesTexto = mesSelect.options[mesSelect.selectedIndex].text;
 
-      // Geração do próximo mês para exibir no título
       const meses = ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'];
       const mesIndex = meses.indexOf(mesTexto);
-      const proximoMes = meses[(mesIndex + 1) % 12]; // volta para Janeiro se for Dezembro
+      const proximoMes = meses[(mesIndex + 1) % 12];
 
       document.querySelector("header h1").innerText = `Metas Salariais – Resultado de ${mesTexto} ${ano} – Pagamento de ${proximoMes}`;
 
@@ -44,21 +43,19 @@ function carregarMetas() {
         const descricao = row["Descrição da Meta"];
         const peso = row["Peso"];
 
-        // Define status class e cor de fundo
         let statusClass = '';
         let bgColor = '';
         if (row.Status === 'Atingida') {
           statusClass = 'parcial';
-          bgColor = '#fff7e0'; // amarelo claro
+          bgColor = '#fff7e0';
         } else if (row.Status === 'Atingida além da meta') {
           statusClass = 'atingida';
-          bgColor = '#e0f8e0'; // verde claro
+          bgColor = '#e0f8e0';
         } else {
           statusClass = 'naoatingida';
-          bgColor = '#fde0e0'; // vermelho claro
+          bgColor = '#fde0e0';
         }
 
-        // Criação do card visual
         const card = document.createElement("div");
         card.className = `card ${statusClass}`;
         card.style.backgroundColor = bgColor;
@@ -83,10 +80,69 @@ function carregarMetas() {
   });
 }
 
-// Executa ao carregar a página
+function abrirCalculadora() {
+  const modal = document.getElementById("modal");
+  const inputs = [1, 2, 3, 4, 5, 6].map(i =>
+    `<input class='faixa-input' id='faixa${i}' type='number' placeholder='Faixa ${i}' required>`
+  ).join("");
+  document.getElementById("inputs-faixas").innerHTML = inputs;
+
+  // Gerar tabela das metas que estão na tela
+  const cards = document.querySelectorAll(".card");
+  let tabelaHTML = `
+    <table border="1" style="width:100%; font-size: 0.85rem; margin-top: 1rem; border-collapse: collapse;">
+      <thead style="background-color:#eee;">
+        <tr><th>Meta</th><th>Faixa</th><th>Peso</th></tr>
+      </thead>
+      <tbody>
+  `;
+
+  cards.forEach(card => {
+    const html = card.innerHTML;
+    const metaMatch = html.match(/<strong>(.*?)<\/strong>/);
+    const faixaMatch = html.match(/Faixa:<\/strong>\s*(Faixa \d)/);
+    const pesoMatch = html.match(/Peso:<\/strong>\s*(\d+[\.,]?\d*)/);
+
+    const meta = metaMatch ? metaMatch[1] : '';
+    const faixa = faixaMatch ? faixaMatch[1] : '';
+    const peso = pesoMatch ? pesoMatch[1].replace(',', '.') : '0';
+
+    tabelaHTML += `<tr><td>${meta}</td><td>${faixa}</td><td>${peso}</td></tr>`;
+  });
+
+  tabelaHTML += '</tbody></table>';
+  document.getElementById("tabelaMetasCalculadora").innerHTML = tabelaHTML;
+
+  modal.style.display = "block";
+}
+
+function fecharModal() {
+  document.getElementById("modal").style.display = "none";
+}
+
+function calcularSalario() {
+  const faixas = {};
+  for (let i = 1; i <= 6; i++) {
+    faixas[`Faixa ${i}`] = parseFloat(document.getElementById(`faixa${i}`).value || 0);
+  }
+
+  let salario = 0;
+  const linhas = document.querySelectorAll("#tabelaMetasCalculadora tbody tr");
+
+  linhas.forEach(linha => {
+    const faixa = linha.children[1].textContent.trim();
+    const peso = parseFloat(linha.children[2].textContent.replace(',', '.')) || 0;
+    const valorFaixa = faixas[faixa] || 0;
+    salario += valorFaixa * peso;
+  });
+
+  alert("Salário Calculado: R$ " + salario.toFixed(2).replace('.', ','));
+  fecharModal();
+}
+
+// Ao carregar
 document.addEventListener("DOMContentLoaded", carregarMetas);
 
-// Atualiza ao mudar filtros
+// Atualiza com filtros
 document.getElementById("mesFiltro").addEventListener("change", carregarMetas);
 document.getElementById("anoFiltro").addEventListener("change", carregarMetas);
-
