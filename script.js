@@ -14,8 +14,17 @@ function carregarMetas() {
     complete: function(results) {
       const dados = results.data;
 
-      const mes = document.getElementById("mesFiltro").value;
+      const mesSelect = document.getElementById("mesFiltro");
       const ano = document.getElementById("anoFiltro").value;
+      const mes = mesSelect.value;
+      const mesTexto = mesSelect.options[mesSelect.selectedIndex].text;
+
+      // Geração do próximo mês para exibir no título
+      const meses = ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'];
+      const mesIndex = meses.indexOf(mesTexto);
+      const proximoMes = meses[(mesIndex + 1) % 12]; // volta para Janeiro se for Dezembro
+
+      document.querySelector("header h1").innerText = `Metas Salariais – Resultado de ${mesTexto} ${ano} – Pagamento de ${proximoMes}`;
 
       const container = document.getElementById("conteudo");
       container.innerHTML = '';
@@ -42,7 +51,7 @@ function carregarMetas() {
           statusClass = 'parcial';
           bgColor = '#fff7e0'; // amarelo claro
         } else if (row.Status === 'Atingida além da meta') {
-        statusClass = 'atingida';
+          statusClass = 'atingida';
           bgColor = '#e0f8e0'; // verde claro
         } else {
           statusClass = 'naoatingida';
@@ -80,3 +89,4 @@ document.addEventListener("DOMContentLoaded", carregarMetas);
 // Atualiza ao mudar filtros
 document.getElementById("mesFiltro").addEventListener("change", carregarMetas);
 document.getElementById("anoFiltro").addEventListener("change", carregarMetas);
+
