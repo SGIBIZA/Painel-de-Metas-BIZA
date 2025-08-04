@@ -55,14 +55,18 @@
       display: none;
       position: fixed;
       z-index: 999;
-      left: 0; top: 0;
-      width: 100%; height: 100%;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
       background-color: rgba(0, 0, 0, 0.6);
+      overflow: auto;
     }
     #modal-content {
       background: #fff;
       border-radius: 10px;
-      width: 400px;
+      width: 90%;
+      max-width: 500px;
       margin: 5% auto;
       padding: 1.5rem;
       text-align: center;
@@ -94,6 +98,7 @@
       margin-top: 1rem;
       font-size: 0.85rem;
       width: 100%;
+      overflow-x: auto;
     }
     #tabelaMetasCalculadora table {
       border-collapse: collapse;
@@ -156,5 +161,55 @@
   <!-- Scripts -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
   <script src="script.js"></script>
+  <script>
+    function abrirCalculadora() {
+      const modal = document.getElementById("modal");
+      if (modal) modal.style.display = "block";
+
+      const inputsHTML = [1,2,3,4,5,6].map(i =>
+        `<input class='faixa-input' id='faixa${i}' type='number' placeholder='Faixa ${i}' required>`
+      ).join("");
+      document.getElementById("inputs-faixas").innerHTML = inputsHTML;
+
+      const cards = document.querySelectorAll(".card");
+      let tabelaHTML = "<table><tr><th>Meta</th><th>Faixa</th><th>Peso</th></tr>";
+      cards.forEach(card => {
+        const html = card.innerHTML;
+        const meta = html.match(/<strong>(.*?)<\/strong>/)?.[1] ?? "";
+        const faixa = html.match(/Faixa:\s*(Faixa \d)/)?.[1] ?? "";
+        const peso = html.match(/Peso:\s*(\d*\.?\d*)/)?.[1] ?? "0";
+        tabelaHTML += `<tr><td>${meta}</td><td>${faixa}</td><td>${peso}</td></tr>`;
+      });
+      tabelaHTML += "</table>";
+      document.getElementById("tabelaMetasCalculadora").innerHTML = tabelaHTML;
+    }
+
+    function fecharModal() {
+      document.getElementById("modal").style.display = "none";
+    }
+
+    function calcularSalario() {
+      const faixas = {};
+      for (let i = 1; i <= 6; i++) {
+        faixas[`Faixa ${i}`] = parseFloat(document.getElementById(`faixa${i}`).value || 0);
+      }
+
+      const linhas = document.querySelectorAll("#tabelaMetasCalculadora table tr");
+      let salario = 0;
+
+      linhas.forEach((linha, index) => {
+        if (index === 0) return;
+        const cols = linha.querySelectorAll("td");
+        const faixa = cols[1]?.innerText.trim();
+        const peso = parseFloat(cols[2]?.innerText.trim()) || 0;
+        if (faixa && faixas[faixa]) {
+          salario += faixas[faixa] * peso;
+        }
+      });
+
+      alert("Salário Calculado: R$ " + salario.toFixed(2).replace('.', ','));
+      fecharModal();
+    }
+  </script>
 </body>
 </html>
