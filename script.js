@@ -59,12 +59,6 @@ function carregarMetas() {
         const card = document.createElement("div");
         card.className = `card ${statusClass}`;
         card.style.backgroundColor = bgColor;
-        card.style.borderRadius = "12px";
-        card.style.padding = "1rem";
-        card.style.margin = "1rem auto";
-        card.style.maxWidth = "800px";
-        card.style.boxShadow = "0 2px 6px rgba(0,0,0,0.1)";
-        card.style.borderLeft = `6px solid ${statusClass === 'atingida' ? 'green' : statusClass === 'parcial' ? 'orange' : 'red'}`;
 
         card.innerHTML = `
           <strong>${row.Meta}</strong> – ${descricao}<br>
@@ -82,16 +76,16 @@ function carregarMetas() {
 
 function abrirCalculadora() {
   const modal = document.getElementById("modal");
-  const inputs = [1, 2, 3, 4, 5, 6].map(i =>
+  const inputsHTML = [1,2,3,4,5,6].map(i =>
     `<input class='faixa-input' id='faixa${i}' type='number' placeholder='Faixa ${i}' required>`
   ).join("");
-  document.getElementById("inputs-faixas").innerHTML = inputs;
+  document.getElementById("inputs-faixas").innerHTML = inputsHTML;
 
-  // Gerar tabela das metas que estão na tela
+  // Capturar metas visíveis na tela
   const cards = document.querySelectorAll(".card");
   let tabelaHTML = `
-    <table border="1" style="width:100%; font-size: 0.85rem; margin-top: 1rem; border-collapse: collapse;">
-      <thead style="background-color:#eee;">
+    <table>
+      <thead>
         <tr><th>Meta</th><th>Faixa</th><th>Peso</th></tr>
       </thead>
       <tbody>
@@ -99,9 +93,10 @@ function abrirCalculadora() {
 
   cards.forEach(card => {
     const html = card.innerHTML;
+
     const metaMatch = html.match(/<strong>(.*?)<\/strong>/);
     const faixaMatch = html.match(/Faixa:<\/strong>\s*(Faixa \d)/);
-    const pesoMatch = html.match(/Peso:<\/strong>\s*(\d+[\.,]?\d*)/);
+    const pesoMatch = html.match(/Peso:<\/strong>\s*([\d.,]+)/);
 
     const meta = metaMatch ? metaMatch[1] : '';
     const faixa = faixaMatch ? faixaMatch[1] : '';
@@ -112,7 +107,6 @@ function abrirCalculadora() {
 
   tabelaHTML += '</tbody></table>';
   document.getElementById("tabelaMetasCalculadora").innerHTML = tabelaHTML;
-
   modal.style.display = "block";
 }
 
@@ -140,9 +134,13 @@ function calcularSalario() {
   fecharModal();
 }
 
-// Ao carregar
+// Eventos ao carregar
 document.addEventListener("DOMContentLoaded", carregarMetas);
 
-// Atualiza com filtros
+// Filtros
 document.getElementById("mesFiltro").addEventListener("change", carregarMetas);
 document.getElementById("anoFiltro").addEventListener("change", carregarMetas);
+
+// Botão da calculadora
+document.getElementById("btnCalculadora").addEventListener("click", abrirCalculadora);
+
