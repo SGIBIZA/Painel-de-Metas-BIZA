@@ -23,16 +23,38 @@ function carregarMetas() {
       const mesIndex = meses.indexOf(mesTexto);
       const proximoMes = meses[(mesIndex + 1) % 12];
 
-      document.querySelector("header h1").innerText = `Metas Salariais – Resultado de ${mesTexto} ${ano} – Pagamento de ${proximoMes}`;
+      document.querySelector("header h1").innerText =
+        `Metas Salariais – Resultado de ${mesTexto} ${ano} – Pagamento de ${proximoMes}`;
 
       const container = document.getElementById("conteudo");
       container.innerHTML = '';
 
       const filtrado = dados.filter(row => row.MêsTexto === mes && row.Ano === ano);
 
+      // ---------- Empty state (sem dados para o mês filtrado) ----------
+      if (!filtrado || filtrado.length === 0) {
+        const mesNumero = {
+          'Janeiro':'01','Fevereiro':'02','Março':'03','Abril':'04','Maio':'05','Junho':'06',
+          'Julho':'07','Agosto':'08','Setembro':'09','Outubro':'10','Novembro':'11','Dezembro':'12'
+        }[proximoMes] || '';
+
+        const msg = `Dados para os cálculos do pagamento de ${proximoMes} serão fechados até dia 20/${mesNumero}.`;
+
+        container.innerHTML = `
+          <div style="
+            max-width: 800px; margin: 2rem auto; padding: 1rem 1.25rem;
+            border-radius: 12px; background: #FFF8E1; border: 1px solid #F0C36D;
+            color: #6B4E16; text-align: center; font-size: 1rem;">
+            ${msg}
+          </div>`;
+        return; // nada mais a fazer
+      }
+      // -----------------------------------------------------------------
+
       filtrado.forEach(row => {
         if (!row.Meta) return;
 
+        // Formata resultado (0.77 -> 77,00%)
         let resultadoFormatado = row.Resultado;
         const num = parseFloat(resultadoFormatado);
         if (!isNaN(num)) {
@@ -41,7 +63,15 @@ function carregarMetas() {
 
         const faixa = row["Faixa atingida"];
         const descricao = row["Descrição da Meta"];
-        const peso = row["Peso"];
+        const pesoBruto = row["Peso"]; // valor original do CSV (ex.: 0.2)
+
+        // Mostra peso como percentual, mas sem afetar o dado bruto
+        let pesoFormatado = pesoBruto;
+        const pesoNum = parseFloat(pesoBruto);
+        if (!isNaN(pesoNum)) {
+          const p = (pesoNum <= 1 ? pesoNum * 100 : pesoNum); // se vier 0.2 => 20
+          pesoFormatado = `${String(p).replace('.', ',')}%`;
+        }
 
         let statusClass = '';
         let bgColor = '';
@@ -65,7 +95,7 @@ function carregarMetas() {
           <strong>Resultado:</strong> ${resultadoFormatado}<br>
           <strong>Faixa:</strong> ${faixa}<br>
           ${mensagensFaixa[faixa] || ''}<br>
-          <strong>Peso:</strong> ${peso}
+          <strong>Peso:</strong> ${pesoFormatado}
         `;
 
         container.appendChild(card);
@@ -96,7 +126,7 @@ function abrirCalculadora() {
 
     const metaMatch = html.match(/<strong>(.*?)<\/strong>/);
     const faixaMatch = html.match(/Faixa:<\/strong>\s*(Faixa \d)/);
-    const pesoMatch = html.match(/Peso:<\/strong>\s*([\d.,]+)/);
+    const pesoMatch = html.match(/Peso:<\/strong>\s*([\d.,]+)%?/); // aceita "20%" ou "0,2"
 
     const meta = metaMatch ? metaMatch[1] : '';
     const faixa = faixaMatch ? faixaMatch[1] : '';
@@ -125,7 +155,11 @@ function calcularSalario() {
 
   linhas.forEach(linha => {
     const faixa = linha.children[1].textContent.trim();
-    const peso = parseFloat(linha.children[2].textContent.replace(',', '.')) || 0;
+    const pesoRaw = parseFloat(linha.children[2].textContent.replace(',', '.')) || 0;
+
+    // Se o peso estiver como 20 (i.e., "20%"), converte para 0.2
+    const peso = (pesoRaw > 1) ? (pesoRaw / 100) : pesoRaw;
+
     const valorFaixa = faixas[faixa] || 0;
     salario += valorFaixa * peso;
   });
@@ -143,4 +177,3 @@ document.getElementById("anoFiltro").addEventListener("change", carregarMetas);
 
 // Botão da calculadora
 document.getElementById("btnCalculadora").addEventListener("click", abrirCalculadora);
-
