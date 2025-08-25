@@ -1,0 +1,49 @@
+name: Atualizar CSV do Painel (Google Drive)
+
+on:
+  # executa automaticamente de 24 em 24 horas
+  schedule:
+    - cron: '0 */24 * * *'
+  # permite rodar manualmente em "Actions > Run workflow"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  atualizar-csv:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Baixar CSV do Google Drive
+        run: |
+          set -e
+          # ID do arquivo no Drive (do seu link)
+          FILE_ID="1fa3qnjSVLkJrOhgHxQQh1E77XAKTc3zf"
+          # URL direto de download
+          URL="https://drive.google.com/uc?export=download&id=${FILE_ID}"
+
+          echo "Baixando CSV do Drive..."
+          curl -L -o Painel_metas_BIZA.csv "$URL"
+
+          # Normaliza quebras de linha para LF (evita diffs falsos)
+          sed -i 's/\r$//' Painel_metas_BIZA.csv
+          # Garante newline no final do arquivo
+          printf '\n' >> Painel_metas_BIZA.csv
+
+      - name: Verificar diferenças e commitar
+        run: |
+          set -e
+          if git status --porcelain | grep -q "Painel_metas_BIZA.csv"; then
+            echo "Mudanças detectadas no CSV. Enviando commit..."
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add Painel_metas_BIZA.csv
+            git commit -m "Atualiza Painel_metas_BIZA.csv a partir do Google Drive [skip ci]"
+            git push
+          else
+            echo "Sem mudanças no CSV."
+          fi
