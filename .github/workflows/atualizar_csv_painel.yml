@@ -1,10 +1,8 @@
 name: Atualizar CSV do Painel (Google Drive)
 
 on:
-  # executa automaticamente de 24 em 24 horas
   schedule:
-    - cron: '0 */24 * * *'
-  # permite rodar manualmente em "Actions > Run workflow"
+    - cron: '0 */6 * * *'   # a cada 6 horas
   workflow_dispatch:
 
 permissions:
@@ -21,17 +19,13 @@ jobs:
       - name: Baixar CSV do Google Drive
         run: |
           set -e
-          # ID do arquivo no Drive (do seu link)
           FILE_ID="1fa3qnjSVLkJrOhgHxQQh1E77XAKTc3zf"
-          # URL direto de download
           URL="https://drive.google.com/uc?export=download&id=${FILE_ID}"
 
           echo "Baixando CSV do Drive..."
           curl -L -o Painel_metas_BIZA.csv "$URL"
 
-          # Normaliza quebras de linha para LF (evita diffs falsos)
           sed -i 's/\r$//' Painel_metas_BIZA.csv
-          # Garante newline no final do arquivo
           printf '\n' >> Painel_metas_BIZA.csv
 
       - name: Verificar diferenças e commitar
