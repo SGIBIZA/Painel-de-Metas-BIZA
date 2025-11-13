@@ -1,0 +1,112 @@
+// Fallback local para rodar via file:// sem servidor
+window.CARDS = [
+  {
+    id: "catalogo-ideias",
+    title: "Catálogo de Ideias BIZA",
+    description: "Portal Kaizaen com ideias, status e filtros — versão pública hospedada no GitHub Pages.",
+    category: "Programas",
+    area: "Melhoria Contínua",
+    keywords: ["ideias","kaizen","kaizaen","programa"],
+    image: "ideias.png",
+    links: [{ label: "Abrir catálogo", href: "https://dodoccb.github.io/Catalogo-BIZA/" }]
+  },
+  {
+    id: "metas-biza",
+    title: "Painel de Metas BIZA",
+    description: "Metas salariais, N3, rotina e PLR com filtros por mês/ano.",
+    category: "Dashboards",
+    area: "SGI/Adm",
+    keywords: ["metas","salariais","painel","PLR"],
+    image: "metas.png",
+    links: [{ label: "Abrir painel", href: "https://sgibiza.github.io/Painel-de-Metas-BIZA/index.html" }]
+  },
+  {
+    id: "rastreio-compras",
+    title: "Rastreio de Compras (FLOW)",
+    description: "Tela oficial do SPR para rastreio de solicitações/ordens de compra.",
+    category: "Operações",
+    area: "Compras",
+    keywords: ["SPR","compras","rastreio","ordem"],
+    image: "rastreio.png",
+    links: [{ label: "Abrir rastreio", href: "https://spr.hidrautorque.com.br/44357085000569/Biza/RastreioOrdemCompra" }]
+  },
+  {
+    id: "ofs-kanban",
+    title: "OFS Kanban (FLOW)",
+    description: "Quadro Kanban das Ordens de Fabricação.",
+    category: "Produção",
+    area: "PCP",
+    keywords: ["kanban","ofs","pcp"],
+    image: "kanban.png",
+    links: [{ label: "Abrir Kanban", href: "https://spr.hidrautorque.com.br/44357085000569/Kanban/IndexKanban" }]
+  },
+  {
+    id: "politica-missao",
+    title: "Política & Missão BIZA",
+    description: "Política do SGI, missão, visão e valores para auditorias.",
+    category: "Institucional",
+    area: "Diretoria",
+    keywords: ["política","missão","visão","valores"],
+    image: "politica.png",
+    links: [{ label: "Ver conteúdo", href: "https://view.officeapps.live.com/op/embed.aspx?src=biza.sigols.com.br/arquivos_fisicos/20251111121001_78170aee2a116b916a5f02e1fe7ddd06.pptx" }]
+  },
+  {
+    id: "brigada-incendio",
+    title: "Time da Brigada de Incêndio",
+    description: "Brigadistas, setores, turnos, contatos e pontos de encontro.",
+    category: "SST",
+    area: "Segurança",
+    keywords: ["brigada","emergência","contatos"],
+    image: "brigada.png",
+    links: [{ label: "Ver lista", href: "https://docs.google.com/viewer?embedded=true&url=biza.sigols.com.br/arquivos_fisicos/20251111093104_aa795941c3f205c017c0d9b6cd5b0921.pdf" }]
+  },
+  {
+    id: "cipa",
+    title: "CIPA – Comissão Interna de Prevenção de Acidentes",
+    description: "Composição, atas e calendário de reuniões.",
+    category: "SST",
+    area: "Segurança",
+    keywords: ["CIPA","atas","reuniões","SST"],
+    image: "cipa.png",
+    links: [{ label: "Abrir página", href: "https://docs.google.com/viewer?embedded=true&url=biza.sigols.com.br/arquivos_fisicos/20251111093946_073827bf95b0989ea282ecad663a3aee.pdf" }]
+  },
+  {
+  id: "solicitacao-epi",
+  title: "Solicitação de EPI",
+  description: "Portal oficial para requisitar EPIs (Equipamentos de Proteção Individual).",
+  category: "SST",
+  area: "Segurança",
+  keywords: ["EPI", "segurança", "SST", "requisitar", "portal"],
+  image: "EPI.png",              // opcional; se não existir, aparece o fallback
+  links: [{ label: "Requisitar EPI", href: "https://hidrautorque.duapiepi.com/requisitar_produtos" }]
+},
+{
+  id: "fispq-biza",
+  title: "Fichas de Segurança dos Produtos Químicos (FISPQ / FDS)",
+  description: "Acesso às Fichas de Segurança (FISPQ / FDS) dos produtos químicos utilizados na unidade BIZA, conforme NBR 14725.",
+  category: "SGI / Meio Ambiente",
+  area: "Segurança / Meio Ambiente",
+  keywords: ["FISPQ", "FDS", "produtos químicos", "segurança", "meio ambiente", "NBR 14725", "fichas"],
+  image: "fds.png",
+  links: [
+    {label: "Abrir pasta no Drive", href: "https://drive.google.com/drive/folders/1Lv_60F7YuPqtc8FGxiI-Z4X4t62qMurU"}]
+},
+
+{
+  id: "aspectos-impactos",
+  title: "Levantamento dos Aspectos e Impactos Ambientais - LAIA BIZA",
+  description: "Visualize os aspectos e impactos ambientais por setor, diretamente pelo painel Power BI.",
+  category: "SGA",
+  area: "Meio Ambiente",
+  keywords: ["aspectos", "impactos", "LAIA", "ambiental", "setores", "SGA", "BIZA"],
+  image: "laia.png",
+  links: [
+    {
+      label: "Abrir painel",
+      href: "https://app.powerbi.com/reportEmbed?reportId=4901e128-aa74-44b5-a321-b9f66a0726b2&autoAuth=true&ctid=bad0e1a0-7f47-46da-90b4-33977dc399fa",
+    }
+  ]
+},
+
+
+]
