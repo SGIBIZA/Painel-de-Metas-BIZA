@@ -1,28 +1,50 @@
-name: Atualizar CSV do Google Drive
+name: Atualizar CSVs do Google Drive
 
 on:
   schedule:
     - cron: '0 */48 * * *'   # Executa a cada 48 horas
-  workflow_dispatch:       # Permite execução manual
+  workflow_dispatch:        # Permite executar manualmente
 
 jobs:
   atualizar-csv:
     runs-on: ubuntu-latest
 
     steps:
+
       - name: Clonar repositório
         uses: actions/checkout@v3
 
-      - name: Baixar CSV do Google Drive
+      # ================================
+      # 1) BAIXAR CSV DO PAINEL DE METAS
+      # ================================
+      - name: Baixar Painel_metas_BIZA.csv do Google Drive
         run: |
-          curl -L "https://drive.google.com/uc?export=download&id=1fa3qnjSVLkJrOhgHxQQh1E77XAKTc3zf" -o Painel_metas_BIZA.csv
+          curl -L "https://drive.google.com/uc?export=download&id=1fa3gnj5VLkJr0hgHxQQh1E77XAKTc3zf" \
+          -o Painel_metas_BIZA.csv
 
+      # ================================
+      # 2) BAIXAR CSV DO PAINEL PLR
+      # ================================
+      - name: Baixar Painel_PLR.csv do Google Drive
+        run: |
+          curl -L "https://drive.google.com/uc?export=download&id=1P1gpojrjUssv9WFylfNR5C0_n4-HbRYg" \
+          -o Painel_PLR.csv
+
+      # ================================
+      # CONFIGURAR GIT
+      # ================================
       - name: Configurar Git
         run: |
           git config user.name "github-actions"
           git config user.email "actions@github.com"
 
-      - name: Commit & push se houver alterações
+      # ================================
+      # VERIFICAR, COMMITAR E ENVIAR SE HOUVER ALTERAÇÕES
+      # ================================
+      - name: Commit e Push (se necessário)
         run: |
-          git add Painel_metas_BIZA.csv
-          git diff --cached --quiet || git commit -m "Atualização automática do CSV via Google Drive" && git push
+          git add Painel_metas_BIZA.csv Painel_PLR.csv
+
+          # Se houver mudanças nos arquivos, faz commit e push
+          git diff --cached --quiet || git commit -m "Atualização automática dos CSVs via Google Drive"
+          git push
