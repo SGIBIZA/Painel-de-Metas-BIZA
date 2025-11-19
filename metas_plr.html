@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meta PLR - BIZA</title>
+
+    <style>
+        body {
+            background-color: #000;
+            color: white;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 30px auto;
+        }
+
+        .baloon {
+            background-color: #F8AD1E;
+            color: black;
+            padding: 18px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+            font-size: 18px;
+            text-align: left;
+            border: 2px solid white;
+        }
+
+        img {
+            width: 100%;
+            border-radius: 10px;
+            border: 2px solid #F8AD1E;
+        }
+
+        .btn-voltar {
+            margin-top: 25px;
+            padding: 12px 25px;
+            font-size: 18px;
+            background-color: #F8AD1E;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        .btn-voltar:hover {
+            background-color: #d99016;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Meta PLR – Indicadores</h1>
+
+        <!-- BALÃO DE TEXTO -->
+        <div id="baloon" class="baloon">Carregando informações...</div>
+
+        <!-- IMAGEM DA META PLR -->
+        <img src="PLR%202025%20-%20Resultado%20Outubro.png" alt="Meta PLR Indicadores">
+
+        <button class="btn-voltar" onclick="window.location.href='index.html'">
+            Voltar
+        </button>
+    </div>
+
+    <!-- PapaParse para ler CSV direto do GitHub Pages -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
+
+    <script>
+        Papa.parse("Painel_PLR.csv", {
+            download: true,
+            header: true,
+            delimiter: ";",
+            complete: function(results) {
+                const dados = results.data;
+
+                // Procurar sempre o mês mais recente (última linha válida)
+                const ultimo = dados[dados.length - 2];
+
+                if (!ultimo) return;
+
+                const mes = ultimo["MêsTexto"];
+                const ano = ultimo["Ano"];
+                const metaMes = ultimo["Meta do mês - Qnt de melhorias"];
+                const realizadoMes = ultimo["Resultado mensal - Qnt de melhorias"];
+                const acumulado = ultimo["Resultado acumulado de melhorias"];
+                const metaAcumulada = ultimo["Meta acumulada de melhorias"];
+                const percentual = (ultimo["Percentual acumulado"] * 100).toFixed(0) + "%";
+                const statusMes = ultimo["Status do mês"];
+                const statusGeral = ultimo["Status geral da meta até o momento"];
+
+                document.getElementById("baloon").innerHTML = `
+                    <b>Mês:</b> ${mes}/${ano}<br>
+                    <b>Meta do mês:</b> ${metaMes} melhorias<br>
+                    <b>Realizado no mês:</b> ${realizadoMes} melhorias<br>
+                    <b>Acumulado:</b> ${acumulado} melhorias (Meta: ${metaAcumulada})<br>
+                    <b>Percentual acumulado:</b> ${percentual}<br>
+                    <b>Status do mês:</b> ${statusMes}<br>
+                    <b>Status geral PLR:</b> ${statusGeral}
+                `;
+            }
+        });
+    </script>
+
+</body>
+</html>
