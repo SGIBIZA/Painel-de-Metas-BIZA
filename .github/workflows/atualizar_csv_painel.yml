@@ -19,7 +19,7 @@ jobs:
       # ================================
       - name: Baixar Painel_metas_BIZA.csv do Google Drive
         run: |
-          curl -L "https://drive.google.com/uc?export=download&id=1fa3gnj5VLkJr0hgHxQQh1E77XAKTc3zf" \
+          curl -L "https://drive.google.com/uc?export=download&id=1fa3qnjSVLkJrOhgHxQQh1E77XAKTc3zf" \
           -o Painel_metas_BIZA.csv
 
       # ================================
