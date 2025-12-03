@@ -14,21 +14,33 @@ jobs:
       - name: Clonar repositório
         uses: actions/checkout@v3
 
+
       # ================================
-      # 1) BAIXAR CSV DO PAINEL DE METAS
+      # 1) BAIXAR Painel_metas_BIZA.csv
       # ================================
       - name: Baixar Painel_metas_BIZA.csv do Google Drive
         run: |
           curl -L "https://drive.google.com/uc?export=download&id=1fa3qnjSVLkJrOhgHxQQh1E77XAKTc3zf" \
           -o Painel_metas_BIZA.csv
 
+
       # ================================
-      # 2) BAIXAR CSV DO PAINEL PLR
+      # 2) BAIXAR Painel_PLR.csv
       # ================================
       - name: Baixar Painel_PLR.csv do Google Drive
         run: |
           curl -L "https://drive.google.com/uc?export=download&id=1P1gpojrjUssv9WFylfNR5C0_n4-HbRYg" \
           -o Painel_PLR.csv
+
+
+      # ================================
+      # 3) BAIXAR base_n3.csv  (NOVO)
+      # ================================
+      - name: Baixar base_n3.csv do Google Drive
+        run: |
+          curl -L "https://drive.google.com/uc?export=download&id=1MqkYM44Kb_HPMJLDUhPe8uk9UfTyeydS" \
+          -o base_n3.csv
+
 
       # ================================
       # CONFIGURAR GIT
@@ -38,12 +50,13 @@ jobs:
           git config user.name "github-actions"
           git config user.email "actions@github.com"
 
+
       # ================================
-      # VERIFICAR, COMMITAR E ENVIAR SE HOUVER ALTERAÇÕES
+      # VERIFICAR, COMMITAR E ENVIAR
       # ================================
       - name: Commit e Push (se necessário)
         run: |
-          git add Painel_metas_BIZA.csv Painel_PLR.csv
+          git add Painel_metas_BIZA.csv Painel_PLR.csv base_n3.csv
 
           # Se houver mudanças nos arquivos, faz commit e push
           git diff --cached --quiet || git commit -m "Atualização automática dos CSVs via Google Drive"
