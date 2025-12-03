@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>Indicadores N3 - Filtro por Mês e Ano</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background: #f2f2f2;
+  }
+
+  /* Cabeçalho no padrão BIZA */
+  .topo {
+    background: #000000;
+    padding: 25px;
+    text-align: center;
+  }
+
+  .topo h1 {
+    margin: 0;
+    color: #F8AD1E; /* Laranja GHT */
+    font-size: 32px;
+    font-weight: bold;
+  }
+
+  /* Área de filtros */
+ .filtros {
+    padding: 20px 30px;
+    display: flex;
+    flex-wrap: wrap;      /* quebra linha no mobile se faltar espaço */
+    gap: 10px;            /* espaço entre os elementos */
+    align-items: center;  /* alinha tudo na mesma altura */
+}
+
+  label {
+    font-weight: bold;
+    margin-right: 8px;
+  }
+
+  select {
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    margin-right: 15px;
+    font-size: 15px;
+  }
+
+  button {
+    padding: 10px 18px;
+    border-radius: 6px;
+    border: none;
+    background: #F8AD1E;
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background: #e19b16;
+  }
+
+  /* Tabela */
+/* Container geral centralizado e responsivo */
+.container-tabelas {
+    width: 100%;
+    max-width: 1250px;   /* TAMANHO PADRÃO DE TODAS AS TABELAS */
+    margin: 0 auto;      /* Centraliza tudo */
+    padding-bottom: 40px;
+}
+
+/* Mantém as tabelas alinhadas */
+table {
+    width: 100% !important;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 20px auto;
+}
+
+/* só a tabela principal começa escondida */
+#tabelaResultado {
+    display: none;
+}
+
+/* Rolagem horizontal no mobile */
+@media (max-width: 900px) {
+    .container-tabelas {
+        padding: 0 10px;
+        overflow-x: auto;
+    }
+
+    table {
+        min-width: 900px; /* Mantém formato mesmo no celular */
+    }
+}
+
+
+  th {
+    background: #444; 
+    color: white;
+    font-size: 14px;
+    padding: 10px;
+    text-align: left;
+  }
+
+  td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+  }
+
+  tr:nth-child(even) {
+    background: #f9f9f9;
+  }
+
+  tr:hover {
+    background: #f1f1f1;
+  }
+
+  /* Tabela interna dos cards */
+.card-table {
+    width: 100% !important;
+    table-layout: fixed !important;  /* 🔥 PADRONIZA O TAMANHO DAS COLUNAS */
+    border-collapse: collapse;
+}
+
+/* Padroniza os cabeçalhos das tabelas */
+.card-table th {
+    width: auto;
+    text-align: left;
+    background: #333;
+    color: white;
+    padding: 10px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* Padroniza as células */
+.card-table td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    word-wrap: break-word; /* 🔥 impede quebra feia */
+}
+
+/* Centralizar todas as tabelas internas */
+.card-wrapper {
+    width: 100%;
+    max-width: 1250px;   /* 🔥 MESMO PADRÃO PARA TODAS */
+    margin: 0 auto;
+}
+.btn-voltar {
+    background: #F8AD1E;
+    color: black;
+    font-weight: bold;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 15px;
+    /* tiramos margin-left grande */
+}
+
+.btn-voltar:hover {
+    background: #e19b16;
+}
+
+.btn-toggle-all {
+    background: #000;
+    color: #F8AD1E;
+    font-weight: bold;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.btn-toggle-all:hover {
+    background: #222;
+}
+
+</style>
+
+</head>
+<body>
+
+<div class="topo">
+  <h1>Filtro de Indicadores N3</h1>
+</div>
+
+<div class="filtros">
+  <label>Mês:</label>
+  <select id="filtroMes"></select>
+
+  <label>Ano:</label>
+  <select id="filtroAno"></select>
+
+    <!-- botão filtrAR removido <button onclick="filtrar()">Filtrar</button> -->
+
+  <button class="btn-voltar" onclick="window.location.href='index.html'">
+    ⬅ Voltar
+</button>
+
+<button class="btn-toggle-all" onclick="toggleTodos()">
+    Expandir / Recolher Todos
+</button>
+
+</div>
+
+<div class="container-tabelas">
+    <table id="tabelaResultado">
+        <thead id="cabecalho"></thead>
+        <tbody id="corpoTabela"></tbody>
+    </table>
+</div>
+
+<script>
+// Caminho do CSV direto do GitHub
+const CSV_URL = "https://raw.githubusercontent.com/SGIBIZA/Teste-1/main/base_n3.csv";
+
+// Variáveis globais
+let dadosCSV = [];
+let cabecalhos = [];
+
+document.addEventListener("DOMContentLoaded", () => {
+  carregarCSV();
+
+  const filtroMes = document.getElementById("filtroMes");
+  const filtroAno = document.getElementById("filtroAno");
+
+  function aoMudarFiltro() {
+    const mes = filtroMes.value;
+    const ano = filtroAno.value;
+
+    // só filtra se os DOIS estiverem preenchidos
+    if (mes && ano) {
+      filtrar();
+    }
+  }
+
+  filtroMes.addEventListener("change", aoMudarFiltro);
+  filtroAno.addEventListener("change", aoMudarFiltro);
+});
+
+// -----------------------------
+// 1) Carregar CSV do GitHub
+// -----------------------------
+function carregarCSV() {
+  fetch(CSV_URL)
+    .then(resp => resp.text())
+    .then(texto => {
+      processarCSV(texto);
+      preencherFiltros();
+    })
+    .catch(err => console.error("Erro ao carregar CSV:", err));
+}
+
+// -----------------------------
+// 2) Processar CSV
+// -----------------------------
+function processarCSV(texto) {
+  const linhas = texto.split("\n").map(l => l.trim()).filter(l => l);
+
+  // Remove BOM
+  let header = linhas[0].replace(/^\uFEFF/, '').split(";");
+
+  // Normalização dos nomes das colunas
+  cabecalhos = header.map(c =>
+    c.normalize("NFD")
+     .replace(/[\u0300-\u036f]/g, "") // remove acentos
+     .replace(/[^a-zA-Z0-9 ]/g, "")   // remove caracteres � e outros
+     .trim()
+  );
+
+  linhas.shift(); // remove a linha do cabeçalho
+
+  dadosCSV = linhas.map(linha => {
+    const colunas = linha.split(";");
+    const item = {};
+
+    cabecalhos.forEach((c, i) => {
+      item[c] = colunas[i] || "";
+    });
+
+    return item;
+  });
+}
+
+// -----------------------------
+// 3) Criar filtros de Mês e Ano
+// -----------------------------
+function preencherFiltros() {
+  const filtroMes = document.getElementById("filtroMes");
+  const filtroAno = document.getElementById("filtroAno");
+
+  let meses = new Set();
+  let anos = new Set();
+
+  // Descobre quais são as colunas de "Mês texto" e "Ano"
+  const mesKey = cabecalhos.find(c =>
+    c.toLowerCase().includes("mês texto") || c.toLowerCase().includes("mes texto")
+  );
+  const anoKey = cabecalhos.find(c =>
+    c.toLowerCase().trim() === "ano"
+  );
+
+  dadosCSV.forEach(item => {
+    meses.add(item[mesKey]);
+    anos.add(item[anoKey]);
+  });
+
+  filtroMes.innerHTML = "<option value=''>Selecione</option>";
+  filtroAno.innerHTML = "<option value=''>Selecione</option>";
+
+  meses.forEach(m => filtroMes.innerHTML += `<option value="${m}">${m}</option>`);
+  anos.forEach(a => filtroAno.innerHTML += `<option value="${a}">${a}</option>`);
+
+  // 🔹 DEFINIR MÊS ANTERIOR E ANO ATUAL AO ABRIR O SITE
+  const hoje = new Date();
+  let mesAnterior = hoje.getMonth() - 1; // 0 = Janeiro
+  let anoAtual = hoje.getFullYear();
+
+  if (mesAnterior < 0) {
+    mesAnterior = 11;       // Dezembro
+    anoAtual -= 1;
+  }
+
+  const nomesMeses = [
+    "Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho",
+    "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"
+  ];
+  const mesAnteriorTexto = nomesMeses[mesAnterior];
+
+  // Tenta aplicar os valores padrão (só se existirem nas opções)
+  if ([...filtroMes.options].some(o => o.value === mesAnteriorTexto)) {
+    filtroMes.value = mesAnteriorTexto;
+  }
+  if ([...filtroAno.options].some(o => o.value === String(anoAtual))) {
+    filtroAno.value = String(anoAtual);
+  }
+
+  // 🔹 JÁ CHAMA O FILTRAR UMA VEZ AO CARREGAR A PÁGINA
+  if (filtroMes.value && filtroAno.value) {
+    filtrar();
+  }
+}
+
+// -----------------------------
+// 4) Essa função interpreta o texto e devolve a cor certa
+// -----------------------------
+
+function gerarBadgeStatus(status) {
+    const s = status.toLowerCase().trim();
+
+    // status normalizado
+    if (s.includes("atingido") && !s.includes("não") && !s.includes("nao") && !s.includes("ñ")) {
+        return `<div style="display:flex; align-items:center; gap:6px;">
+                    <div style="width:14px; height:14px; background:#00B050; border-radius:50%;"></div>
+                    <span style="font-weight:bold;">Atingido</span>
+                </div>`;
+    }
+
+    if (s.includes("não") || s.includes("nao") || s.includes("ñ")) {
+        return `<div style="display:flex; align-items:center; gap:6px;">
+                    <div style="width:14px; height:14px; background:#FF0101; border-radius:50%;"></div>
+                    <span style="font-weight:bold;">Não Atingido</span>
+                </div>`;
+    }
+
+    // indefinido = amarelo
+    return `<div style="display:flex; align-items:center; gap:6px;">
+                <div style="width:14px; height:14px; background:#EEEE00; border-radius:50%;"></div>
+                <span style="font-weight:bold;">Indefinido</span>
+            </div>`;
+}
+
+// Criar função auxiliar que devolve a cor do STATUS
+
+function corDoStatus(status) {
+    const s = status.toLowerCase().trim();
+
+    if (s.includes("atingido") && !s.includes("não") && !s.includes("nao") && !s.includes("ñ")) {
+        return "#00B050"; // verde
+    }
+    if (s.includes("não") || s.includes("nao") || s.includes("ñ")) {
+        return "#FF0101"; // vermelho
+    }
+    
+    return "#FFC000"; // indefinido = amarelo
+}
+
+
+// -----------------------------
+// 5) Filtrar e montar a tabela
+// -----------------------------
+function filtrar() {
+  const mes = document.getElementById("filtroMes").value;
+  const ano = document.getElementById("filtroAno").value;
+
+  if (!mes || !ano) {
+    alert("Selecione Mês e Ano para filtrar.");
+    return;
+  }
+
+  const tabela = document.getElementById("tabelaResultado");
+  const cabeca = document.getElementById("cabecalho");
+  const corpo  = document.getElementById("corpoTabela");
+
+  // Descobre as colunas pelos nomes reais do CSV
+  const mesKey = cabecalhos.find(c =>
+    c.toLowerCase().includes("mês texto") || c.toLowerCase().includes("mes texto")
+  );
+  const anoKey = cabecalhos.find(c =>
+    c.toLowerCase().trim() === "ano"
+  );
+
+  const areaKey = cabecalhos.find(c =>
+    c.toLowerCase().startsWith("área") || c.toLowerCase().startsWith("area")
+  );
+  const respKey = cabecalhos.find(c =>
+    c.toLowerCase().startsWith("respons")
+  );
+
+  // Filtro
+  const filtrados = dadosCSV.filter(item =>
+    item[mesKey] === mes && item[anoKey] === ano
+  );
+
+  // Zera tabela principal
+  cabeca.innerHTML = "";
+  corpo.innerHTML  = "";
+
+  // Remove "Área" e "Responsável" da lista de colunas exibidas
+  const colunasCard = cabecalhos.filter(c => c !== areaKey && c !== respKey);
+
+  // Agrupamento por card
+  const grupos = {};
+  filtrados.forEach(item => {
+    const chave = `${item[areaKey]} – ${item[respKey]}`;
+    if (!grupos[chave]) grupos[chave] = [];
+    grupos[chave].push(item);
+  });
+
+  // Montagem dos cards
+  Object.keys(grupos).forEach(grupoNome => {
+
+    // 🔶 Linha de título do card
+    const linhaGrupo = document.createElement("tr");
+    linhaGrupo.innerHTML = `
+      <td colspan="${colunasCard.length}"
+          style="background:black; color:#F8AD1E;
+                 cursor:pointer; padding:12px;
+                 font-size:20px; font-weight:bold;">
+        ▼ ${grupoNome}
+      </td>
+    `;
+    corpo.appendChild(linhaGrupo);
+
+    // 🔷 Tabela interna do card
+    const tabelaCard = document.createElement("table");
+    tabelaCard.classList.add("card-table");
+    tabelaCard.style.width = "100%";
+    tabelaCard.style.marginBottom = "25px";
+    tabelaCard.style.display = "none";   // 🔥 AGORA O CARD COMEÇA FECHADO
+
+    const thead = document.createElement("thead");
+    const tbody = document.createElement("tbody");
+
+    // Cabeçalho da tabela interna
+    const headerRow = document.createElement("tr");
+    headerRow.innerHTML = colunasCard
+      .map(c => `<th>${c}</th>`)
+      .join("");
+    thead.appendChild(headerRow);
+
+    // Linhas de dados
+    grupos[grupoNome].forEach(item => {
+      const linha = document.createElement("tr");
+
+      linha.innerHTML = colunasCard.map(c => {
+        const valor = item[c];
+
+        // STATUS com bolinha
+        if (c.toLowerCase().includes("status")) {
+          return `<td>${gerarBadgeStatus(valor)}</td>`;
+        }
+
+        // RESULTADO colorido conforme status
+        if (c.toLowerCase().includes("resultado")) {
+          const statusKey = cabecalhos.find(x =>
+            x.toLowerCase().includes("status")
+          );
+          const cor = corDoStatus(item[statusKey]);
+
+          return `<td style="
+              background:${cor};
+              color:white;
+              font-weight:bold;
+              text-align:center;
+              border-radius:4px;
+          ">${valor}</td>`;
+        }
+
+        // Demais colunas normais
+        return `<td>${valor}</td>`;
+      }).join("");
+
+      tbody.appendChild(linha);
+    });
+
+    tabelaCard.appendChild(thead);
+    tabelaCard.appendChild(tbody);
+    // Criar linha que vai conter a tabela interna
+const linhaTabela = document.createElement("tr");
+const tdTabela = document.createElement("td");
+
+// Faz a tabela ocupar toda a largura do card
+tdTabela.colSpan = colunasCard.length;
+
+// Insere a tabela interna dentro do TD
+tdTabela.appendChild(tabelaCard);
+
+// Insere TD dentro do TR
+linhaTabela.appendChild(tdTabela);
+
+// Insere o TR dentro do corpo da tabela principal
+corpo.appendChild(linhaTabela);
+
+    // Toggle abre/fecha a tabela interna
+    linhaGrupo.addEventListener("click", () => {
+      tabelaCard.style.display =
+        tabelaCard.style.display === "none" ? "" : "none";
+    });
+  });
+
+  tabela.style.display = "table";
+}
+function toggleTodos() {
+    // Seleciona todas as tabelas internas dos cards
+    const todasTabelas = document.querySelectorAll(".card-table");
+
+    let temAlgumaAberta = false;
+
+    // Verifica se existe pelo menos uma aberta
+    todasTabelas.forEach(t => {
+        if (t.style.display !== "none") temAlgumaAberta = true;
+    });
+
+    // Se existe aberta → fecha todas
+    // Se todas fechadas → abre todas
+    todasTabelas.forEach(t => {
+        t.style.display = temAlgumaAberta ? "none" : "";
+    });
+}
+
+</script>
+
+</body>
+</html>
