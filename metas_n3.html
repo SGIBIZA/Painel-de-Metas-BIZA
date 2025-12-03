@@ -390,6 +390,33 @@ function corDoStatus(status) {
     return "#FFC000"; // indefinido = amarelo
 }
 
+// -----------------------------
+// FORMATAÇÃO ESPECIAL DE VALORES
+// -----------------------------
+function formatarValorBruto(valor) {
+    if (valor === null || valor === undefined) return "";
+    valor = valor.toString().trim();
+
+    // Se não é número → retorna do jeito que está
+    let num = parseFloat(valor.replace(",", "."));
+    if (isNaN(num)) return valor;
+
+    // 1) Percentuais: qualquer número entre 0 e 1
+    if (num > 0 && num < 1) {
+        return (num * 100).toFixed(2).replace(".", ",") + "%";
+    }
+
+    // 2) Valores muito grandes → exibir como Mil ou Milhões
+    if (num >= 1_000_000) {
+        return (num / 1_000_000).toFixed(2).replace(".", ",") + " mi";
+    }
+    if (num >= 1000) {
+        return (num / 1000).toFixed(2).replace(".", ",") + " mil";
+    }
+
+    // 3) Valores normais
+    return num.toString().replace(".", ",");
+}
 
 // -----------------------------
 // 5) Filtrar e montar a tabela
@@ -478,33 +505,33 @@ function filtrar() {
     grupos[grupoNome].forEach(item => {
       const linha = document.createElement("tr");
 
-      linha.innerHTML = colunasCard.map(c => {
-        const valor = item[c];
+  linha.innerHTML = colunasCard.map(c => {
+    let valor = item[c];
 
-        // STATUS com bolinha
-        if (c.toLowerCase().includes("status")) {
-          return `<td>${gerarBadgeStatus(valor)}</td>`;
-        }
+    // STATUS COM BOLINHA
+    if (c.toLowerCase().includes("status")) {
+        return `<td>${gerarBadgeStatus(valor)}</td>`;
+    }
 
-        // RESULTADO colorido conforme status
-        if (c.toLowerCase().includes("resultado")) {
-          const statusKey = cabecalhos.find(x =>
+    // RESULTADO COLORIDO
+    if (c.toLowerCase().includes("resultado")) {
+        const statusKey = cabecalhos.find(x =>
             x.toLowerCase().includes("status")
-          );
-          const cor = corDoStatus(item[statusKey]);
+        );
+        const cor = corDoStatus(item[statusKey]);
 
-          return `<td style="
-              background:${cor};
-              color:white;
-              font-weight:bold;
-              text-align:center;
-              border-radius:4px;
-          ">${valor}</td>`;
-        }
+        return `<td style="
+            background:${cor};
+            color:white;
+            font-weight:bold;
+            text-align:center;
+            border-radius:4px;
+        ">${formatarValorBruto(valor)}</td>`;
+    }
 
-        // Demais colunas normais
-        return `<td>${valor}</td>`;
-      }).join("");
+    // OUTRAS COLUNAS FORMATADAS
+    return `<td>${formatarValorBruto(valor)}</td>`;
+}).join("");
 
       tbody.appendChild(linha);
     });
