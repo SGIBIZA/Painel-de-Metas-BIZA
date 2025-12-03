@@ -3,61 +3,62 @@ name: Atualizar CSVs do Google Drive
 on:
   schedule:
     - cron: '0 */48 * * *'   # Executa a cada 48 horas
-  workflow_dispatch:        # Permite executar manualmente
+  workflow_dispatch:        # Permite rodar manualmente
 
 jobs:
   atualizar-csv:
     runs-on: ubuntu-latest
 
     steps:
-
+      # -----------------------
+      # 1) Clona o repositório
+      # -----------------------
       - name: Clonar repositório
         uses: actions/checkout@v3
 
-
-      # ================================
-      # 1) BAIXAR Painel_metas_BIZA.csv
-      # ================================
+      # -----------------------
+      # 2) Baixar Painel Metas
+      # -----------------------
       - name: Baixar Painel_metas_BIZA.csv do Google Drive
         run: |
           curl -L "https://drive.google.com/uc?export=download&id=1fa3qnjSVLkJrOhgHxQQh1E77XAKTc3zf" \
           -o Painel_metas_BIZA.csv
 
-
-      # ================================
-      # 2) BAIXAR Painel_PLR.csv
-      # ================================
+      # -----------------------
+      # 3) Baixar Painel PLR
+      # -----------------------
       - name: Baixar Painel_PLR.csv do Google Drive
         run: |
           curl -L "https://drive.google.com/uc?export=download&id=1P1gpojrjUssv9WFylfNR5C0_n4-HbRYg" \
           -o Painel_PLR.csv
 
-
-      # ================================
-      # 3) BAIXAR base_n3.csv  (NOVO)
-      # ================================
+      # -----------------------
+      # 4) Baixar base_n3.csv  (NOVO !!!)
+      # -----------------------
       - name: Baixar base_n3.csv do Google Drive
         run: |
           curl -L "https://drive.google.com/uc?export=download&id=1MqkYM44Kb_HPMJLDUhPe8uk9UfTyeydS" \
           -o base_n3.csv
 
-
-      # ================================
-      # CONFIGURAR GIT
-      # ================================
+      # -----------------------
+      # 5) Configurar Git
+      # -----------------------
       - name: Configurar Git
         run: |
           git config user.name "github-actions"
           git config user.email "actions@github.com"
 
-
-      # ================================
-      # VERIFICAR, COMMITAR E ENVIAR
-      # ================================
+      # -----------------------
+      # 6) Commit + Trigger de rebuild
+      # -----------------------
       - name: Commit e Push (se necessário)
         run: |
           git add Painel_metas_BIZA.csv Painel_PLR.csv base_n3.csv
 
-          # Se houver mudanças nos arquivos, faz commit e push
+          # Se houver mudanças reais, faz commit e push
           git diff --cached --quiet || git commit -m "Atualização automática dos CSVs via Google Drive"
+
+          # Commit vazio para garantir rebuild do GitHub Pages
+          git commit --allow-empty -m "Trigger rebuild do GitHub Pages"
+
           git push
