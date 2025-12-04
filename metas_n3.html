@@ -129,8 +129,8 @@ table {
 .card-table th {
     width: auto;
     text-align: left;
-    background: #333;
-    color: white;
+    background: #000000;
+    color: #F9BD45;
     padding: 10px;
     font-size: 14px;
     font-weight: bold;
@@ -519,6 +519,14 @@ function formatarValor(indicador, coluna, valor) {
         return formatarPercentual(valor);
     }
 
+     // -----------------------------------------
+    // NOVO: FORMATAR NÚMEROS INTEIROS PARA RESTANTE
+    // -----------------------------------------
+    let num = parseFloat(valor.replace(",", "."));
+    if (!isNaN(num)) {
+        return Math.round(num).toString(); // sem casas decimais
+    }
+    
     // -----------------------------------------
     // CASO PADRÃO: devolve o valor original
     // -----------------------------------------
@@ -584,7 +592,7 @@ const indicadorKey = cabecalhos.find(c => c.toLowerCase().includes("indicador"))
     const linhaGrupo = document.createElement("tr");
     linhaGrupo.innerHTML = `
       <td colspan="${colunasCard.length}"
-          style="background:black; color:#F8AD1E;
+          style="background:#333; color:#FFFFFF;
                  cursor:pointer; padding:12px;
                  font-size:20px; font-weight:bold;">
         ▼ ${grupoNome}
