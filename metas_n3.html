@@ -394,48 +394,58 @@ function corDoStatus(status) {
 //  LISTAS DE INDICADORES COM FORMATAÇÃO CONTROLADA
 // ==========================================================
 
+// Normaliza texto para comparação correta
+function normalizar(txt) {
+    return txt
+        ?.normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .replace(/[^a-zA-Z0-9 ]/g, "")
+        .toLowerCase()
+        .trim();
+}
+
 const LISTA_A_PERCENTUAL = [
   "Índice de Garantia procedente BIZA",
-  "Refugo Interno",
-  "Percentual e Valores de Itens sem movimentação de Estoque a mais de um ano",
+  "Refugo​ Interno",
+  "Percentual e Valores de Itens sem movimentação de Estoque a mais de um ano​​​",
   "Absenteísmo Mês",
-  "Percentual de Turnover Mês",
-  "Percentual de Itens Novos Produzidos no Mês",
+  "Percentual de Turnover Mês​",
+  "Percentual de Itens Novos Produzidos no Mês​",
   "Percentual de vendas marca BIZA",
   "Quantidade e percentual de NC's encerradas dentro do prazo",
-  "Performance de entregas BIZA (Pedidos entregues no prazo)",
-  "Programação de entrega Mensal",
+  "Performance de entregas BIZA (Pedidos entregues no prazo)​",
+  "Programação de entrega Mensal​",
   "Acuracidade de Estoque",
   "Performance do Atendimento às Obrigações Legais Mês",
   "GGF Salarial - Relatório Entradas de NF"
-];
+].map(normalizar);
 
 const LISTA_B_FINANCEIRO = [
   "Valor de Produção Mensal",
   "Valores de venda Marca BIZA",
   "Valor de Produção Acumulado",
   "Valor total de itens terceirização por mês",
-  "Valor total de itens industrializados por mês",
+  "Valor total de itens industrializados por mês​",
   "Valor em estoque BIZA estratificado",
   "Vendas Marca Biza (Últimos 3 anos)",
   "Valores de Pedidos em Carteira"
-];
+].map(normalizar);
 
 const LISTA_C_META_PERCENTUAL = [
   "Índice de Garantia procedente BIZA",
-  "Refugo Interno",
-  "Percentual e Valores de Itens sem movimentação de Estoque a mais de um ano",
+  "Refugo​ Interno",
+  "Percentual e Valores de Itens sem movimentação de Estoque a mais de um ano​​​",
   "Absenteísmo Mês",
-  "Percentual de Turnover Mês",
-  "Percentual de Itens Novos Produzidos no Mês",
+  "Percentual de Turnover Mês​",
+  "Percentual de Itens Novos Produzidos no Mês​",
   "Percentual de vendas marca BIZA",
   "Quantidade e percentual de NC's encerradas dentro do prazo",
-  "Performance de entregas BIZA (Pedidos entregues no prazo)",
-  "Programação de entrega Mensal",
+  "Performance de entregas BIZA (Pedidos entregues no prazo)​",
+  "Programação de entrega Mensal​",
   "Acuracidade de Estoque",
   "Performance do Atendimento às Obrigações Legais Mês",
   "GGF Salarial - Relatório Entradas de NF"
-];
+].map(normalizar);
 
 // ==========================================================
 //  FORMATADORES ESPECÍFICOS
@@ -476,35 +486,41 @@ function formatarFinanceiro(valor) {
 
 function formatarValor(indicador, coluna, valor) {
     if (!valor) return valor;
+    if (!indicador) return valor;
+
+    const indNorm = normalizar(indicador);
+    const colNorm = coluna.toString().trim();
 
     // -----------------------------------------
-    // LISTA A → Resultado em %
+    // LISTA A → Resultado em %  (Resultado)
     // -----------------------------------------
-    if (LISTA_A_PERCENTUAL.includes(indicador) && coluna === "Resultado") {
+    if (LISTA_A_PERCENTUAL.includes(indNorm) && colNorm === "Resultado") {
         return formatarPercentual(valor);
     }
 
-    // LISTA A → Meta também é %
-    if (LISTA_A_PERCENTUAL.includes(indicador) && coluna === "Meta") {
+    // LISTA A → Meta também em %  (Meta)
+    if (LISTA_A_PERCENTUAL.includes(indNorm) && colNorm === "Meta") {
         return formatarPercentual(valor);
     }
 
     // -----------------------------------------
-    // LISTA B → Formatação financeira
+    // LISTA B → Valores financeiros
+    // (apenas Meta e Resultado)
     // -----------------------------------------
-    if (LISTA_B_FINANCEIRO.includes(indicador)) {
+    if (LISTA_B_FINANCEIRO.includes(indNorm) &&
+        (colNorm === "Meta" || colNorm === "Resultado")) {
         return formatarFinanceiro(valor);
     }
 
     // -----------------------------------------
-    // LISTA C → Meta em %
+    // LISTA C → Meta em %  (Meta)
     // -----------------------------------------
-    if (LISTA_C_META_PERCENTUAL.includes(indicador) && coluna === "Meta") {
+    if (LISTA_C_META_PERCENTUAL.includes(indNorm) && colNorm === "Meta") {
         return formatarPercentual(valor);
     }
 
     // -----------------------------------------
-    // CASO PADRÃO: devolve normal
+    // CASO PADRÃO: devolve o valor original
     // -----------------------------------------
     return valor;
 }
@@ -515,6 +531,7 @@ function formatarValor(indicador, coluna, valor) {
 function filtrar() {
   const mes = document.getElementById("filtroMes").value;
   const ano = document.getElementById("filtroAno").value;
+const indicadorKey = cabecalhos.find(c => c.toLowerCase().includes("indicador"));
 
   if (!mes || !ano) {
     alert("Selecione Mês e Ano para filtrar.");
@@ -617,11 +634,13 @@ function filtrar() {
             font-weight:bold;
             text-align:center;
             border-radius:4px;
-        ">${formatarValor(item["Indicador"], "Resultado", valor)}</td>`;
+        ">${formatarValor(item[indicadorKey], "Resultado", valor)
+}</td>`;
     }
 
     // OUTRAS COLUNAS FORMATADAS
-   return `<td>${formatarValor(item["Indicador"], c, valor)}</td>`;
+   return `<td>${formatarValor(item[indicadorKey], c, valor)
+}</td>`;
 }).join("");
 
       tbody.appendChild(linha);
