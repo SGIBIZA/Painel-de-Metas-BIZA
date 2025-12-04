@@ -390,32 +390,123 @@ function corDoStatus(status) {
     return "#FFC000"; // indefinido = amarelo
 }
 
-// -----------------------------
-// FORMATAÇÃO ESPECIAL DE VALORES
-// -----------------------------
-function formatarValorBruto(valor) {
-    if (valor === null || valor === undefined) return "";
-    valor = valor.toString().trim();
+// ==========================================================
+//  LISTAS DE INDICADORES COM FORMATAÇÃO CONTROLADA
+// ==========================================================
 
-    // Se não é número → retorna do jeito que está
+const LISTA_A_PERCENTUAL = [
+  "Índice de Garantia procedente BIZA",
+  "Refugo Interno",
+  "Percentual e Valores de Itens sem movimentação de Estoque a mais de um ano",
+  "Absenteísmo Mês",
+  "Percentual de Turnover Mês",
+  "Percentual de Itens Novos Produzidos no Mês",
+  "Percentual de vendas marca BIZA",
+  "Quantidade e percentual de NC's encerradas dentro do prazo",
+  "Performance de entregas BIZA (Pedidos entregues no prazo)",
+  "Programação de entrega Mensal",
+  "Acuracidade de Estoque",
+  "Performance do Atendimento às Obrigações Legais Mês",
+  "GGF Salarial - Relatório Entradas de NF"
+];
+
+const LISTA_B_FINANCEIRO = [
+  "Valor de Produção Mensal",
+  "Valores de venda Marca BIZA",
+  "Valor de Produção Acumulado",
+  "Valor total de itens terceirização por mês",
+  "Valor total de itens industrializados por mês",
+  "Valor em estoque BIZA estratificado",
+  "Vendas Marca Biza (Últimos 3 anos)",
+  "Valores de Pedidos em Carteira"
+];
+
+const LISTA_C_META_PERCENTUAL = [
+  "Índice de Garantia procedente BIZA",
+  "Refugo Interno",
+  "Percentual e Valores de Itens sem movimentação de Estoque a mais de um ano",
+  "Absenteísmo Mês",
+  "Percentual de Turnover Mês",
+  "Percentual de Itens Novos Produzidos no Mês",
+  "Percentual de vendas marca BIZA",
+  "Quantidade e percentual de NC's encerradas dentro do prazo",
+  "Performance de entregas BIZA (Pedidos entregues no prazo)",
+  "Programação de entrega Mensal",
+  "Acuracidade de Estoque",
+  "Performance do Atendimento às Obrigações Legais Mês",
+  "GGF Salarial - Relatório Entradas de NF"
+];
+
+// ==========================================================
+//  FORMATADORES ESPECÍFICOS
+// ==========================================================
+
+// -- formatar % --
+function formatarPercentual(valor) {
+    if (!valor) return valor;
+    if (valor.includes("%")) return valor;
+
     let num = parseFloat(valor.replace(",", "."));
     if (isNaN(num)) return valor;
 
-    // 1) Percentuais: qualquer número entre 0 e 1
-    if (num > 0 && num < 1) {
-        return (num * 100).toFixed(2).replace(".", ",") + "%";
-    }
+    // se vier 1.05 → 105%
+    if (num <= 3) num = num * 100;
 
-    // 2) Valores muito grandes → exibir como Mil ou Milhões
-    if (num >= 1_000_000) {
+    return num.toFixed(2).replace(".", ",") + "%";
+}
+
+// -- formatar financeiro --
+function formatarFinanceiro(valor) {
+    if (!valor) return valor;
+    let num = parseFloat(valor.replace(",", "."));
+    if (isNaN(num)) return valor;
+
+    if (num >= 1_000_000)
         return (num / 1_000_000).toFixed(2).replace(".", ",") + " mi";
-    }
-    if (num >= 1000) {
+
+    if (num >= 1000)
         return (num / 1000).toFixed(2).replace(".", ",") + " mil";
+
+    return num.toString().replace(".", ",");
+}
+
+// ==========================================================
+//  FUNÇÃO PRINCIPAL DE FORMATAÇÃO CONTROLADA
+// ==========================================================
+
+function formatarValor(indicador, coluna, valor) {
+    if (!valor) return valor;
+
+    // -----------------------------------------
+    // LISTA A → Resultado em %
+    // -----------------------------------------
+    if (LISTA_A_PERCENTUAL.includes(indicador) && coluna === "Resultado") {
+        return formatarPercentual(valor);
     }
 
-    // 3) Valores normais
-    return num.toString().replace(".", ",");
+    // LISTA A → Meta também é %
+    if (LISTA_A_PERCENTUAL.includes(indicador) && coluna === "Meta") {
+        return formatarPercentual(valor);
+    }
+
+    // -----------------------------------------
+    // LISTA B → Formatação financeira
+    // -----------------------------------------
+    if (LISTA_B_FINANCEIRO.includes(indicador)) {
+        return formatarFinanceiro(valor);
+    }
+
+    // -----------------------------------------
+    // LISTA C → Meta em %
+    // -----------------------------------------
+    if (LISTA_C_META_PERCENTUAL.includes(indicador) && coluna === "Meta") {
+        return formatarPercentual(valor);
+    }
+
+    // -----------------------------------------
+    // CASO PADRÃO: devolve normal
+    // -----------------------------------------
+    return valor;
 }
 
 // -----------------------------
@@ -526,11 +617,11 @@ function filtrar() {
             font-weight:bold;
             text-align:center;
             border-radius:4px;
-        ">${formatarValorBruto(valor)}</td>`;
+        ">${formatarValor(item["Indicador"], "Resultado", valor)}</td>`;
     }
 
     // OUTRAS COLUNAS FORMATADAS
-    return `<td>${formatarValorBruto(valor)}</td>`;
+   return `<td>${formatarValor(item["Indicador"], c, valor)}</td>`;
 }).join("");
 
       tbody.appendChild(linha);
