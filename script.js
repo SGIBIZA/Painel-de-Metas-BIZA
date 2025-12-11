@@ -7,6 +7,67 @@ const mensagensFaixa = {
   'Faixa 6': 'Atingido, excelente resultado, parabéns!'
 };
 
+
+// ========== SELEÇÃO AUTOMÁTICA DO MÊS ANTERIOR ==========
+
+// Função para definir o mês anterior como selecionado
+function definirMesAnterior() {
+  const mesFiltro = document.getElementById('mesFiltro');
+  const anoFiltro = document.getElementById('anoFiltro');
+  
+  // Obtém a data atual
+  const hoje = new Date();
+  
+  // Subtrai 1 mês para obter o mês anterior
+  hoje.setMonth(hoje.getMonth() - 1);
+  
+  // Obtém o índice do mês anterior (0 = Janeiro, 11 = Dezembro)
+  const mesAnteriorIndex = hoje.getMonth();
+  
+  // Obtém o ano
+  const anoAtual = hoje.getFullYear();
+  
+  // Define o mês no select
+  mesFiltro.selectedIndex = mesAnteriorIndex;
+  
+  // Define o ano no select
+  const opcoesAno = anoFiltro.options;
+  for (let i = 0; i < opcoesAno.length; i++) {
+    if (parseInt(opcoesAno[i].value) === anoAtual) {
+      anoFiltro.selectedIndex = i;
+      break;
+    }
+  }
+  
+  // Atualiza o título da página
+  atualizarTitulo();
+}
+
+// Função para atualizar o título com o mês e ano selecionados
+function atualizarTitulo() {
+  const mesFiltro = document.getElementById('mesFiltro');
+  const anoFiltro = document.getElementById('anoFiltro');
+  const titulo = document.getElementById('titulo-pagina');
+  
+  const mesSelecionado = mesFiltro.options[mesFiltro.selectedIndex].text;
+  const anoSelecionado = anoFiltro.options[anoFiltro.selectedIndex].text;
+  
+  // Mês seguinte para "Pagamento de"
+  const proximoMesIndex = (mesFiltro.selectedIndex + 1) % 12;
+  const proximoMes = mesFiltro.options[proximoMesIndex].text;
+  
+  titulo.textContent = `Cálculo de salário – Resultado de ${mesSelecionado} ${anoSelecionado} – Pagamento de ${proximoMes}`;
+}
+
+// Executa quando a página carregar
+window.addEventListener('DOMContentLoaded', function() {
+  definirMesAnterior();
+});
+
+// Adiciona eventos para atualizar o título quando mudar mês/ano
+document.getElementById('mesFiltro').addEventListener('change', atualizarTitulo);
+document.getElementById('anoFiltro').addEventListener('change', atualizarTitulo);
+
 function carregarMetas() {
   Papa.parse("https://raw.githubusercontent.com/SGIBIZA/Painel-de-Metas-BIZA/main/Painel_metas_BIZA.csv", {
     download: true,
