@@ -38,7 +38,7 @@ function carregarMetas() {
           'Julho':'07','Agosto':'08','Setembro':'09','Outubro':'10','Novembro':'11','Dezembro':'12'
         }[proximoMes] || '';
 
-        const msg = `Dados para os cálculos do pagamento de ${proximoMes} serão fechados até dia 20/${mesNumero}.`;
+        const msg = `Dados para os cálculos do pagamento de ${proximoMes} serão fechados até dia 15/${mesNumero}.`;
 
         container.innerHTML = `
           <div style="
