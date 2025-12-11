@@ -24,7 +24,7 @@ function carregarMetas() {
       const proximoMes = meses[(mesIndex + 1) % 12];
 
       document.querySelector("header h1").innerText =
-        `Metas Salariais – Resultado de ${mesTexto} ${ano} – Pagamento de ${proximoMes}`;
+        `Cálculo de salário – Resultado de ${mesTexto} ${ano} – Pagamento de ${proximoMes}`;
 
       const container = document.getElementById("conteudo");
       container.innerHTML = '';
