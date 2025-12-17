@@ -2,7 +2,7 @@ name: Atualizar CSVs do Google Drive
 
 on:
   schedule:
-    - cron: '0 */48 * * *'   # Executa a cada 48 horas
+    - cron: '0 20 * * *'   # 17h Brasil (GMT-3)
   workflow_dispatch:        # Permite rodar manualmente
 
 jobs:
