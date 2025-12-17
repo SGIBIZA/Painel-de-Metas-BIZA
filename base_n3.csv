@@ -237,7 +237,7 @@ PCP;Rodrigo Gustavo;Status OTIF VALE em carteira inferior a 30 dias (Últimos 12
 PCP;Rodrigo Gustavo;Status OTIF VALE em carteira inferior a 30 dias (Últimos 12 meses);Prazo de Entrega;N2;S/ Meta;78;Agosto;2025;Indefinido;
 PCP;Rodrigo Gustavo;Status OTIF VALE em carteira inferior a 30 dias (Últimos 12 meses);Prazo de Entrega;N2;S/ Meta;94;Setembro;2025;Indefinido;
 PCP;Rodrigo Gustavo;Status OTIF VALE em carteira inferior a 30 dias (Últimos 12 meses);Prazo de Entrega;N2;S/ Meta;84;Outubro;2025;Indefinido;
-PCP;Rodrigo Gustavo;Status OTIF VALE em carteira inferior a 30 dias (Últimos 12 meses);Prazo de Entrega;N2;S/ Meta;-;Novembro;2025;-;
+PCP;Rodrigo Gustavo;Status OTIF VALE em carteira inferior a 30 dias (Últimos 12 meses);Prazo de Entrega;N2;S/ Meta;89;Novembro;2025;Indefinido;
 PCP;Rodrigo Gustavo;Status OTIF VALE em carteira inferior a 30 dias (Últimos 12 meses);Prazo de Entrega;N2;S/ Meta;-;Dezembro;2025;-;
 PCP;Rodrigo Gustavo;Status OTIF VALE em carteira;Prazo de Entrega;N2;0.9;0.873684210526316;Janeiro;2025;Ñ Atingido;
 PCP;Rodrigo Gustavo;Status OTIF VALE em carteira;Prazo de Entrega;N2;0.9;0.878980891719745;Fevereiro;2025;Ñ Atingido;
@@ -249,7 +249,7 @@ PCP;Rodrigo Gustavo;Status OTIF VALE em carteira;Prazo de Entrega;N2;0.9;0.36923
 PCP;Rodrigo Gustavo;Status OTIF VALE em carteira;Prazo de Entrega;N2;0.9;0.474137931034483;Agosto;2025;Ñ Atingido;
 PCP;Rodrigo Gustavo;Status OTIF VALE em carteira;Prazo de Entrega;N2;0.9;0.330508474576271;Setembro;2025;Ñ Atingido;
 PCP;Rodrigo Gustavo;Status OTIF VALE em carteira;Prazo de Entrega;N2;0.9;0.515463917525773;Outubro;2025;Ñ Atingido;
-PCP;Rodrigo Gustavo;Status OTIF VALE em carteira;Prazo de Entrega;N2;0.9;-;Novembro;2025;-;
+PCP;Rodrigo Gustavo;Status OTIF VALE em carteira;Prazo de Entrega;N2;0.9;0.504854368932039;Novembro;2025;Ñ Atingido;
 PCP;Rodrigo Gustavo;Status OTIF VALE em carteira;Prazo de Entrega;N2;0.9;-;Dezembro;2025;-;
 PCP;Rodrigo Gustavo;Valor da carteira Biza estratificada - 2025;Carteira Biza;N2;S/ Meta;S/ Meta;Janeiro;2025;Indefinido;
 PCP;Rodrigo Gustavo;Valor da carteira Biza estratificada - 2025;Carteira Biza;N2;S/ Meta;S/ Meta;Fevereiro;2025;Indefinido;
@@ -477,7 +477,7 @@ Gerência Adm;Eberson;GGF - Relatório Controladoria;Custos;N2;0.41;0.5762851599
 Gerência Adm;Eberson;GGF - Relatório Controladoria;Custos;N2;0.41;0.984460608262984;Agosto;2025;Ñ Atingido;
 Gerência Adm;Eberson;GGF - Relatório Controladoria;Custos;N2;0.41;1.01519034203079;Setembro;2025;Ñ Atingido;
 Gerência Adm;Eberson;GGF - Relatório Controladoria;Custos;N2;0.41;0.788120931822235;Outubro;2025;Ñ Atingido;
-Gerência Adm;Eberson;GGF - Relatório Controladoria;Custos;N2;0.41;-;Novembro;2025;-;
+Gerência Adm;Eberson;GGF - Relatório Controladoria;Custos;N2;0.41;1.76429701488309;Novembro;2025;Ñ Atingido;
 Gerência Adm;Eberson;GGF - Relatório Controladoria;Custos;N2;0.41;-;Dezembro;2025;-;
 Gerência Adm;Eberson;GGF - Relatório Controladoria Estratificado;Custos;N2;S/ Meta;S/ Meta;Janeiro;2025;Indefinido;
 Gerência Adm;Eberson;GGF - Relatório Controladoria Estratificado;Custos;N2;S/ Meta;S/ Meta;Fevereiro;2025;Indefinido;
@@ -506,7 +506,7 @@ Gerência Adm;Eberson;GGF - Relatório Controladoria Pareto;Custos;N2;S/ Meta;S/
 Gerência Adm;Eberson;GGF Salarial - Relatório Entradas de NF;Salário Variável;N3;0.9501;0.642172780540113;Janeiro;2025;Atingido;
 Gerência Adm;Eberson;GGF Salarial - Relatório Entradas de NF;Salário Variável;N3;0.9501;1.11020112819305;Fevereiro;2025;Ñ Atingido;
 Gerência Adm;Eberson;GGF Salarial - Relatório Entradas de NF;Salário Variável;N3;0.9501;0.932895067618822;Março;2025;Atingido;
-Gerência Adm;Eberson;GGF Salarial - Relatório Entradas de NF;Salário Variável;N3;0.9501;0.791391173998752;Abril;2025;Atingido;
+Gerência Adm;Eberson;GGF Salarial - Relatório Entradas de NF;Salário Variável;N3;0.9501;0.791391173998753;Abril;2025;Atingido;
 Gerência Adm;Eberson;GGF Salarial - Relatório Entradas de NF;Salário Variável;N3;0.9501;0.657845457352882;Maio;2025;Atingido;
 Gerência Adm;Eberson;GGF Salarial - Relatório Entradas de NF;Salário Variável;N3;0.9501;0.721570975010699;Junho;2025;Atingido;
 Gerência Adm;Eberson;GGF Salarial - Relatório Entradas de NF;Salário Variável;N3;0.9501;0.768871654285352;Julho;2025;Atingido;
@@ -514,4 +514,4 @@ Gerência Adm;Eberson;GGF Salarial - Relatório Entradas de NF;Salário Variáve
 Gerência Adm;Eberson;GGF Salarial - Relatório Entradas de NF;Salário Variável;N3;0.9501;0.798781420892144;Setembro;2025;Atingido;
 Gerência Adm;Eberson;GGF Salarial - Relatório Entradas de NF;Salário Variável;N3;0.9501;1.22598732235005;Outubro;2025;Ñ Atingido;
 Gerência Adm;Eberson;GGF Salarial - Relatório Entradas de NF;Salário Variável;N3;0.9501;0.959443169323944;Novembro;2025;Ñ Atingido;
-Gerência Adm;Eberson;GGF Salarial - Relatório Entradas de NF;Salário Variável;N3;0.9501;0.803629058465465;Dezembro;2025;Atingido;
+Gerência Adm;Eberson;GGF Salarial - Relatório Entradas de NF;Salário Variável;N3;0.9501;0.847508041437252;Dezembro;2025;Atingido;
