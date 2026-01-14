@@ -1,1 +1,13 @@
 Código Mês;Meta do mês - Qnt de melhorias;Meta acumulada de melhorias;Resultado mensal - Qnt de melhorias;Resultado acumulado de melhorias;Status do mês;Status geral da meta até o momento;Percentual acumulado;MêsTexto;Ano
+1;2;2;1;1;Meta do mês não atingida;Faltam 29;0.0333333333333333;Janeiro;2025
+2;2;4;0;1;Meta do mês não atingida;Faltam 29;0.0333333333333333;Fevereiro;2025
+3;2;6;0;1;Meta do mês não atingida;Faltam 29;0.0333333333333333;Março;2025
+4;2;8;1;2;Meta do mês não atingida;Faltam 28;0.0666666666666667;Abril;2025
+5;2;10;3;5;Meta do mês Atingida;Faltam 25;0.166666666666667;Maio;2025
+6;2;12;8;13;Meta do mês Atingida;Faltam 17;0.433333333333333;Junho;2025
+7;3;15;4;17;Meta do mês Atingida;Faltam 13;0.566666666666667;Julho;2025
+8;3;18;3;20;Meta do mês Atingida;Faltam 10;0.666666666666667;Agosto;2025
+9;3;21;4;24;Meta do mês Atingida;Faltam 6;0.8;Setembro;2025
+10;3;24;3;27;Meta do mês Atingida;Faltam 3;0.9;Outubro;2025
+11;3;27;4;31;Meta do mês Atingida;Meta Superada;1.03333333333333;Novembro;2025
+12;3;30;6;37;Meta do mês Atingida;Meta Superada;1.23333333333333;Dezembro;2025
