@@ -22,7 +22,7 @@ Eng. Produto;João Leopoldo;Demanda Orçamentos de Internalização​;Carteira 
 Eng. Produto;João Leopoldo;Demanda Orçamentos de Internalização​;Carteira Biza;N2/N3;S/ meta;722;Setembro;2025;Indefinido;
 Eng. Produto;João Leopoldo;Demanda Orçamentos de Internalização​;Carteira Biza;N2/N3;S/ meta;740;Outubro;2025;Indefinido;
 Eng. Produto;João Leopoldo;Demanda Orçamentos de Internalização​;Carteira Biza;N2/N3;S/ meta;740;Novembro;2025;Indefinido;
-Eng. Produto;João Leopoldo;Demanda Orçamentos de Internalização​;Carteira Biza;N2/N3;S/ meta;-;Dezembro;2025;Indefinido;
+Eng. Produto;João Leopoldo;Demanda Orçamentos de Internalização​;Carteira Biza;N2/N3;S/ meta;740;Dezembro;2025;Indefinido;
 Eng. Produto;João Leopoldo;Percentual de Itens Novos Produzidos no Mês​;Carteira Biza;N3;0.12;0.0928863150131461;Janeiro;2025;Ñ Atingido;
 Eng. Produto;João Leopoldo;Percentual de Itens Novos Produzidos no Mês​;Carteira Biza;N3;0.12;0.291342483592287;Fevereiro;2025;Atingido;
 Eng. Produto;João Leopoldo;Percentual de Itens Novos Produzidos no Mês​;Carteira Biza;N3;0.12;0.0179980796981169;Março;2025;Ñ Atingido;
@@ -34,7 +34,7 @@ Eng. Produto;João Leopoldo;Percentual de Itens Novos Produzidos no Mês​;Cart
 Eng. Produto;João Leopoldo;Percentual de Itens Novos Produzidos no Mês​;Carteira Biza;N3;0.12;0.108582702171901;Setembro;2025;Ñ Atingido;
 Eng. Produto;João Leopoldo;Percentual de Itens Novos Produzidos no Mês​;Carteira Biza;N3;0.12;0.278926957265371;Outubro;2025;Atingido;
 Eng. Produto;João Leopoldo;Percentual de Itens Novos Produzidos no Mês​;Carteira Biza;N3;0.12;0.0475399663550098;Novembro;2025;Ñ Atingido;
-Eng. Produto;João Leopoldo;Percentual de Itens Novos Produzidos no Mês​;Carteira Biza;N3;0.12;-;Dezembro;2025;-;
+Eng. Produto;João Leopoldo;Percentual de Itens Novos Produzidos no Mês​;Carteira Biza;N3;0.12;0.131855771570288;Dezembro;2025;Atingido;
 Eng. Produto;João Leopoldo;Demandas de Orçamentos Entregues no Mês;Carteira Biza;N3;S/ meta;-;Janeiro;2025;Indefinido;
 Eng. Produto;João Leopoldo;Demandas de Orçamentos Entregues no Mês;Carteira Biza;N3;S/ meta;-;Fevereiro;2025;Indefinido;
 Eng. Produto;João Leopoldo;Demandas de Orçamentos Entregues no Mês;Carteira Biza;N3;S/ meta;15;Março;2025;Indefinido;
@@ -70,7 +70,7 @@ Melhoria e 5S;Diogo Rosa;Quantidade de melhorias – Meta PLR;PLR;N3;3;3;Agosto;
 Melhoria e 5S;Diogo Rosa;Quantidade de melhorias – Meta PLR;PLR;N3;3;4;Setembro;2025;Atingido;
 Melhoria e 5S;Diogo Rosa;Quantidade de melhorias – Meta PLR;PLR;N3;3;3;Outubro;2025;Atingido;
 Melhoria e 5S;Diogo Rosa;Quantidade de melhorias – Meta PLR;PLR;N3;3;4;Novembro;2025;Atingido;
-Melhoria e 5S;Diogo Rosa;Quantidade de melhorias – Meta PLR;PLR;N3;3;-;Dezembro;2025;-;
+Melhoria e 5S;Diogo Rosa;Quantidade de melhorias – Meta PLR;PLR;N3;3;6;Dezembro;2025;Atingido;
 SGA;Diogo Rosa;Performance do Atendimento as Obrigações Legais Mês​;Conformidade Legal;N3;0.98;0.889212827988338;Janeiro;2025;Ñ Atingido;
 SGA;Diogo Rosa;Performance do Atendimento as Obrigações Legais Mês​;Conformidade Legal;N3;0.98;0.895652173913044;Fevereiro;2025;Ñ Atingido;
 SGA;Diogo Rosa;Performance do Atendimento as Obrigações Legais Mês​;Conformidade Legal;N3;0.98;0.89766081871345;Março;2025;Ñ Atingido;
@@ -82,7 +82,7 @@ SGA;Diogo Rosa;Performance do Atendimento as Obrigações Legais Mês​;Conform
 SGA;Diogo Rosa;Performance do Atendimento as Obrigações Legais Mês​;Conformidade Legal;N3;0.98;0.953757225433526;Setembro;2025;Ñ Atingido;
 SGA;Diogo Rosa;Performance do Atendimento as Obrigações Legais Mês​;Conformidade Legal;N3;0.98;0.982758620689655;Outubro;2025;Atingido;
 SGA;Diogo Rosa;Performance do Atendimento as Obrigações Legais Mês​;Conformidade Legal;N3;0.98;1;Novembro;2025;Atingido;
-SGA;Diogo Rosa;Performance do Atendimento as Obrigações Legais Mês​;Conformidade Legal;N3;0.98;-;Dezembro;2025;-;
+SGA;Diogo Rosa;Performance do Atendimento as Obrigações Legais Mês​;Conformidade Legal;N3;0.98;0.994301994301994;Dezembro;2025;Atingido;
 SGI;Diogo Rosa;Quantidade e percentual de NC's encerradas dentro do prazo;Conformidade Legal;N3;0.8;1;Janeiro;2025;Atingido;
 SGI;Diogo Rosa;Quantidade e percentual de NC's encerradas dentro do prazo;Conformidade Legal;N3;0.8;0.222222222222222;Fevereiro;2025;Ñ Atingido;
 SGI;Diogo Rosa;Quantidade e percentual de NC's encerradas dentro do prazo;Conformidade Legal;N3;0.8;0.375;Março;2025;Ñ Atingido;
@@ -94,7 +94,7 @@ SGI;Diogo Rosa;Quantidade e percentual de NC's encerradas dentro do prazo;Confor
 SGI;Diogo Rosa;Quantidade e percentual de NC's encerradas dentro do prazo;Conformidade Legal;N3;0.8;0.222222222222222;Setembro;2025;Ñ Atingido;
 SGI;Diogo Rosa;Quantidade e percentual de NC's encerradas dentro do prazo;Conformidade Legal;N3;0.8;0.714285714285714;Outubro;2025;Ñ Atingido;
 SGI;Diogo Rosa;Quantidade e percentual de NC's encerradas dentro do prazo;Conformidade Legal;N3;0.8;0.3;Novembro;2025;Ñ Atingido;
-SGI;Diogo Rosa;Quantidade e percentual de NC's encerradas dentro do prazo;Conformidade Legal;N3;0.8;-;Dezembro;2025;-;
+SGI;Diogo Rosa;Quantidade e percentual de NC's encerradas dentro do prazo;Conformidade Legal;N3;0.8;0.222222222222222;Dezembro;2025;Ñ Atingido;
 Gestão de Resíduos;Jorge Lanzoni;Geração de Resíduos de Sucata​;PGRS;N3;S/ Meta;8740;Janeiro;2025;Indefinido;
 Gestão de Resíduos;Jorge Lanzoni;Geração de Resíduos de Sucata​;PGRS;N3;S/ Meta;13200;Fevereiro;2025;Indefinido;
 Gestão de Resíduos;Jorge Lanzoni;Geração de Resíduos de Sucata​;PGRS;N3;S/ Meta;12070;Março;2025;Indefinido;
@@ -106,7 +106,7 @@ Gestão de Resíduos;Jorge Lanzoni;Geração de Resíduos de Sucata​;PGRS;N3;S
 Gestão de Resíduos;Jorge Lanzoni;Geração de Resíduos de Sucata​;PGRS;N3;S/ Meta;19980;Setembro;2025;Indefinido;
 Gestão de Resíduos;Jorge Lanzoni;Geração de Resíduos de Sucata​;PGRS;N3;S/ Meta;20990;Outubro;2025;Indefinido;
 Gestão de Resíduos;Jorge Lanzoni;Geração de Resíduos de Sucata​;PGRS;N3;S/ Meta;16980;Novembro;2025;Indefinido;
-Gestão de Resíduos;Jorge Lanzoni;Geração de Resíduos de Sucata​;PGRS;N3;S/ Meta;-;Dezembro;2025;-;
+Gestão de Resíduos;Jorge Lanzoni;Geração de Resíduos de Sucata​;PGRS;N3;S/ Meta;12580;Dezembro;2025;Indefinido;
 Gestão de Resíduos;Jorge Lanzoni;Geração de Resíduos Sólidos Contaminados​;PGRS;N3;S/ Meta;0;Janeiro;2025;Indefinido;
 Gestão de Resíduos;Jorge Lanzoni;Geração de Resíduos Sólidos Contaminados​;PGRS;N3;S/ Meta;3000;Fevereiro;2025;Indefinido;
 Gestão de Resíduos;Jorge Lanzoni;Geração de Resíduos Sólidos Contaminados​;PGRS;N3;S/ Meta;2300;Março;2025;Indefinido;
@@ -118,7 +118,7 @@ Gestão de Resíduos;Jorge Lanzoni;Geração de Resíduos Sólidos Contaminados�
 Gestão de Resíduos;Jorge Lanzoni;Geração de Resíduos Sólidos Contaminados​;PGRS;N3;S/ Meta;0;Setembro;2025;Indefinido;
 Gestão de Resíduos;Jorge Lanzoni;Geração de Resíduos Sólidos Contaminados​;PGRS;N3;S/ Meta;2500;Outubro;2025;Indefinido;
 Gestão de Resíduos;Jorge Lanzoni;Geração de Resíduos Sólidos Contaminados​;PGRS;N3;S/ Meta;2000;Novembro;2025;Indefinido;
-Gestão de Resíduos;Jorge Lanzoni;Geração de Resíduos Sólidos Contaminados​;PGRS;N3;S/ Meta;-;Dezembro;2025;-;
+Gestão de Resíduos;Jorge Lanzoni;Geração de Resíduos Sólidos Contaminados​;PGRS;N3;S/ Meta;0;Dezembro;2025;Indefinido;
 Gestão de Resíduos;Jorge Lanzoni;Geração de Resíduos Líquidos Contaminados;PGRS;N3;S/ Meta;376;Janeiro;2025;Indefinido;
 Gestão de Resíduos;Jorge Lanzoni;Geração de Resíduos Líquidos Contaminados;PGRS;N3;S/ Meta;747;Fevereiro;2025;Indefinido;
 Gestão de Resíduos;Jorge Lanzoni;Geração de Resíduos Líquidos Contaminados;PGRS;N3;S/ Meta;419;Março;2025;Indefinido;
@@ -130,7 +130,7 @@ Gestão de Resíduos;Jorge Lanzoni;Geração de Resíduos Líquidos Contaminados
 Gestão de Resíduos;Jorge Lanzoni;Geração de Resíduos Líquidos Contaminados;PGRS;N3;S/ Meta;450;Setembro;2025;Indefinido;
 Gestão de Resíduos;Jorge Lanzoni;Geração de Resíduos Líquidos Contaminados;PGRS;N3;S/ Meta;335;Outubro;2025;Indefinido;
 Gestão de Resíduos;Jorge Lanzoni;Geração de Resíduos Líquidos Contaminados;PGRS;N3;S/ Meta;332;Novembro;2025;Indefinido;
-Gestão de Resíduos;Jorge Lanzoni;Geração de Resíduos Líquidos Contaminados;PGRS;N3;S/ Meta;-;Dezembro;2025;-;
+Gestão de Resíduos;Jorge Lanzoni;Geração de Resíduos Líquidos Contaminados;PGRS;N3;S/ Meta;252.5;Dezembro;2025;Indefinido;
 Gestão de Materiais;Jesiel Lima;Acuracidade de Estoque;Salário Variável;N2/N3;0.94;0.95;Janeiro;2025;Atingido;
 Gestão de Materiais;Jesiel Lima;Acuracidade de Estoque;Salário Variável;N2/N3;0.94;0.9557;Fevereiro;2025;Atingido;
 Gestão de Materiais;Jesiel Lima;Acuracidade de Estoque;Salário Variável;N2/N3;0.94;0.9423;Março;2025;Atingido;
@@ -142,7 +142,7 @@ Gestão de Materiais;Jesiel Lima;Acuracidade de Estoque;Salário Variável;N2/N3
 Gestão de Materiais;Jesiel Lima;Acuracidade de Estoque;Salário Variável;N2/N3;0.94;0.86;Setembro;2025;Ñ Atingido;
 Gestão de Materiais;Jesiel Lima;Acuracidade de Estoque;Salário Variável;N2/N3;0.94;0.9505;Outubro;2025;Atingido;
 Gestão de Materiais;Jesiel Lima;Acuracidade de Estoque;Salário Variável;N2/N3;0.94;0.97;Novembro;2025;Atingido;
-Gestão de Materiais;Jesiel Lima;Acuracidade de Estoque;Salário Variável;N2/N3;0.94;-;Dezembro;2025;-;
+Gestão de Materiais;Jesiel Lima;Acuracidade de Estoque;Salário Variável;N2/N3;0.94;0.9571;Dezembro;2025;Atingido;
 Gestão de Materiais;Jesiel Lima;Percentual e Valores de Itens sem movimentação de Estoque a mais de um ano​;Custo de Estoque;N2/N3;0.02;0.0477810199063994;Janeiro;2025;Atingido;
 Gestão de Materiais;Jesiel Lima;Percentual e Valores de Itens sem movimentação de Estoque a mais de um ano​;Custo de Estoque;N2/N3;0.02;0.0463524273965566;Fevereiro;2025;Atingido;
 Gestão de Materiais;Jesiel Lima;Percentual e Valores de Itens sem movimentação de Estoque a mais de um ano​;Custo de Estoque;N2/N3;0.02;0.0498104644099734;Março;2025;Atingido;
@@ -202,7 +202,7 @@ PCP;Rodrigo Gustavo;Performance de entregas BIZA (Pedidos entregues no prazo)​
 PCP;Rodrigo Gustavo;Performance de entregas BIZA (Pedidos entregues no prazo)​;Prazo de Entrega;N3;0.78;0.698701298701299;Setembro;2025;Ñ Atingido;
 PCP;Rodrigo Gustavo;Performance de entregas BIZA (Pedidos entregues no prazo)​;Prazo de Entrega;N3;0.78;0.816666666666667;Outubro;2025;Atingido;
 PCP;Rodrigo Gustavo;Performance de entregas BIZA (Pedidos entregues no prazo)​;Prazo de Entrega;N3;0.78;0.687022900763359;Novembro;2025;Ñ Atingido;
-PCP;Rodrigo Gustavo;Performance de entregas BIZA (Pedidos entregues no prazo)​;Prazo de Entrega;N3;0.78;-;Dezembro;2025;-;
+PCP;Rodrigo Gustavo;Performance de entregas BIZA (Pedidos entregues no prazo)​;Prazo de Entrega;N3;0.78;0.763636363636364;Dezembro;2025;Ñ Atingido;
 PCP;Rodrigo Gustavo;Programação de entrega Mensal​;Salário Variável;N2/N3;0.7001;-;Janeiro;2025;-;
 PCP;Rodrigo Gustavo;Programação de entrega Mensal​;Salário Variável;N2/N3;0.7001;-;Fevereiro;2025;-;
 PCP;Rodrigo Gustavo;Programação de entrega Mensal​;Salário Variável;N2/N3;0.7001;-;Março;2025;-;
@@ -250,7 +250,7 @@ PCP;Rodrigo Gustavo;Status OTIF VALE em carteira;Prazo de Entrega;N2;0.9;0.47413
 PCP;Rodrigo Gustavo;Status OTIF VALE em carteira;Prazo de Entrega;N2;0.9;0.330508474576271;Setembro;2025;Ñ Atingido;
 PCP;Rodrigo Gustavo;Status OTIF VALE em carteira;Prazo de Entrega;N2;0.9;0.515463917525773;Outubro;2025;Ñ Atingido;
 PCP;Rodrigo Gustavo;Status OTIF VALE em carteira;Prazo de Entrega;N2;0.9;0.504854368932039;Novembro;2025;Ñ Atingido;
-PCP;Rodrigo Gustavo;Status OTIF VALE em carteira;Prazo de Entrega;N2;0.9;-;Dezembro;2025;-;
+PCP;Rodrigo Gustavo;Status OTIF VALE em carteira;Prazo de Entrega;N2;0.9;0.63716814159292;Dezembro;2025;Ñ Atingido;
 PCP;Rodrigo Gustavo;Valor da carteira Biza estratificada - 2025;Carteira Biza;N2;S/ Meta;S/ Meta;Janeiro;2025;Indefinido;
 PCP;Rodrigo Gustavo;Valor da carteira Biza estratificada - 2025;Carteira Biza;N2;S/ Meta;S/ Meta;Fevereiro;2025;Indefinido;
 PCP;Rodrigo Gustavo;Valor da carteira Biza estratificada - 2025;Carteira Biza;N2;S/ Meta;S/ Meta;Março;2025;Indefinido;
@@ -286,7 +286,7 @@ Pessoas;Laura Thais;Percentual de Turnover Mês​;Carteira Biza;N2/N3;S/ Meta;0
 Pessoas;Laura Thais;Percentual de Turnover Mês​;Carteira Biza;N2/N3;S/ Meta;0.0212765957446808;Setembro;2025;Indefinido;
 Pessoas;Laura Thais;Percentual de Turnover Mês​;Carteira Biza;N2/N3;S/ Meta;0.03;Outubro;2025;Indefinido;
 Pessoas;Laura Thais;Percentual de Turnover Mês​;Carteira Biza;N2/N3;S/ Meta;0.04;Novembro;2025;Indefinido;
-Pessoas;Laura Thais;Percentual de Turnover Mês​;Carteira Biza;N2/N3;S/ Meta;-;Dezembro;2025;-;
+Pessoas;Laura Thais;Percentual de Turnover Mês​;Carteira Biza;N2/N3;S/ Meta;0.0306122448979592;Dezembro;2025;Indefinido;
 Pessoas;Laura Thais;Absenteísmo Mês;Salário Variável;N2/N3;0.04;0.0409;Janeiro;2025;Ñ Atingido;
 Pessoas;Laura Thais;Absenteísmo Mês;Salário Variável;N2/N3;0.04;0.0259;Fevereiro;2025;Atingido;
 Pessoas;Laura Thais;Absenteísmo Mês;Salário Variável;N2/N3;0.04;0.0284;Março;2025;Atingido;
@@ -298,7 +298,7 @@ Pessoas;Laura Thais;Absenteísmo Mês;Salário Variável;N2/N3;0.04;0.0394;Agost
 Pessoas;Laura Thais;Absenteísmo Mês;Salário Variável;N2/N3;0.04;0.0435;Setembro;2025;Ñ Atingido;
 Pessoas;Laura Thais;Absenteísmo Mês;Salário Variável;N2/N3;0.04;0.0506;Outubro;2025;Ñ Atingido;
 Pessoas;Laura Thais;Absenteísmo Mês;Salário Variável;N2/N3;0.04;0.0227;Novembro;2025;Atingido;
-Pessoas;Laura Thais;Absenteísmo Mês;Salário Variável;N2/N3;0.04;-;Dezembro;2025;-;
+Pessoas;Laura Thais;Absenteísmo Mês;Salário Variável;N2/N3;0.04;0.027;Dezembro;2025;Atingido;
 Pessoas;Fernando Tryferis;Quadro colaboradores BIZA;Informativo;N2;S/ Meta;S/ Meta;Janeiro;2025;Indefinido;
 Pessoas;Fernando Tryferis;Quadro colaboradores BIZA;Informativo;N2;S/ Meta;S/ Meta;Fevereiro;2025;Indefinido;
 Pessoas;Fernando Tryferis;Quadro colaboradores BIZA;Informativo;N2;S/ Meta;S/ Meta;Março;2025;Indefinido;
@@ -322,7 +322,7 @@ SST;Elcio Pase;Taxa de Frequência​;Assiduidade;N3;40;0;Agosto;2025;Atingido;
 SST;Elcio Pase;Taxa de Frequência​;Assiduidade;N3;40;43.7062937062937;Setembro;2025;Ñ Atingido;
 SST;Elcio Pase;Taxa de Frequência​;Assiduidade;N3;40;42.0875420875421;Outubro;2025;Ñ Atingido;
 SST;Elcio Pase;Taxa de Frequência​;Assiduidade;N3;40;0;Novembro;2025;Atingido;
-SST;Elcio Pase;Taxa de Frequência​;Assiduidade;N3;40;;Dezembro;2025;-;
+SST;Elcio Pase;Taxa de Frequência​;Assiduidade;N3;40;0;Dezembro;2025;Atingido;
 SST;Elcio Pase;Taxa de Gravidade;Assiduidade;N3;1000;0;Janeiro;2025;Atingido;
 SST;Elcio Pase;Taxa de Gravidade;Assiduidade;N3;1000;0;Fevereiro;2025;Atingido;
 SST;Elcio Pase;Taxa de Gravidade;Assiduidade;N3;1000;0;Março;2025;Atingido;
@@ -334,7 +334,7 @@ SST;Elcio Pase;Taxa de Gravidade;Assiduidade;N3;1000;461.605300314978;Agosto;202
 SST;Elcio Pase;Taxa de Gravidade;Assiduidade;N3;1000;560.332335040093;Setembro;2025;Atingido;
 SST;Elcio Pase;Taxa de Gravidade;Assiduidade;N3;1000;636.970274720513;Outubro;2025;Atingido;
 SST;Elcio Pase;Taxa de Gravidade;Assiduidade;N3;1000;696.576151121606;Novembro;2025;Atingido;
-SST;Elcio Pase;Taxa de Gravidade;Assiduidade;N3;1000;;Dezembro;2025;-;
+SST;Elcio Pase;Taxa de Gravidade;Assiduidade;N3;1000;750.956747779623;Dezembro;2025;Atingido;
 Terceiros;Leonard Robert;Valor total de itens industrializados por mês​;Carteira Biza;N3;S/ Meta;102028.1975;Janeiro;2025;Indefinido;
 Terceiros;Leonard Robert;Valor total de itens industrializados por mês​;Carteira Biza;N3;S/ Meta;158204.9165;Fevereiro;2025;Indefinido;
 Terceiros;Leonard Robert;Valor total de itens industrializados por mês​;Carteira Biza;N3;S/ Meta;122099.73409;Março;2025;Indefinido;
@@ -345,8 +345,8 @@ Terceiros;Leonard Robert;Valor total de itens industrializados por mês​;Carte
 Terceiros;Leonard Robert;Valor total de itens industrializados por mês​;Carteira Biza;N3;S/ Meta;137537.3632;Agosto;2025;Indefinido;
 Terceiros;Leonard Robert;Valor total de itens industrializados por mês​;Carteira Biza;N3;S/ Meta;219640.737;Setembro;2025;Indefinido;
 Terceiros;Leonard Robert;Valor total de itens industrializados por mês​;Carteira Biza;N3;S/ Meta;205268.6956;Outubro;2025;Indefinido;
-Terceiros;Leonard Robert;Valor total de itens industrializados por mês​;Carteira Biza;N3;S/ Meta;138145.185;Novembro;2025;Indefinido;
-Terceiros;Leonard Robert;Valor total de itens industrializados por mês​;Carteira Biza;N3;S/ Meta;20916.0949;Dezembro;2025;-;
+Terceiros;Leonard Robert;Valor total de itens industrializados por mês​;Carteira Biza;N3;S/ Meta;142280.115;Novembro;2025;Indefinido;
+Terceiros;Leonard Robert;Valor total de itens industrializados por mês​;Carteira Biza;N3;S/ Meta;147048.6093;Dezembro;2025;Indefinido;
 Terceiros;Leonard Robert;Valor total de itens terceirização por mês;Carteira Biza;N3;S/ Meta;11186.32;Janeiro;2025;Indefinido;
 Terceiros;Leonard Robert;Valor total de itens terceirização por mês;Carteira Biza;N3;S/ Meta;2444;Fevereiro;2025;Indefinido;
 Terceiros;Leonard Robert;Valor total de itens terceirização por mês;Carteira Biza;N3;S/ Meta;17112.5;Março;2025;Indefinido;
@@ -358,7 +358,7 @@ Terceiros;Leonard Robert;Valor total de itens terceirização por mês;Carteira 
 Terceiros;Leonard Robert;Valor total de itens terceirização por mês;Carteira Biza;N3;S/ Meta;7800;Setembro;2025;Indefinido;
 Terceiros;Leonard Robert;Valor total de itens terceirização por mês;Carteira Biza;N3;S/ Meta;9836;Outubro;2025;Indefinido;
 Terceiros;Leonard Robert;Valor total de itens terceirização por mês;Carteira Biza;N3;S/ Meta;4760;Novembro;2025;Indefinido;
-Terceiros;Leonard Robert;Valor total de itens terceirização por mês;Carteira Biza;N3;S/ Meta;0;Dezembro;2025;-;
+Terceiros;Leonard Robert;Valor total de itens terceirização por mês;Carteira Biza;N3;S/ Meta;1292;Dezembro;2025;Indefinido;
 Vendas BIZA;Messias;Valores de venda Marca BIZA;Carteira Biza;N2/N3;3915839.24;3790113.4;Janeiro;2025;Ñ Atingido;
 Vendas BIZA;Messias;Valores de venda Marca BIZA;Carteira Biza;N2/N3;3944349.73;3306790.45;Fevereiro;2025;Ñ Atingido;
 Vendas BIZA;Messias;Valores de venda Marca BIZA;Carteira Biza;N2/N3;4133588.31;4402137.05;Março;2025;Atingido;
@@ -370,7 +370,7 @@ Vendas BIZA;Messias;Valores de venda Marca BIZA;Carteira Biza;N2/N3;4918337.68;3
 Vendas BIZA;Messias;Valores de venda Marca BIZA;Carteira Biza;N2/N3;4827276.17;3403251.72;Setembro;2025;Ñ Atingido;
 Vendas BIZA;Messias;Valores de venda Marca BIZA;Carteira Biza;N2/N3;4764705.89;2984004.11;Outubro;2025;Ñ Atingido;
 Vendas BIZA;Messias;Valores de venda Marca BIZA;Carteira Biza;N2/N3;4341484.13;2660053.46;Novembro;2025;Ñ Atingido;
-Vendas BIZA;Messias;Valores de venda Marca BIZA;Carteira Biza;N2/N3;4253334.61;0;Dezembro;2025;-;
+Vendas BIZA;Messias;Valores de venda Marca BIZA;Carteira Biza;N2/N3;4253334.61;4059436.28;Dezembro;2025;Ñ Atingido;
 Vendas BIZA;Messias;Vendas Marca Biza por Segmento;Carteira Biza;N2/N3;S/ Meta;S/ Meta;Janeiro;2025;Indefinido;
 Vendas BIZA;Messias;Vendas Marca Biza por Segmento;Carteira Biza;N2/N3;S/ Meta;S/ Meta;Fevereiro;2025;Indefinido;
 Vendas BIZA;Messias;Vendas Marca Biza por Segmento;Carteira Biza;N2/N3;S/ Meta;S/ Meta;Março;2025;Indefinido;
@@ -394,7 +394,7 @@ Vendas BIZA;Messias;Vendas Marca Biza (Últimos 3 anos);Carteira Biza;N2/N3;S/ M
 Vendas BIZA;Messias;Vendas Marca Biza (Últimos 3 anos);Carteira Biza;N2/N3;S/ Meta;3403251.72;Setembro;2025;Indefinido;
 Vendas BIZA;Messias;Vendas Marca Biza (Últimos 3 anos);Carteira Biza;N2/N3;S/ Meta;2984004.11;Outubro;2025;Indefinido;
 Vendas BIZA;Messias;Vendas Marca Biza (Últimos 3 anos);Carteira Biza;N2/N3;S/ Meta;2660053.46;Novembro;2025;Indefinido;
-Vendas BIZA;Messias;Vendas Marca Biza (Últimos 3 anos);Carteira Biza;N2/N3;S/ Meta;0;Dezembro;2025;Indefinido;
+Vendas BIZA;Messias;Vendas Marca Biza (Últimos 3 anos);Carteira Biza;N2/N3;S/ Meta;4059436.28;Dezembro;2025;Indefinido;
 Vendas BIZA;Messias;Percentual de vendas marca BIZA;Carteira Biza;N2/N3;0.08;0.0698996464489671;Janeiro;2025;Ñ Atingido;
 Vendas BIZA;Messias;Percentual de vendas marca BIZA;Carteira Biza;N2/N3;0.08;0.0541152856277147;Fevereiro;2025;Ñ Atingido;
 Vendas BIZA;Messias;Percentual de vendas marca BIZA;Carteira Biza;N2/N3;0.08;0.0635752017373517;Março;2025;Ñ Atingido;
@@ -428,8 +428,8 @@ Gerência Fabril;Ricardo;Refugo​ Interno;Prazo de Entrega;N2/N3;0.0041;0.00326
 Gerência Fabril;Ricardo;Refugo​ Interno;Prazo de Entrega;N2/N3;0.0041;0.00189752035719629;Julho;2025;Atingido;
 Gerência Fabril;Ricardo;Refugo​ Interno;Prazo de Entrega;N2/N3;0.0041;0.00347843409188867;Agosto;2025;Atingido;
 Gerência Fabril;Ricardo;Refugo​ Interno;Prazo de Entrega;N2/N3;0.0041;0.00800041786610721;Setembro;2025;Ñ Atingido;
-Gerência Fabril;Ricardo;Refugo​ Interno;Prazo de Entrega;N2/N3;0.0041;0.00635119258281224;Outubro;2025;Ñ Atingido;
-Gerência Fabril;Ricardo;Refugo​ Interno;Prazo de Entrega;N2/N3;0.0041;0.00716824250518807;Novembro;2025;Ñ Atingido;
+Gerência Fabril;Ricardo;Refugo​ Interno;Prazo de Entrega;N2/N3;0.0041;0.00635119258281223;Outubro;2025;Ñ Atingido;
+Gerência Fabril;Ricardo;Refugo​ Interno;Prazo de Entrega;N2/N3;0.0041;0.00716824250518806;Novembro;2025;Ñ Atingido;
 Gerência Fabril;Ricardo;Refugo​ Interno;Prazo de Entrega;N2/N3;0.0041;0.00560560907748789;Dezembro;2025;Ñ Atingido;
 Gerência Fabril;Ricardo;Refugo​ Estratificado;Prazo de Entrega;N2/N3;S/ Meta;S/ Meta;Janeiro;2025;Indefinido;
 Gerência Fabril;Ricardo;Refugo​ Estratificado;Prazo de Entrega;N2/N3;S/ Meta;S/ Meta;Fevereiro;2025;Indefinido;
@@ -477,7 +477,7 @@ Gerência Adm;Eberson;GGF - Relatório Controladoria;Custos;N2;0.41;0.5762851599
 Gerência Adm;Eberson;GGF - Relatório Controladoria;Custos;N2;0.41;0.984460608262984;Agosto;2025;Ñ Atingido;
 Gerência Adm;Eberson;GGF - Relatório Controladoria;Custos;N2;0.41;1.01519034203079;Setembro;2025;Ñ Atingido;
 Gerência Adm;Eberson;GGF - Relatório Controladoria;Custos;N2;0.41;0.788120931822235;Outubro;2025;Ñ Atingido;
-Gerência Adm;Eberson;GGF - Relatório Controladoria;Custos;N2;0.41;1.76429701488309;Novembro;2025;Ñ Atingido;
+Gerência Adm;Eberson;GGF - Relatório Controladoria;Custos;N2;0.41;º;Novembro;2025;Ñ Atingido;
 Gerência Adm;Eberson;GGF - Relatório Controladoria;Custos;N2;0.41;-;Dezembro;2025;-;
 Gerência Adm;Eberson;GGF - Relatório Controladoria Estratificado;Custos;N2;S/ Meta;S/ Meta;Janeiro;2025;Indefinido;
 Gerência Adm;Eberson;GGF - Relatório Controladoria Estratificado;Custos;N2;S/ Meta;S/ Meta;Fevereiro;2025;Indefinido;
@@ -506,7 +506,7 @@ Gerência Adm;Eberson;GGF - Relatório Controladoria Pareto;Custos;N2;S/ Meta;S/
 Gerência Adm;Eberson;GGF Salarial - Relatório Entradas de NF;Salário Variável;N3;0.9501;0.642172780540113;Janeiro;2025;Atingido;
 Gerência Adm;Eberson;GGF Salarial - Relatório Entradas de NF;Salário Variável;N3;0.9501;1.11020112819305;Fevereiro;2025;Ñ Atingido;
 Gerência Adm;Eberson;GGF Salarial - Relatório Entradas de NF;Salário Variável;N3;0.9501;0.932895067618822;Março;2025;Atingido;
-Gerência Adm;Eberson;GGF Salarial - Relatório Entradas de NF;Salário Variável;N3;0.9501;0.791391173998753;Abril;2025;Atingido;
+Gerência Adm;Eberson;GGF Salarial - Relatório Entradas de NF;Salário Variável;N3;0.9501;0.791391173998752;Abril;2025;Atingido;
 Gerência Adm;Eberson;GGF Salarial - Relatório Entradas de NF;Salário Variável;N3;0.9501;0.657845457352882;Maio;2025;Atingido;
 Gerência Adm;Eberson;GGF Salarial - Relatório Entradas de NF;Salário Variável;N3;0.9501;0.721570975010699;Junho;2025;Atingido;
 Gerência Adm;Eberson;GGF Salarial - Relatório Entradas de NF;Salário Variável;N3;0.9501;0.768871654285352;Julho;2025;Atingido;
@@ -514,4 +514,4 @@ Gerência Adm;Eberson;GGF Salarial - Relatório Entradas de NF;Salário Variáve
 Gerência Adm;Eberson;GGF Salarial - Relatório Entradas de NF;Salário Variável;N3;0.9501;0.798781420892144;Setembro;2025;Atingido;
 Gerência Adm;Eberson;GGF Salarial - Relatório Entradas de NF;Salário Variável;N3;0.9501;1.22598732235005;Outubro;2025;Ñ Atingido;
 Gerência Adm;Eberson;GGF Salarial - Relatório Entradas de NF;Salário Variável;N3;0.9501;0.959443169323944;Novembro;2025;Ñ Atingido;
-Gerência Adm;Eberson;GGF Salarial - Relatório Entradas de NF;Salário Variável;N3;0.9501;0.906424931735944;Dezembro;2025;Atingido;
+Gerência Adm;Eberson;GGF Salarial - Relatório Entradas de NF;Salário Variável;N3;0.9501;0.824946038391187;Dezembro;2025;Atingido;
