@@ -180,13 +180,40 @@ table {
     background: #222;
 }
 
+
+/* Botão ao lado do título (Painel Gerencial) */
+.topo-inner{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:14px;
+}
+
+.btn-top-painel{
+  background:#f2f2f2;
+  color:#555;
+  font-weight:bold;
+  padding:8px 14px;
+  border:1px solid #ccc;
+  border-radius:8px;
+  cursor:pointer;
+  font-size:14px;
+}
+
+.btn-top-painel:hover{
+  background:#e6e6e6;
+}
+
 </style>
 
 </head>
 <body>
 
 <div class="topo">
-  <h1>Filtro de Indicadores N3</h1>
+  <div class="topo-inner">
+    <h1>Filtro de Indicadores N3</h1>
+    <button class="btn-top-painel" onclick="window.location.href='Painel%20Gerencial%20-%20Indicadores%20BIZA.html'">Painel Gerencial</button>
+  </div>
 </div>
 
 <div class="filtros">
