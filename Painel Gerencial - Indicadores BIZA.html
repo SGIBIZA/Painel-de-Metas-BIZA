@@ -1,0 +1,759 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Painel Gerencial - Indicadores BIZA</title>
+
+  <style>
+    /* Mantendo o padrão visual visto em metas_n3.html (preto + laranja BIZA) */
+    :root{
+      --preto:#000000;
+      --laranja:#F8AD1E;
+      --cinza-bg:#f2f2f2;
+      --cinza-escuro:#333;
+      --cinza-th:#444;
+      --branco:#ffffff;
+      --verde:#00B050;
+      --vermelho:#FF0101;
+      --amarelo:#FFC000;
+      --borda:#ddd;
+    }
+
+    body{
+      font-family: Arial, sans-serif;
+      margin:0;
+      background: var(--cinza-bg);
+      color:#111;
+    }
+
+    .topo{
+      background: var(--preto);
+      padding: 22px;
+      text-align:center;
+    }
+
+    .topo h1{
+      margin:0;
+      color: var(--laranja);
+      font-size: 30px;
+      font-weight: bold;
+    }
+
+    .topo .sub{
+      margin-top:6px;
+      color: #f6d08b;
+      font-size: 13px;
+    }
+
+    .filtros{
+      padding: 18px 22px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      align-items:end;
+      background:#fff;
+      border-bottom: 1px solid #e8e8e8;
+    }
+
+    label{font-weight:bold; margin-right:6px; font-size:13px;}
+
+    select, input{
+      padding: 10px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+      min-width: 160px;
+      background:#fff;
+    }
+
+    .btn{
+      padding: 10px 18px;
+      border-radius: 6px;
+      border:none;
+      background: var(--laranja);
+      color:#000;
+      font-weight:bold;
+      cursor:pointer;
+      font-size: 14px;
+    }
+
+    .btn:hover{ background:#e19b16; }
+
+    .btn-sec{
+      background:#000;
+      color: var(--laranja);
+      border: none;
+    }
+
+    .btn-sec:hover{ background:#222; }
+
+    .wrap{ width:100%; max-width: 1400px; margin: 0 auto; padding: 16px; }
+
+    .grid{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+
+    .kpis{
+      display:grid;
+      grid-template-columns: repeat(6, minmax(160px, 1fr));
+      gap: 12px;
+    }
+
+    @media (max-width: 1200px){ .kpis{ grid-template-columns: repeat(3, 1fr);} }
+    @media (max-width: 700px){ .kpis{ grid-template-columns: repeat(2, 1fr);} }
+
+    .kpi{
+      background:#fff;
+      border-radius: 10px;
+      padding: 12px;
+      border: 1px solid #eee;
+    }
+
+    .kpi .t{ font-size: 12px; color:#555; font-weight:bold; }
+    .kpi .v{ margin-top: 6px; font-size: 26px; font-weight: 800; }
+    .kpi .f{ margin-top: 2px; font-size: 12px; color:#666; }
+
+    .kpi.ok .v{ color: var(--verde); }
+    .kpi.ko .v{ color: var(--vermelho); }
+    .kpi.indef .v{ color: #b45309; }
+
+    .card{
+      background:#fff;
+      border-radius: 10px;
+      border: 1px solid #eee;
+      overflow:hidden;
+    }
+
+    .card .hd{
+      background: var(--cinza-escuro);
+      color:#fff;
+      padding: 12px 14px;
+      font-size: 16px;
+      font-weight: bold;
+      display:flex;
+      justify-content: space-between;
+      align-items:center;
+      gap: 10px;
+    }
+
+    .tag{
+      background:#111;
+      color: var(--laranja);
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: bold;
+      white-space: nowrap;
+    }
+
+    .card .bd{ padding: 12px; }
+
+    .charts{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    @media (max-width: 1000px){ .charts{ grid-template-columns: 1fr; } }
+
+    .hint{
+      font-size: 12px;
+      color:#666;
+      line-height: 1.35;
+      margin-top: 8px;
+    }
+
+    /* Tabulator tweaks */
+    .tabulator{ border-radius:10px; border: 1px solid #e6e6e6; }
+    .tabulator .tabulator-header{ background: var(--preto); color: var(--laranja); }
+    .tabulator .tabulator-row:nth-child(even){ background:#fafafa; }
+
+    .status-pill{ display:inline-flex; align-items:center; gap:8px; font-weight:bold; }
+    .dot{ width:12px; height:12px; border-radius: 50%; display:inline-block; }
+  </style>
+
+  <!-- Bibliotecas via CDN (sem build) -->
+  <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/plotly.js-dist-min@2.30.0/plotly.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/tabulator-tables@6.2.5/dist/css/tabulator.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/tabulator-tables@6.2.5/dist/js/tabulator.min.js"></script>
+</head>
+
+<body>
+  <div class="topo">
+    <h1>Painel Gerencial — Indicadores BIZA</h1>
+    <div class="sub">Visão única com filtros (base CSV do GitHub / repositório)</div>
+  </div>
+
+  <div class="filtros">
+    <div>
+      <label>Base CSV:</label>
+      <select id="fBase">
+        <option value="base_n3.csv">base_n3.csv (padrão do site)</option>
+        <option value="painel_site_metas_n3.csv">painel_site_metas_n3.csv (export do Excel completo)</option>
+      </select>
+    </div>
+
+    <div>
+      <label>Localidade:</label>
+      <select id="fLocalidade"></select>
+    </div>
+
+    <div>
+      <label>Ano:</label>
+      <select id="fAno"></select>
+    </div>
+
+    <div>
+      <label>Mês:</label>
+      <select id="fMes"></select>
+    </div>
+
+    <div>
+      <label>Área:</label>
+      <select id="fArea"></select>
+    </div>
+
+    <div>
+      <label>Impacto:</label>
+      <select id="fImpacto"></select>
+    </div>
+
+    <div>
+      <label>Tipo N:</label>
+      <select id="fTipo"></select>
+    </div>
+
+    <div>
+      <label>Status:</label>
+      <select id="fStatus"></select>
+    </div>
+
+    <div>
+      <label>Indicador (tendência):</label>
+      <select id="fIndicador"></select>
+    </div>
+
+    <div>
+      <label>Busca livre:</label>
+      <input id="fSearch" type="text" placeholder="Ex.: OTIF, estoque, refugo..." />
+    </div>
+
+    <button class="btn" id="btnLimpar">Limpar filtros</button>
+    <button class="btn btn-sec" id="btnExport">Exportar recorte (CSV)</button>
+    <button class="btn" onclick="window.location.href='index.html'">⬅ Voltar</button>
+  </div>
+
+  <div class="wrap">
+    <div class="grid">
+      <div class="kpis">
+        <div class="kpi"><div class="t">Linhas no recorte</div><div class="v" id="kLinhas">—</div><div class="f">KPI x mês</div></div>
+        <div class="kpi"><div class="t">Indicadores únicos</div><div class="v" id="kIndicadores">—</div><div class="f">Quantidade de KPIs</div></div>
+        <div class="kpi ok"><div class="t">Atingido</div><div class="v" id="kOk">—</div><div class="f">Status = Atingido</div></div>
+        <div class="kpi ko"><div class="t">Ñ Atingido</div><div class="v" id="kKo">—</div><div class="f">Status = Ñ Atingido</div></div>
+        <div class="kpi indef"><div class="t">Indefinido</div><div class="v" id="kIndef">—</div><div class="f">Status = Indefinido</div></div>
+        <div class="kpi"><div class="t">% Atingimento</div><div class="v" id="kRate">—</div><div class="f">Atingido/(Atingido+Ñ Atingido)</div></div>
+      </div>
+
+      <div class="card">
+        <div class="hd">Resumo visual <span class="tag" id="tagInfo">Carregando...</span></div>
+        <div class="bd">
+          <div class="charts">
+            <div>
+              <div id="chStatus" style="height:320px;"></div>
+            </div>
+            <div>
+              <div id="chArea" style="height:320px;"></div>
+            </div>
+            <div style="grid-column:1/-1;">
+              <div id="chTrend" style="height:360px;"></div>
+              <div class="hint" id="trendHint"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="hd">Tabela completa (ordenável) <span class="tag" id="tagRows">—</span></div>
+        <div class="bd">
+          <div id="tb" style="height:620px;"></div>
+          <div class="hint">Dica: você pode reordenar colunas na tabela e exportar o recorte com o botão “Exportar”.</div>
+        </div>
+      </div>
+
+      <div class="hint">
+        Observação: se Meta/Resultado estiver como “S/ meta” ou “S/ Indicador”, o gráfico de tendência pode ficar sem valores numéricos.
+      </div>
+    </div>
+  </div>
+
+<script>
+  // -------------------------
+  // CONFIGURAÇÃO
+  // -------------------------
+  // Se o seu CSV fica no GitHub RAW, você pode trocar aqui para a URL completa.
+  // Ex.: https://raw.githubusercontent.com/SEU_USUARIO/SEU_REPO/main/base_n3.csv
+  function getCsvUrl(){
+    const v = document.getElementById('fBase').value;
+    return v; // padrão: arquivo no mesmo diretório
+  }
+
+  // -------------------------
+  // UTILITÁRIOS
+  // -------------------------
+  const mesesOrdem = [
+    'janeiro','fevereiro','marco','abril','maio','junho',
+    'julho','agosto','setembro','outubro','novembro','dezembro'
+  ];
+
+  function norm(txt){
+    return (txt ?? '')
+      .toString()
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g,'')
+      .replace(/[^a-zA-Z0-9 ]/g,'')
+      .toLowerCase()
+      .trim();
+  }
+
+  function uniq(arr){
+    return Array.from(new Set(arr.filter(v => v !== null && v !== undefined && String(v).trim() !== '')))
+      .sort((a,b)=>String(a).localeCompare(String(b), 'pt-BR'));
+  }
+
+  function toNum(x){
+    if(x === null || x === undefined) return null;
+    const t = String(x).trim();
+    if(!t) return null;
+    if(t === '-' || t.toLowerCase().startsWith('s/')) return null;
+    // remove %
+    let s = t.replace('%','').trim();
+    // pt-BR
+    if(s.includes(',') && s.includes('.')) s = s.replace(/\./g,'').replace(',', '.');
+    else if(s.includes(',') && !s.includes('.')) s = s.replace(',', '.');
+    // remove espaços
+    s = s.replace(/\s+/g,'');
+    const n = Number(s);
+    return Number.isFinite(n) ? n : null;
+  }
+
+  function dotColor(status){
+    const s = (status ?? '-').toString().toLowerCase();
+    if(s.includes('atingido') && !s.includes('nao') && !s.includes('não') && !s.includes('ñ')) return '#00B050';
+    if(s.includes('nao') || s.includes('não') || s.includes('ñ')) return '#FF0101';
+    if(s.includes('indef')) return '#FFC000';
+    return '#9ca3af';
+  }
+
+  function monthIndexFromText(mesTexto){
+    const m = norm(mesTexto);
+    return mesesOrdem.indexOf(m);
+  }
+
+  function exportCSV(rows){
+    const csv = Papa.unparse(rows);
+    const blob = new Blob(["\ufeff" + csv], {type:'text/csv;charset=utf-8;'});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'export_painel_gerencial.csv';
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    URL.revokeObjectURL(url);
+  }
+
+  // -------------------------
+  // DADOS / ESTADO
+  // -------------------------
+  let raw = [];
+  let filtered = [];
+  let table;
+
+  function fillSelect(id, values, allLabel='(Todos)'){
+    const sel = document.getElementById(id);
+    sel.innerHTML = '';
+
+    const o0 = document.createElement('option');
+    o0.value = '';
+    o0.textContent = allLabel;
+    sel.appendChild(o0);
+
+    values.forEach(v => {
+      const o = document.createElement('option');
+      o.value = v;
+      o.textContent = v;
+      sel.appendChild(o);
+    });
+  }
+
+  function currentFilters(){
+    return {
+      Localidade: document.getElementById('fLocalidade').value,
+      Ano: document.getElementById('fAno').value,
+      Mes: document.getElementById('fMes').value,
+      Area: document.getElementById('fArea').value,
+      Impacto: document.getElementById('fImpacto').value,
+      Tipo: document.getElementById('fTipo').value,
+      Status: document.getElementById('fStatus').value,
+      Indicador: document.getElementById('fIndicador').value,
+      Search: document.getElementById('fSearch').value.trim().toLowerCase(),
+    };
+  }
+
+  function applyFilters(){
+    const f = currentFilters();
+
+    filtered = raw.filter(r => {
+      if(f.Localidade && (r.Localidade ?? '') !== f.Localidade) return false;
+      if(f.Ano && String(r.Ano ?? '') !== String(f.Ano)) return false;
+      if(f.Mes && (r.MesTexto ?? '') !== f.Mes) return false;
+      if(f.Area && (r.Area ?? '') !== f.Area) return false;
+      if(f.Impacto && (r.ImpactoDireto ?? '') !== f.Impacto) return false;
+      if(f.Tipo && (r.TipoN ?? '') !== f.Tipo) return false;
+      if(f.Status && (r.Status ?? '') !== f.Status) return false;
+      if(f.Search){
+        const hay = [r.Area, r.Responsavel, r.Indicador, r.ImpactoDireto, r.TipoN, r.Meta, r.Resultado, r.Status, r.Comentarios, r.Acoes]
+          .filter(Boolean)
+          .join(' ')
+          .toLowerCase();
+        if(!hay.includes(f.Search)) return false;
+      }
+      return true;
+    });
+
+    document.getElementById('tagRows').textContent = `${filtered.length} linhas`;
+    refreshKPIs();
+    refreshCharts();
+    if(table) table.replaceData(filtered);
+  }
+
+  function refreshKPIs(){
+    const linhas = filtered.length;
+    const ind = new Set(filtered.map(r => r.Indicador).filter(Boolean)).size;
+    const ok = filtered.filter(r => (r.Status ?? '') === 'Atingido').length;
+    const ko = filtered.filter(r => (r.Status ?? '') === 'Ñ Atingido').length;
+    const indef = filtered.filter(r => (r.Status ?? '') === 'Indefinido').length;
+    const denom = ok + ko;
+    const rate = denom ? (ok/denom*100) : null;
+
+    document.getElementById('kLinhas').textContent = linhas;
+    document.getElementById('kIndicadores').textContent = ind;
+    document.getElementById('kOk').textContent = ok;
+    document.getElementById('kKo').textContent = ko;
+    document.getElementById('kIndef').textContent = indef;
+    document.getElementById('kRate').textContent = rate === null ? '—' : `${rate.toFixed(1)}%`;
+
+    const anos = uniq(filtered.map(r => String(r.Ano ?? '')).filter(Boolean));
+    const meses = uniq(filtered.map(r => r.MesTexto).filter(Boolean));
+    document.getElementById('tagInfo').textContent = `${anos.length ? anos.join(', ') : '—'} | ${meses.length ? meses.join(', ') : 'Todos os meses'}`;
+  }
+
+  function refreshCharts(){
+    // Status (donut)
+    const labels = ['Atingido','Ñ Atingido','Indefinido','-'];
+    const values = labels.map(s => filtered.filter(r => (r.Status ?? '-') === s).length);
+    const colors = labels.map(dotColor);
+
+    Plotly.react('chStatus', [{
+      type:'pie',
+      labels, values,
+      hole:.55,
+      marker:{colors},
+      textinfo:'label+percent',
+      sort:false,
+    }], {
+      margin:{l:10,r:10,t:20,b:10},
+      title:{text:'Status (distribuição)', font:{size:14}},
+    }, {displayModeBar:false, responsive:true});
+
+    // % Atingimento por Área
+    const byArea = {};
+    filtered.forEach(r => {
+      const a = r.Area || '(vazio)';
+      if(!byArea[a]) byArea[a] = {ok:0, ko:0};
+      if(r.Status === 'Atingido') byArea[a].ok++;
+      if(r.Status === 'Ñ Atingido') byArea[a].ko++;
+    });
+
+    const areas = Object.keys(byArea).sort((a,b)=>a.localeCompare(b,'pt-BR'));
+    const rates = areas.map(a => {
+      const d = byArea[a];
+      const denom = d.ok + d.ko;
+      return denom ? (d.ok/denom*100) : null;
+    });
+
+    Plotly.react('chArea', [{
+      type:'bar',
+      x: areas,
+      y: rates,
+      marker:{color:'#F8AD1E'},
+      hovertemplate:'%{x}<br>% Atingimento: %{y:.1f}%<extra></extra>',
+    }], {
+      margin:{l:40,r:10,t:20,b:80},
+      title:{text:'% Atingimento por Área', font:{size:14}},
+      yaxis:{range:[0,100], ticksuffix:'%', gridcolor:'#eee'},
+      xaxis:{tickangle:-25},
+    }, {displayModeBar:false, responsive:true});
+
+    // Tendência do Indicador selecionado
+    const f = currentFilters();
+    const indSel = f.Indicador;
+
+    let series = raw;
+    // aplica filtros gerais (menos Mês e Status e Search) para manter a série coerente
+    series = series.filter(r => {
+      if(f.Localidade && (r.Localidade ?? '') !== f.Localidade) return false;
+      if(f.Ano && String(r.Ano ?? '') !== String(f.Ano)) return false;
+      if(f.Area && (r.Area ?? '') !== f.Area) return false;
+      if(f.Impacto && (r.ImpactoDireto ?? '') !== f.Impacto) return false;
+      if(f.Tipo && (r.TipoN ?? '') !== f.Tipo) return false;
+      if(indSel && (r.Indicador ?? '') !== indSel) return false;
+      return true;
+    });
+
+    series = series
+      .filter(r => r.Ano && r.MesTexto)
+      .sort((a,b) => {
+        const ay = Number(a.Ano||0), by = Number(b.Ano||0);
+        if(ay !== by) return ay - by;
+        return monthIndexFromText(a.MesTexto) - monthIndexFromText(b.MesTexto);
+      });
+
+    const x = series.map(r => `${r.MesTexto} ${r.Ano}`);
+    const meta = series.map(r => r.MetaNum);
+    const res = series.map(r => r.ResultadoNum);
+
+    const hasAny = meta.some(v => v !== null) || res.some(v => v !== null);
+
+    Plotly.react('chTrend', [
+      {type:'scatter', mode:'lines+markers', name:'Resultado (num)', x, y: res, line:{color:'#111', width:2}, marker:{size:7}},
+      {type:'scatter', mode:'lines+markers', name:'Meta (num)', x, y: meta, line:{color:'#F8AD1E', width:3, dash:'dot'}, marker:{size:7}},
+    ], {
+      margin:{l:50,r:10,t:30,b:60},
+      title:{text: indSel ? `Tendência: ${indSel}` : 'Tendência (selecione um indicador)', font:{size:14}},
+      yaxis:{gridcolor:'#eee'},
+      xaxis:{tickangle:-20},
+      annotations: hasAny ? [] : [{
+        text: "Sem valores numéricos para Meta/Resultado neste recorte (ex.: 'S/ meta')",
+        xref:'paper', yref:'paper', x:0.5, y:0.5, showarrow:false, font:{color:'#666'}
+      }]
+    }, {displayModeBar:false, responsive:true});
+
+    document.getElementById('trendHint').textContent =
+      'O gráfico usa os filtros (Localidade, Ano, Área, Impacto, Tipo) e o Indicador selecionado. Ele ignora Status/Mês/Busca para não “quebrar” a série.';
+  }
+
+  function makeTable(){
+    table = new Tabulator('#tb', {
+      data: [],
+      layout: 'fitDataStretch',
+      height: 620,
+      pagination: true,
+      paginationSize: 25,
+      movableColumns: true,
+      initialSort: [
+        {column:'Ano', dir:'desc'},
+        {column:'MesTexto', dir:'asc'},
+        {column:'Area', dir:'asc'},
+        {column:'Indicador', dir:'asc'},
+      ],
+      columns: [
+        {title:'Status', field:'Status', width:140, formatter:(cell)=>{
+          const v = cell.getValue() || '-';
+          const c = dotColor(v);
+          return `<span class="status-pill"><span class="dot" style="background:${c}"></span>${v}</span>`;
+        }},
+        {title:'Área', field:'Area', width:170},
+        {title:'Indicador', field:'Indicador', width:420},
+        {title:'Ano', field:'Ano', width:90},
+        {title:'Mês', field:'MesTexto', width:140},
+        {title:'Meta', field:'Meta', width:140},
+        {title:'Resultado', field:'Resultado', width:140},
+        {title:'Responsável', field:'Responsavel', width:180},
+        {title:'Impacto DIRETO', field:'ImpactoDireto', width:190},
+        {title:'Tipo N', field:'TipoN', width:100},
+        {title:'Localidade', field:'Localidade', width:120},
+        {title:'Comentários', field:'Comentarios', width:240},
+        {title:'Ações', field:'Acoes', width:240},
+        {title:'Link', field:'Link', width:160},
+        {title:'Código único', field:'CodigoUnico', width:140},
+      ]
+    });
+  }
+
+  function setDefaultMonthYear(){
+    // tenta setar mês anterior e ano atual, igual a ideia do seu metas_n3.html
+    const hoje = new Date();
+    let mesAnterior = hoje.getMonth() - 1; // 0=jan
+    let ano = hoje.getFullYear();
+    if(mesAnterior < 0){ mesAnterior = 11; ano -= 1; }
+
+    const nomes = ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'];
+    const mesTxt = nomes[mesAnterior];
+
+    const selAno = document.getElementById('fAno');
+    const selMes = document.getElementById('fMes');
+
+    if([...selAno.options].some(o => o.value === String(ano))) selAno.value = String(ano);
+    if([...selMes.options].some(o => o.value === mesTxt)) selMes.value = mesTxt;
+  }
+
+  async function loadData(){
+    const url = getCsvUrl();
+    document.getElementById('tagInfo').textContent = 'Carregando...';
+
+    const resp = await fetch(url, {cache:'no-store'});
+    if(!resp.ok) throw new Error(`Não foi possível carregar a base: ${url}. Coloque o arquivo no repositório ou use a URL RAW do GitHub.`);
+    const text = await resp.text();
+
+    // PapaParse com auto-detect de delimitador
+    const parsed = Papa.parse(text, {
+      header:true,
+      skipEmptyLines:true,
+      dynamicTyping:false,
+      delimiter: "", // auto
+    });
+
+    if(parsed.errors && parsed.errors.length){
+      console.warn('Erros de parse:', parsed.errors);
+    }
+
+    const headers = parsed.meta.fields || [];
+
+    // Descobrir quais colunas do CSV correspondem às chaves que queremos
+    const map = {};
+    headers.forEach(h => {
+      const n = norm(h);
+      if(!map.Area && n.startsWith('area')) map.Area = h;
+      if(!map.Responsavel && n.startsWith('respons')) map.Responsavel = h;
+      if(!map.Indicador && n.includes('indicador')) map.Indicador = h;
+      if(!map.Impacto && n.includes('impacto')) map.Impacto = h;
+      if(!map.Tipo && (n === 'tipo n' || n.startsWith('tipo'))) map.Tipo = h;
+      if(!map.Meta && n === 'meta') map.Meta = h;
+      if(!map.Resultado && n.includes('resultado')) map.Resultado = h;
+      if(!map.MesTexto && (n.includes('mes texto') || n === 'mestexto')) map.MesTexto = h;
+      if(!map.Ano && n === 'ano') map.Ano = h;
+      if(!map.Status && n.includes('status')) map.Status = h;
+      if(!map.Localidade && n.includes('localidade')) map.Localidade = h;
+      if(!map.Comentarios && n.includes('coment')) map.Comentarios = h;
+      if(!map.Acoes && (n.includes('acoes') || n.includes('acao'))) map.Acoes = h;
+      if(!map.Link && n.includes('link')) map.Link = h;
+      if(!map.CodigoUnico && n.includes('codigo unico')) map.CodigoUnico = h;
+    });
+
+    raw = (parsed.data || []).map(r => {
+      const obj = {
+        Area: (r[map.Area] ?? '').toString().trim(),
+        Responsavel: (r[map.Responsavel] ?? '').toString().trim(),
+        Indicador: (r[map.Indicador] ?? '').toString().trim(),
+        ImpactoDireto: (r[map.Impacto] ?? '').toString().trim(),
+        TipoN: (r[map.Tipo] ?? '').toString().trim(),
+        Meta: (r[map.Meta] ?? '').toString().trim(),
+        Resultado: (r[map.Resultado] ?? '').toString().trim(),
+        MesTexto: (r[map.MesTexto] ?? '').toString().trim(),
+        Ano: (r[map.Ano] ?? '').toString().trim(),
+        Status: (r[map.Status] ?? '').toString().trim() || '-',
+        Localidade: (r[map.Localidade] ?? '').toString().trim(),
+        Comentarios: (r[map.Comentarios] ?? '').toString().trim(),
+        Acoes: (r[map.Acoes] ?? '').toString().trim(),
+        Link: (r[map.Link] ?? '').toString().trim(),
+        CodigoUnico: (r[map.CodigoUnico] ?? '').toString().trim(),
+      };
+
+      // Corrige status comum (se vier diferente)
+      if(norm(obj.Status) === 'nao atingido' || norm(obj.Status) === 'n atingido') obj.Status = 'Ñ Atingido';
+
+      // numéricos (para o trend)
+      obj.MetaNum = toNum(obj.Meta);
+      obj.ResultadoNum = toNum(obj.Resultado);
+
+      return obj;
+    }).filter(r => r.Area || r.Indicador); // remove lixo
+
+    // Se tiver CSV no padrão antigo, às vezes Ano e MêsTexto vêm trocados.
+    // Detecta e tenta corrigir quando MesTexto for número/ano e Ano for texto de status.
+    const amostra = raw.slice(0, 30);
+    const pareceMesErrado = amostra.some(r => /^(19|20)\d{2}$/.test(r.MesTexto));
+    const pareceAnoErrado = amostra.some(r => ['atingido','indefinido','nao atingido','ñ atingido'].includes(norm(r.Ano)));
+
+    if(pareceMesErrado && pareceAnoErrado){
+      // tenta swap (caso seu CSV esteja desalinhado)
+      raw = raw.map(r => {
+        const novo = {...r};
+        const tmp = novo.MesTexto;
+        novo.MesTexto = novo.Ano;
+        novo.Ano = tmp;
+        return novo;
+      });
+    }
+
+    // Preencher filtros
+    fillSelect('fLocalidade', uniq(raw.map(r => r.Localidade)), '(Todos)');
+    fillSelect('fAno', uniq(raw.map(r => r.Ano)), '(Todos)');
+    fillSelect('fMes', uniq(raw.map(r => r.MesTexto)).sort((a,b)=>monthIndexFromText(a)-monthIndexFromText(b)), '(Todos)');
+    fillSelect('fArea', uniq(raw.map(r => r.Area)), '(Todos)');
+    fillSelect('fImpacto', uniq(raw.map(r => r.ImpactoDireto)), '(Todos)');
+    fillSelect('fTipo', uniq(raw.map(r => r.TipoN)), '(Todos)');
+    fillSelect('fStatus', uniq(raw.map(r => r.Status)), '(Todos)');
+    fillSelect('fIndicador', uniq(raw.map(r => r.Indicador)), '(Escolha)');
+
+    // Defaults
+    const selLoc = document.getElementById('fLocalidade');
+    if([...selLoc.options].some(o => o.value === 'BIZA')) selLoc.value = 'BIZA';
+    setDefaultMonthYear();
+
+    // Seleciona um indicador automaticamente
+    const selInd = document.getElementById('fIndicador');
+    if(selInd.options.length > 1 && !selInd.value) selInd.value = selInd.options[1].value;
+
+    if(!table) makeTable();
+
+    applyFilters();
+  }
+
+  function bind(){
+    const ids = ['fLocalidade','fAno','fMes','fArea','fImpacto','fTipo','fStatus','fIndicador'];
+    ids.forEach(id => document.getElementById(id).addEventListener('change', applyFilters));
+
+    document.getElementById('fSearch').addEventListener('input', () => {
+      window.clearTimeout(window.__t);
+      window.__t = window.setTimeout(applyFilters, 180);
+    });
+
+    document.getElementById('btnLimpar').addEventListener('click', () => {
+      document.getElementById('fLocalidade').value = '';
+      document.getElementById('fAno').value = '';
+      document.getElementById('fMes').value = '';
+      document.getElementById('fArea').value = '';
+      document.getElementById('fImpacto').value = '';
+      document.getElementById('fTipo').value = '';
+      document.getElementById('fStatus').value = '';
+      document.getElementById('fSearch').value = '';
+      // indicador: mantém o selecionado
+      applyFilters();
+    });
+
+    document.getElementById('btnExport').addEventListener('click', () => exportCSV(filtered));
+
+    document.getElementById('fBase').addEventListener('change', () => {
+      // recarrega tudo ao trocar a base
+      loadData().catch(err => {
+        console.error(err);
+        alert(err.message);
+      });
+    });
+  }
+
+  bind();
+  loadData().catch(err => {
+    console.error(err);
+    alert(err.message);
+    document.getElementById('tagInfo').textContent = 'Erro ao carregar';
+  });
+</script>
+</body>
+</html>
