@@ -1,11 +1,11 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Painel Gerencial - Indicadores BIZA</title>
-
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Painel Gerencial - Indicadores BIZA</title>
+<style>
     /* Mantendo o padrão visual visto em metas_n3.html (preto + laranja BIZA) */
     :root{
       --preto:#000000;
@@ -173,123 +173,170 @@
 
     .status-pill{ display:inline-flex; align-items:center; gap:8px; font-weight:bold; }
     .dot{ width:12px; height:12px; border-radius: 50%; display:inline-block; }
-  </style>
+  
 
-  <!-- Bibliotecas via CDN (sem build) -->
-  <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/plotly.js-dist-min@2.30.0/plotly.min.js"></script>
-  <link href="https://cdn.jsdelivr.net/npm/tabulator-tables@6.2.5/dist/css/tabulator.min.css" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/tabulator-tables@6.2.5/dist/js/tabulator.min.js"></script>
+/* Blocos de filtros (agrupamentos) */
+.filtro-bloco{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  align-items:end;
+  padding:10px 12px;
+  border:1px solid #d8d8d8;
+  border-radius:12px;
+  background:#f2f2f2;
+}
+
+.filtro-bloco .bloco-titulo{
+  font-size:12px;
+  font-weight:800;
+  color:#666;
+  letter-spacing:.2px;
+  padding:6px 10px;
+  border-radius:999px;
+  background:#e6e6e6;
+  border:1px solid #d5d5d5;
+  align-self:center;
+  white-space:nowrap;
+}
+
+
+/* Sidebar filtros */
+.layout{
+  display:grid;
+  grid-template-columns: 320px 1fr;
+  gap: 16px;
+  align-items:start;
+}
+
+.side-card{
+  background:#fff;
+  border:1px solid #eee;
+  border-radius:10px;
+  padding:12px;
+}
+
+.side-title{
+  font-size:13px;
+  font-weight:900;
+  color:#333;
+  margin-bottom:10px;
+}
+
+/* Na sidebar, cada controle vira coluna */
+.sidebar .filtro-bloco{
+  margin-bottom:12px;
+}
+
+.sidebar .filtro-bloco > div:not(.bloco-titulo){
+  width:100%;
+}
+
+.sidebar select, .sidebar input{
+  width:100%;
+  min-width:0;
+}
+
+@media (max-width: 1100px){
+  .layout{ grid-template-columns: 1fr; }
+}
+</style>
+<!-- Bibliotecas via CDN (sem build) -->
+<script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/plotly.js-dist-min@2.30.0/plotly.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/tabulator-tables@6.2.5/dist/css/tabulator.min.css" rel="stylesheet"/>
+<script src="https://cdn.jsdelivr.net/npm/tabulator-tables@6.2.5/dist/js/tabulator.min.js"></script>
 </head>
-
 <body>
-  <div class="topo">
-    <h1>Painel Gerencial — Indicadores BIZA</h1>
-    <div class="sub">Visão única com filtros (base CSV do GitHub / repositório)</div>
-  </div>
+<div class="topo">
+<h1>Painel Gerencial — Indicadores BIZA</h1>
+<div class="sub">Visão única com filtros (base CSV do GitHub / repositório)</div>
+</div>
+<div class="filtros">
+<div>
+<label>Base CSV:</label>
+<select id="fBase">
+<option value="base_n3.csv">base_n3.csv (padrão do site)</option>
+<option value="painel_site_metas_n3.csv">painel_site_metas_n3.csv (export do Excel completo)</option>
+</select>
+</div>
+<div>
+<label>Localidade:</label>
+<select id="fLocalidade"></select>
+</div>
 
-  <div class="filtros">
-    <div>
-      <label>Base CSV:</label>
-      <select id="fBase">
-        <option value="base_n3.csv">base_n3.csv (padrão do site)</option>
-        <option value="painel_site_metas_n3.csv">painel_site_metas_n3.csv (export do Excel completo)</option>
-      </select>
-    </div>
 
-    <div>
-      <label>Localidade:</label>
-      <select id="fLocalidade"></select>
-    </div>
+<div>
+<label>Área:</label>
+<select id="fArea"></select>
+</div>
 
-    <div>
-      <label>Ano:</label>
-      <select id="fAno"></select>
-    </div>
 
-    <div>
-      <label>Mês:</label>
-      <select id="fMes"></select>
-    </div>
 
-    <div>
-      <label>Área:</label>
-      <select id="fArea"></select>
-    </div>
-
-    <div>
-      <label>Impacto:</label>
-      <select id="fImpacto"></select>
-    </div>
-
-    <div>
-      <label>Tipo N:</label>
-      <select id="fTipo"></select>
-    </div>
-
-    <div>
-      <label>Status:</label>
-      <select id="fStatus"></select>
-    </div>
-
-    <div>
-      <label>Indicador (tendência):</label>
-      <select id="fIndicador"></select>
-    </div>
-
-    <div>
-      <label>Busca livre:</label>
-      <input id="fSearch" type="text" placeholder="Ex.: OTIF, estoque, refugo..." />
-    </div>
-
-    <button class="btn" id="btnLimpar">Limpar filtros</button>
-    <button class="btn btn-sec" id="btnExport">Exportar recorte (CSV)</button>
-    <button class="btn" onclick="window.location.href='index.html'">⬅ Voltar</button>
-  </div>
-
-  <div class="wrap">
-    <div class="grid">
-      <div class="kpis">
-        <div class="kpi"><div class="t">Linhas no recorte</div><div class="v" id="kLinhas">—</div><div class="f">KPI x mês</div></div>
-        <div class="kpi"><div class="t">Indicadores únicos</div><div class="v" id="kIndicadores">—</div><div class="f">Quantidade de KPIs</div></div>
-        <div class="kpi ok"><div class="t">Atingido</div><div class="v" id="kOk">—</div><div class="f">Status = Atingido</div></div>
-        <div class="kpi ko"><div class="t">Ñ Atingido</div><div class="v" id="kKo">—</div><div class="f">Status = Ñ Atingido</div></div>
-        <div class="kpi indef"><div class="t">Indefinido</div><div class="v" id="kIndef">—</div><div class="f">Status = Indefinido</div></div>
-        <div class="kpi"><div class="t">% Atingimento</div><div class="v" id="kRate">—</div><div class="f">Atingido/(Atingido+Ñ Atingido)</div></div>
-      </div>
-
-      <div class="card">
-        <div class="hd">Resumo visual <span class="tag" id="tagInfo">Carregando...</span></div>
-        <div class="bd">
-          <div class="charts">
-            <div>
-              <div id="chStatus" style="height:320px;"></div>
-            </div>
-            <div>
-              <div id="chArea" style="height:320px;"></div>
-            </div>
-            <div style="grid-column:1/-1;">
-              <div id="chTrend" style="height:360px;"></div>
-              <div class="hint" id="trendHint"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="hd">Tabela completa (ordenável) <span class="tag" id="tagRows">—</span></div>
-        <div class="bd">
-          <div id="tb" style="height:620px;"></div>
-          <div class="hint">Dica: você pode reordenar colunas na tabela e exportar o recorte com o botão “Exportar”.</div>
-        </div>
-      </div>
-
-      <div class="hint">
+<div>
+<label>Indicador (tendência):</label>
+<select id="fIndicador"></select>
+</div>
+<div>
+<label>Busca livre:</label>
+<input id="fSearch" placeholder="Ex.: OTIF, estoque, refugo..." type="text"/>
+</div>
+<button class="btn" id="btnLimpar">Limpar filtros</button>
+<button class="btn btn-sec" id="btnExport">Exportar recorte (CSV)</button>
+<button class="btn" onclick="window.location.href='index.html'">⬅ Voltar</button>
+</div>
+<div class="wrap"><div class="layout"><aside class="sidebar"><div class="side-card"><div class="side-title">Filtros</div><div class="filtro-bloco" id="bloco-periodo"><div class="bloco-titulo">Período</div><div>
+<label>Ano:</label>
+<select id="fAno"></select>
+</div><div>
+<label>Mês:</label>
+<select id="fMes"></select>
+</div></div><div class="filtro-bloco" id="bloco-classificacao"><div class="bloco-titulo">Classificação</div><div>
+<label>Status:</label>
+<select id="fStatus"></select>
+</div><div>
+<label>Impacto:</label>
+<select id="fImpacto"></select>
+</div><div>
+<label>Tipo N:</label>
+<select id="fTipo"></select>
+</div></div></div></aside><main class="main"><div class="grid">
+<div class="kpis">
+<div class="kpi"><div class="t">Linhas no recorte</div><div class="v" id="kLinhas">—</div><div class="f">KPI x mês</div></div>
+<div class="kpi"><div class="t">Indicadores únicos</div><div class="v" id="kIndicadores">—</div><div class="f">Quantidade de KPIs</div></div>
+<div class="kpi ok"><div class="t">Atingido</div><div class="v" id="kOk">—</div><div class="f">Status = Atingido</div></div>
+<div class="kpi ko"><div class="t">Ñ Atingido</div><div class="v" id="kKo">—</div><div class="f">Status = Ñ Atingido</div></div>
+<div class="kpi indef"><div class="t">Indefinido</div><div class="v" id="kIndef">—</div><div class="f">Status = Indefinido</div></div>
+<div class="kpi"><div class="t">% Atingimento</div><div class="v" id="kRate">—</div><div class="f">Atingido/(Atingido+Ñ Atingido)</div></div>
+</div>
+<div class="card">
+<div class="hd">Resumo visual <span class="tag" id="tagInfo">Carregando...</span></div>
+<div class="bd">
+<div class="charts">
+<div>
+<div id="chStatus" style="height:320px;"></div>
+</div>
+<div>
+<div id="chArea" style="height:320px;"></div>
+</div>
+<div style="grid-column:1/-1;">
+<div id="chTrend" style="height:360px;"></div>
+<div class="hint" id="trendHint"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="card">
+<div class="hd">Tabela completa (ordenável) <span class="tag" id="tagRows">—</span></div>
+<div class="bd">
+<div id="tb" style="height:620px;"></div>
+<div class="hint">Dica: você pode reordenar colunas na tabela e exportar o recorte com o botão “Exportar”.</div>
+</div>
+</div>
+<div class="hint">
         Observação: se Meta/Resultado estiver como “S/ meta” ou “S/ Indicador”, o gráfico de tendência pode ficar sem valores numéricos.
       </div>
-    </div>
-  </div>
-
+</div></main></div></div>
 <script>
   // -------------------------
   // CONFIGURAÇÃO
