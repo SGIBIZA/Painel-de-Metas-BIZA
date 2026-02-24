@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Cálculo de salário</title>
+  <title>Metas Salariais</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -115,18 +115,16 @@
     }
   </style>
 </head>
-
-
 <body>
   <header>
     <img src="logo-BIZAxGHT.png" alt="BIZA">
-    <h1 id="titulo-pagina">Cálculo de salário</h1>
+    <h1 id="titulo-pagina">Metas Salariais</h1>
   </header>
 
   <div class="filters">
     <button onclick="window.location.href='index.html'">⬅ Voltar</button>
     <select id="mesFiltro">
-      <option>Janeiro</option>
+      <option selected>Janeiro</option>
       <option>Fevereiro</option>
       <option>Março</option>
       <option>Abril</option>
@@ -139,10 +137,7 @@
       <option>Novembro</option>
       <option>Dezembro</option>
     </select>
-    <select id="anoFiltro">
-      <option>2024</option>
-      <option>2025</option>
-    </select>
+    <select id="anoFiltro"></select>
     <button id="btnCalculadora">🧮 Calculadora de Salário</button>
   </div>
 
@@ -160,65 +155,30 @@
       </div>
     </div>
   </div>
+
   <!-- Scripts -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
-  
-  <!-- ADICIONE ESTE BLOCO AQUI -->
-  <script>
-    // Função para definir o mês anterior como selecionado
-    function definirMesAnterior() {
-      const mesFiltro = document.getElementById('mesFiltro');
-      const anoFiltro = document.getElementById('anoFiltro');
-      
-      const hoje = new Date();
-      hoje.setMonth(hoje.getMonth() - 1);
-      
-      const mesAnteriorIndex = hoje.getMonth();
-      const anoAtual = hoje.getFullYear();
-      
-      mesFiltro.selectedIndex = mesAnteriorIndex;
-      
-      const opcoesAno = anoFiltro.options;
-      for (let i = 0; i < opcoesAno.length; i++) {
-        if (parseInt(opcoesAno[i].value) === anoAtual) {
-          anoFiltro.selectedIndex = i;
-          break;
-        }
-      }
-      
-      atualizarTitulo();
-    }
+<script>
+  (function preencherAnoFiltro() {
+    const anoSelect = document.getElementById("anoFiltro");
+    if (!anoSelect) return;
 
-    function atualizarTitulo() {
-      const mesFiltro = document.getElementById('mesFiltro');
-      const anoFiltro = document.getElementById('anoFiltro');
-      const titulo = document.getElementById('titulo-pagina');
-      
-      const mesSelecionado = mesFiltro.options[mesFiltro.selectedIndex].text;
-      const anoSelecionado = anoFiltro.options[anoFiltro.selectedIndex].text;
-      
-      const proximoMesIndex = (mesFiltro.selectedIndex + 1) % 12;
-      const proximoMes = mesFiltro.options[proximoMesIndex].text;
-      
-      titulo.textContent = `Cálculo de salário – Resultado de ${mesSelecionado} ${anoSelecionado} – Pagamento de ${proximoMes}`;
-    }
+    const anoAtual = new Date().getFullYear();
+    const anoAnterior = anoAtual - 1;
 
-    window.addEventListener('DOMContentLoaded', function() {
-      definirMesAnterior();
+    anoSelect.innerHTML = "";
+    [anoAtual, anoAnterior].forEach((ano, idx) => {
+      const opt = document.createElement("option");
+      opt.value = String(ano);
+      opt.textContent = String(ano);
+      if (idx === 0) opt.selected = true;
+      anoSelect.appendChild(opt);
     });
+  })();
+</script>
 
-    document.getElementById('mesFiltro').addEventListener('change', atualizarTitulo);
-    document.getElementById('anoFiltro').addEventListener('change', atualizarTitulo);
-  </script>
-  <!-- FIM DO BLOCO -->
-  
-  <script src="script.js"></script>
-</body>
-</html>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+<script src="script.js"></script>
 
-  <!-- Scripts -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
-  <script src="script.js"></script>
 </body>
 </html>
 
