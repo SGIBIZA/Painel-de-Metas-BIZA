@@ -180,40 +180,13 @@ table {
     background: #222;
 }
 
-
-/* Botão ao lado do título (Painel Gerencial) */
-.topo-inner{
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  gap:14px;
-}
-
-.btn-top-painel{
-  background:#f2f2f2;
-  color:#555;
-  font-weight:bold;
-  padding:8px 14px;
-  border:1px solid #ccc;
-  border-radius:8px;
-  cursor:pointer;
-  font-size:14px;
-}
-
-.btn-top-painel:hover{
-  background:#e6e6e6;
-}
-
 </style>
 
 </head>
 <body>
 
 <div class="topo">
-  <div class="topo-inner">
-    <h1>Filtro de Indicadores N3</h1>
-    <button class="btn-top-painel" onclick="window.location.href='Painel%20Gerencial%20-%20Indicadores%20BIZA.html'">Painel Gerencial</button>
-  </div>
+  <h1>Filtro de Indicadores N3</h1>
 </div>
 
 <div class="filtros">
@@ -242,8 +215,6 @@ table {
     </table>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
-
 <script>
 // Caminho do CSV direto do GitHub
 const CSV_URL = "https://raw.githubusercontent.com/SGIBIZA/Painel-de-Metas-BIZA/main/base_n3.csv";
@@ -252,31 +223,6 @@ const CSV_URL = "https://raw.githubusercontent.com/SGIBIZA/Painel-de-Metas-BIZA/
 let dadosCSV = [];
 let cabecalhos = [];
 
-// -----------------------------
-// utilidades
-// -----------------------------
-function normalizar(txt) {
-  return (txt || "")
-    .toString()
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "")
-    .replace(/[^a-zA-Z0-9 ]/g, "")
-    .toLowerCase()
-    .trim();
-}
-
-function normalizarCabecalho(c) {
-  return (c || "")
-    .toString()
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "")
-    .replace(/[^a-zA-Z0-9 ]/g, "")
-    .trim();
-}
-
-// -----------------------------
-// bootstrap
-// -----------------------------
 document.addEventListener("DOMContentLoaded", () => {
   carregarCSV();
 
@@ -286,7 +232,11 @@ document.addEventListener("DOMContentLoaded", () => {
   function aoMudarFiltro() {
     const mes = filtroMes.value;
     const ano = filtroAno.value;
-    if (mes && ano) filtrar();
+
+    // só filtra se os DOIS estiverem preenchidos
+    if (mes && ano) {
+      filtrar();
+    }
   }
 
   filtroMes.addEventListener("change", aoMudarFiltro);
@@ -294,69 +244,85 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // -----------------------------
-// 1) Carregar CSV com parser real
+// 1) Carregar CSV do GitHub
 // -----------------------------
 function carregarCSV() {
-  Papa.parse(CSV_URL, {
-    download: true,
-    header: true,
-    delimiter: ";",
-    skipEmptyLines: true,
-    complete: function(results) {
-      const headersOriginais = results.meta.fields || [];
-
-      cabecalhos = headersOriginais.map(normalizarCabecalho);
-
-      dadosCSV = (results.data || []).map(row => {
-        const item = {};
-        headersOriginais.forEach((h, i) => {
-          const chaveNorm = cabecalhos[i];
-          item[chaveNorm] = (row[h] ?? "").toString();
-        });
-        return item;
-      });
-
+  fetch(CSV_URL)
+    .then(resp => resp.text())
+    .then(texto => {
+      processarCSV(texto);
       preencherFiltros();
-    },
-    error: function(err) {
-      console.error("Erro ao carregar CSV:", err);
-    }
+    })
+    .catch(err => console.error("Erro ao carregar CSV:", err));
+}
+
+// -----------------------------
+// 2) Processar CSV
+// -----------------------------
+function processarCSV(texto) {
+  const linhas = texto.split("\n").map(l => l.trim()).filter(l => l);
+
+  // Remove BOM
+  let header = linhas[0].replace(/^\uFEFF/, '').split(";");
+
+  // Normalização dos nomes das colunas
+  cabecalhos = header.map(c =>
+    c.normalize("NFD")
+     .replace(/[\u0300-\u036f]/g, "") // remove acentos
+     .replace(/[^a-zA-Z0-9 ]/g, "")   // remove caracteres � e outros
+     .trim()
+  );
+
+  linhas.shift(); // remove a linha do cabeçalho
+
+  dadosCSV = linhas.map(linha => {
+    const colunas = linha.split(";");
+    const item = {};
+
+    cabecalhos.forEach((c, i) => {
+      item[c] = colunas[i] || "";
+    });
+
+    return item;
   });
 }
 
-// Mantido por compatibilidade (não usado agora)
-function processarCSV() {}
-
 // -----------------------------
-// 2) Criar filtros de Mês e Ano
+// 3) Criar filtros de Mês e Ano
 // -----------------------------
 function preencherFiltros() {
   const filtroMes = document.getElementById("filtroMes");
   const filtroAno = document.getElementById("filtroAno");
 
-  const meses = new Set();
-  const anos = new Set();
+  let meses = new Set();
+  let anos = new Set();
 
-  const mesKey = cabecalhos.find(c => normalizar(c).includes("mes texto"));
-  const anoKey = cabecalhos.find(c => normalizar(c) === "ano");
+  // Descobre quais são as colunas de "Mês texto" e "Ano"
+  const mesKey = cabecalhos.find(c =>
+    c.toLowerCase().includes("mês texto") || c.toLowerCase().includes("mes texto")
+  );
+  const anoKey = cabecalhos.find(c =>
+    c.toLowerCase().trim() === "ano"
+  );
 
   dadosCSV.forEach(item => {
-    meses.add(item[mesKey] || "");
-    anos.add(item[anoKey] || "");
+    meses.add(item[mesKey]);
+    anos.add(item[anoKey]);
   });
 
   filtroMes.innerHTML = "<option value=''>Selecione</option>";
   filtroAno.innerHTML = "<option value=''>Selecione</option>";
 
-  [...meses].filter(Boolean).forEach(m => filtroMes.innerHTML += `<option value="${m}">${m}</option>`);
-  [...anos].filter(Boolean).forEach(a => filtroAno.innerHTML += `<option value="${a}">${a}</option>`);
+  meses.forEach(m => filtroMes.innerHTML += `<option value="${m}">${m}</option>`);
+  anos.forEach(a => filtroAno.innerHTML += `<option value="${a}">${a}</option>`);
 
+  // 🔹 DEFINIR MÊS ANTERIOR E ANO ATUAL AO ABRIR O SITE
   const hoje = new Date();
-  let mesAnterior = hoje.getMonth() - 1;
+  let mesAnterior = hoje.getMonth() - 1; // 0 = Janeiro
   let anoAtual = hoje.getFullYear();
 
   if (mesAnterior < 0) {
-    mesAnterior = 11;
+    mesAnterior = 11;       // Dezembro
     anoAtual -= 1;
   }
 
@@ -366,49 +332,78 @@ function preencherFiltros() {
   ];
   const mesAnteriorTexto = nomesMeses[mesAnterior];
 
-  if ([...filtroMes.options].some(o => o.value === mesAnteriorTexto)) filtroMes.value = mesAnteriorTexto;
-  if ([...filtroAno.options].some(o => o.value === String(anoAtual))) filtroAno.value = String(anoAtual);
+  // Tenta aplicar os valores padrão (só se existirem nas opções)
+  if ([...filtroMes.options].some(o => o.value === mesAnteriorTexto)) {
+    filtroMes.value = mesAnteriorTexto;
+  }
+  if ([...filtroAno.options].some(o => o.value === String(anoAtual))) {
+    filtroAno.value = String(anoAtual);
+  }
 
-  if (filtroMes.value && filtroAno.value) filtrar();
+  // 🔹 JÁ CHAMA O FILTRAR UMA VEZ AO CARREGAR A PÁGINA
+  if (filtroMes.value && filtroAno.value) {
+    filtrar();
+  }
 }
 
 // -----------------------------
-// 3) Status
+// 4) Essa função interpreta o texto e devolve a cor certa
 // -----------------------------
+
 function gerarBadgeStatus(status) {
-  const s = (status || "").toString().toLowerCase().trim();
+    const s = status.toLowerCase().trim();
 
-  if (s.includes("atingido") && !s.includes("não") && !s.includes("nao") && !s.includes("ñ")) {
+    // status normalizado
+    if (s.includes("atingido") && !s.includes("não") && !s.includes("nao") && !s.includes("ñ")) {
+        return `<div style="display:flex; align-items:center; gap:6px;">
+                    <div style="width:14px; height:14px; background:#00B050; border-radius:50%;"></div>
+                    <span style="font-weight:bold;">Atingido</span>
+                </div>`;
+    }
+
+    if (s.includes("não") || s.includes("nao") || s.includes("ñ")) {
+        return `<div style="display:flex; align-items:center; gap:6px;">
+                    <div style="width:14px; height:14px; background:#FF0101; border-radius:50%;"></div>
+                    <span style="font-weight:bold;">Não Atingido</span>
+                </div>`;
+    }
+
+    // indefinido = amarelo
     return `<div style="display:flex; align-items:center; gap:6px;">
-              <div style="width:14px; height:14px; background:#00B050; border-radius:50%;"></div>
-              <span style="font-weight:bold;">Atingido</span>
+                <div style="width:14px; height:14px; background:#EEEE00; border-radius:50%;"></div>
+                <span style="font-weight:bold;">Indefinido</span>
             </div>`;
-  }
-
-  if (s.includes("não") || s.includes("nao") || s.includes("ñ")) {
-    return `<div style="display:flex; align-items:center; gap:6px;">
-              <div style="width:14px; height:14px; background:#FF0101; border-radius:50%;"></div>
-              <span style="font-weight:bold;">Não Atingido</span>
-            </div>`;
-  }
-
-  return `<div style="display:flex; align-items:center; gap:6px;">
-            <div style="width:14px; height:14px; background:#EEEE00; border-radius:50%;"></div>
-            <span style="font-weight:bold;">Indefinido</span>
-          </div>`;
 }
+
+// Criar função auxiliar que devolve a cor do STATUS
 
 function corDoStatus(status) {
-  const s = (status || "").toString().toLowerCase().trim();
+    const s = status.toLowerCase().trim();
 
-  if (s.includes("atingido") && !s.includes("não") && !s.includes("nao") && !s.includes("ñ")) return "#00B050";
-  if (s.includes("não") || s.includes("nao") || s.includes("ñ")) return "#FF0101";
-  return "#FFC000";
+    if (s.includes("atingido") && !s.includes("não") && !s.includes("nao") && !s.includes("ñ")) {
+        return "#00B050"; // verde
+    }
+    if (s.includes("não") || s.includes("nao") || s.includes("ñ")) {
+        return "#FF0101"; // vermelho
+    }
+    
+    return "#FFC000"; // indefinido = amarelo
 }
 
 // ==========================================================
 //  LISTAS DE INDICADORES COM FORMATAÇÃO CONTROLADA
 // ==========================================================
+
+// Normaliza texto para comparação correta
+function normalizar(txt) {
+    return txt
+        ?.normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .replace(/[^a-zA-Z0-9 ]/g, "")
+        .toLowerCase()
+        .trim();
+}
+
 const LISTA_A_PERCENTUAL = [
   "Índice de Garantia procedente BIZA",
   "Refugo​ Interno",
@@ -453,72 +448,98 @@ const LISTA_C_META_PERCENTUAL = [
 ].map(normalizar);
 
 // ==========================================================
-//  FORMATADORES
+//  FORMATADORES ESPECÍFICOS
 // ==========================================================
+
+// -- formatar % --
 function formatarPercentual(valor) {
-  if (!valor) return valor;
-  if (String(valor).includes("%")) return valor;
+    if (!valor) return valor;
+    if (valor.includes("%")) return valor;
 
-  let num = parseFloat(String(valor).replace(",", "."));
-  if (isNaN(num)) return valor;
+    let num = parseFloat(valor.replace(",", "."));
+    if (isNaN(num)) return valor;
 
-  if (num <= 3) num = num * 100;
-  return num.toFixed(2).replace(".", ",") + "%";
+    // se vier 1.05 → 105%
+    if (num <= 3) num = num * 100;
+
+    return num.toFixed(2).replace(".", ",") + "%";
 }
 
+// -- formatar financeiro --
 function formatarFinanceiro(valor) {
-  if (!valor) return valor;
-  let num = parseFloat(String(valor).replace(",", "."));
-  if (isNaN(num)) return valor;
+    if (!valor) return valor;
+    let num = parseFloat(valor.replace(",", "."));
+    if (isNaN(num)) return valor;
 
-  if (num >= 1_000_000) return (num / 1_000_000).toFixed(2).replace(".", ",") + " mi";
-  if (num >= 1000) return (num / 1000).toFixed(2).replace(".", ",") + " mil";
+    if (num >= 1_000_000)
+        return (num / 1_000_000).toFixed(2).replace(".", ",") + " mi";
 
-  return num.toString().replace(".", ",");
+    if (num >= 1000)
+        return (num / 1000).toFixed(2).replace(".", ",") + " mil";
+
+    return num.toString().replace(".", ",");
 }
+
+// ==========================================================
+//  FUNÇÃO PRINCIPAL DE FORMATAÇÃO CONTROLADA
+// ==========================================================
 
 function formatarValor(indicador, coluna, valor) {
-  if (valor === null || valor === undefined || valor === "") return valor;
-  if (!indicador) return valor;
+    if (!valor) return valor;
+    if (!indicador) return valor;
 
-  const indNorm = normalizar(indicador);
-  const colNorm = (coluna || "").toString().trim();
+    const indNorm = normalizar(indicador);
+    const colNorm = coluna.toString().trim();
 
-  if (LISTA_A_PERCENTUAL.includes(indNorm) && colNorm === "Resultado") return formatarPercentual(valor);
-  if (LISTA_A_PERCENTUAL.includes(indNorm) && colNorm === "Meta") return formatarPercentual(valor);
+    // -----------------------------------------
+    // LISTA A → Resultado em %  (Resultado)
+    // -----------------------------------------
+    if (LISTA_A_PERCENTUAL.includes(indNorm) && colNorm === "Resultado") {
+        return formatarPercentual(valor);
+    }
 
-  if (LISTA_B_FINANCEIRO.includes(indNorm) && (colNorm === "Meta" || colNorm === "Resultado")) {
-    return formatarFinanceiro(valor);
-  }
+    // LISTA A → Meta também em %  (Meta)
+    if (LISTA_A_PERCENTUAL.includes(indNorm) && colNorm === "Meta") {
+        return formatarPercentual(valor);
+    }
 
-  if (LISTA_C_META_PERCENTUAL.includes(indNorm) && colNorm === "Meta") return formatarPercentual(valor);
+    // -----------------------------------------
+    // LISTA B → Valores financeiros
+    // (apenas Meta e Resultado)
+    // -----------------------------------------
+    if (LISTA_B_FINANCEIRO.includes(indNorm) &&
+        (colNorm === "Meta" || colNorm === "Resultado")) {
+        return formatarFinanceiro(valor);
+    }
 
-  let num = parseFloat(String(valor).replace(",", "."));
-  if (!isNaN(num)) return Math.round(num).toString();
+    // -----------------------------------------
+    // LISTA C → Meta em %  (Meta)
+    // -----------------------------------------
+    if (LISTA_C_META_PERCENTUAL.includes(indNorm) && colNorm === "Meta") {
+        return formatarPercentual(valor);
+    }
 
-  return valor;
+     // -----------------------------------------
+    // NOVO: FORMATAR NÚMEROS INTEIROS PARA RESTANTE
+    // -----------------------------------------
+    let num = parseFloat(valor.replace(",", "."));
+    if (!isNaN(num)) {
+        return Math.round(num).toString(); // sem casas decimais
+    }
+    
+    // -----------------------------------------
+    // CASO PADRÃO: devolve o valor original
+    // -----------------------------------------
+    return valor;
 }
 
 // -----------------------------
-// 4) Filtrar e montar a tabela
+// 5) Filtrar e montar a tabela
 // -----------------------------
 function filtrar() {
   const mes = document.getElementById("filtroMes").value;
   const ano = document.getElementById("filtroAno").value;
-
-  const indicadorKey = cabecalhos.find(c => normalizar(c).includes("indicador"));
-  const mesKey = cabecalhos.find(c => normalizar(c).includes("mes texto"));
-  const anoKey = cabecalhos.find(c => normalizar(c) === "ano");
-  const areaKey = cabecalhos.find(c => normalizar(c).startsWith("area"));
-  const respKey = cabecalhos.find(c => normalizar(c).startsWith("respons"));
-  const statusKey = cabecalhos.find(c => normalizar(c).includes("status"));
-
-  // detecta variações de nome
-  const comentariosKey = cabecalhos.find(c => normalizar(c).includes("coment"));
-  const acoesKey = cabecalhos.find(c => {
-    const n = normalizar(c);
-    return n.includes("acao") || n.includes("acoes");
-  });
+const indicadorKey = cabecalhos.find(c => c.toLowerCase().includes("indicador"));
 
   if (!mes || !ano) {
     alert("Selecione Mês e Ano para filtrar.");
@@ -529,120 +550,156 @@ function filtrar() {
   const cabeca = document.getElementById("cabecalho");
   const corpo  = document.getElementById("corpoTabela");
 
-  const filtrados = dadosCSV.filter(item =>
-    (item[mesKey] || "") === mes && (item[anoKey] || "") === ano
+  // Descobre as colunas pelos nomes reais do CSV
+  const mesKey = cabecalhos.find(c =>
+    c.toLowerCase().includes("mês texto") || c.toLowerCase().includes("mes texto")
+  );
+  const anoKey = cabecalhos.find(c =>
+    c.toLowerCase().trim() === "ano"
   );
 
+  const areaKey = cabecalhos.find(c =>
+    c.toLowerCase().startsWith("área") || c.toLowerCase().startsWith("area")
+  );
+  const respKey = cabecalhos.find(c =>
+    c.toLowerCase().startsWith("respons")
+  );
+
+  // Filtro
+  const filtrados = dadosCSV.filter(item =>
+    item[mesKey] === mes && item[anoKey] === ano
+  );
+
+  // Zera tabela principal
   cabeca.innerHTML = "";
   corpo.innerHTML  = "";
 
-  // colunas fixas virtuais para garantir posição
-  const COL_COMENT = "__COMENTARIOS__";
-  const COL_ACOES  = "__ACOES__";
+  // Remove "Área" e "Responsável" da lista de colunas exibidas
+  const colunasCard = cabecalhos.filter(c => c !== areaKey && c !== respKey);
 
-_COMENT, COL_ACOES);
-  } else {
-    colunasCard.push(COL_COMENT, COL_ACOES);
-  }
-
-  // agrupamento por card
+  // Agrupamento por card
   const grupos = {};
   filtrados.forEach(item => {
-    const chave = `${item[areaKey] || "-"} – ${item[respKey] || "-"}`;
+    const chave = `${item[areaKey]} – ${item[respKey]}`;
     if (!grupos[chave]) grupos[chave] = [];
     grupos[chave].push(item);
   });
 
+  // Montagem dos cards
   Object.keys(grupos).forEach(grupoNome => {
+
+    // 🔶 Linha de título do card
     const linhaGrupo = document.createElement("tr");
     linhaGrupo.innerHTML = `
       <td colspan="${colunasCard.length}"
-          style="background:#333; color:#FFFFFF; cursor:pointer; padding:12px; font-size:20px; font-weight:bold;">
+          style="background:#333; color:#FFFFFF;
+                 cursor:pointer; padding:12px;
+                 font-size:20px; font-weight:bold;">
         ▼ ${grupoNome}
       </td>
     `;
     corpo.appendChild(linhaGrupo);
 
+    // 🔷 Tabela interna do card
     const tabelaCard = document.createElement("table");
     tabelaCard.classList.add("card-table");
     tabelaCard.style.width = "100%";
     tabelaCard.style.marginBottom = "25px";
-    tabelaCard.style.display = "none";
+    tabelaCard.style.display = "none";   // 🔥 AGORA O CARD COMEÇA FECHADO
 
     const thead = document.createElement("thead");
     const tbody = document.createElement("tbody");
 
+    // Cabeçalho da tabela interna
     const headerRow = document.createElement("tr");
-    headerRow.innerHTML = colunasCard.map(c => {
-      if (c === COL_COMENT) return "<th>Comentários</th>";
-      if (c === COL_ACOES) return "<th>Ações</th>";
-      return `<th>${c}</th>`;
-    }).join("");
+    headerRow.innerHTML = colunasCard
+      .map(c => `<th>${c}</th>`)
+      .join("");
     thead.appendChild(headerRow);
 
+    // Linhas de dados
     grupos[grupoNome].forEach(item => {
       const linha = document.createElement("tr");
 
-      linha.innerHTML = colunasCard.map(c => {
-        if (c === COL_COMENT) {
-          const valor = comentariosKey ? (item[comentariosKey] ?? "") : "";
-          return `<td style="white-space: pre-line;">${valor}</td>`;
-        }
+  linha.innerHTML = colunasCard.map(c => {
+    let valor = item[c];
 
-        if (c === COL_ACOES) {
-          const valor = acoesKey ? (item[acoesKey] ?? "") : "";
-          return `<td style="white-space: pre-line;">${valor}</td>`;
-        }
+    // STATUS COM BOLINHA
+    if (c.toLowerCase().includes("status")) {
+        return `<td>${gerarBadgeStatus(valor)}</td>`;
+    }
 
-        const valor = item[c] ?? "";
+    // RESULTADO COLORIDO
+    if (c.toLowerCase().includes("resultado")) {
+        const statusKey = cabecalhos.find(x =>
+            x.toLowerCase().includes("status")
+        );
+        const cor = corDoStatus(item[statusKey]);
 
-        if (normalizar(c).includes("status")) {
-          return `<td>${gerarBadgeStatus(valor)}</td>`;
-        }
+        return `<td style="
+            background:${cor};
+            color:white;
+            font-weight:bold;
+            text-align:center;
+            border-radius:4px;
+        ">${formatarValor(item[indicadorKey], "Resultado", valor)
+}</td>`;
+    }
 
-        if (normalizar(c).includes("resultado")) {
-          const cor = corDoStatus(item[statusKey] || "");
-          return `<td style="background:${cor}; color:white; font-weight:bold; text-align:center; border-radius:4px;">
-                    ${formatarValor(item[indicadorKey], "Resultado", valor)}
-                  </td>`;
-        }
-
-        return `<td>${formatarValor(item[indicadorKey], c, valor)}</td>`;
-      }).join("");
+    // OUTRAS COLUNAS FORMATADAS
+   return `<td>${formatarValor(item[indicadorKey], c, valor)
+}</td>`;
+}).join("");
 
       tbody.appendChild(linha);
     });
 
     tabelaCard.appendChild(thead);
     tabelaCard.appendChild(tbody);
+    // Criar linha que vai conter a tabela interna
+const linhaTabela = document.createElement("tr");
+const tdTabela = document.createElement("td");
 
-    const linhaTabela = document.createElement("tr");
-    const tdTabela = document.createElement("td");
-    tdTabela.colSpan = colunasCard.length;
-    tdTabela.appendChild(tabelaCard);
-    linhaTabela.appendChild(tdTabela);
-    corpo.appendChild(linhaTabela);
+// Faz a tabela ocupar toda a largura do card
+tdTabela.colSpan = colunasCard.length;
 
+// Insere a tabela interna dentro do TD
+tdTabela.appendChild(tabelaCard);
+
+// Insere TD dentro do TR
+linhaTabela.appendChild(tdTabela);
+
+// Insere o TR dentro do corpo da tabela principal
+corpo.appendChild(linhaTabela);
+
+    // Toggle abre/fecha a tabela interna
     linhaGrupo.addEventListener("click", () => {
-      tabelaCard.style.display = tabelaCard.style.display === "none" ? "" : "none";
+      tabelaCard.style.display =
+        tabelaCard.style.display === "none" ? "" : "none";
     });
   });
 
   tabela.style.display = "table";
 }
-
 function toggleTodos() {
-  const todasTabelas = document.querySelectorAll(".card-table");
-  let temAlgumaAberta = false;
+    // Seleciona todas as tabelas internas dos cards
+    const todasTabelas = document.querySelectorAll(".card-table");
 
-  todasTabelas.forEach(t => {
-    if (t.style.display !== "none") temAlgumaAberta = true;
-  });
+    let temAlgumaAberta = false;
 
-  todasTabelas.forEach(t => {
-    t.style.display = temAlgumaAberta ? "none" : "";
-  });
+    // Verifica se existe pelo menos uma aberta
+    todasTabelas.forEach(t => {
+        if (t.style.display !== "none") temAlgumaAberta = true;
+    });
+
+    // Se existe aberta → fecha todas
+    // Se todas fechadas → abre todas
+    todasTabelas.forEach(t => {
+        t.style.display = temAlgumaAberta ? "none" : "";
+    });
 }
+
 </script>
+
 </body>
 </html>
