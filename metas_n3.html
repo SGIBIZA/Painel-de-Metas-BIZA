@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Indicadores N3 - Filtro por Mês e Ano</title>
+
 <style>
   body {
     font-family: Arial, sans-serif;
@@ -10,7 +11,9 @@
     background: #f2f2f2;
   }
 
-  /* Cabeçalho no padrão BIZA */
+  /* =========================
+     CABEÇALHO
+  ========================= */
   .topo {
     background: #000000;
     padding: 25px;
@@ -19,18 +22,34 @@
 
   .topo h1 {
     margin: 0;
-    color: #F8AD1E; /* Laranja GHT */
+    color: #F8AD1E;
     font-size: 32px;
     font-weight: bold;
   }
 
-  /* Área de filtros */
- .filtros {
-    padding: 20px 30px;
-    display: flex;
-    flex-wrap: wrap;      /* quebra linha no mobile se faltar espaço */
-    gap: 10px;            /* espaço entre os elementos */
-    align-items: center;  /* alinha tudo na mesma altura */
+/* =========================
+   BARRA FIXA DOS FILTROS
+========================= */
+.barra-filtros-fixa {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  background: #f2f2f2;
+  padding: 12px 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* =========================
+   FILTROS
+========================= */
+.filtros {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 0 30px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
 }
 
   label {
@@ -60,45 +79,70 @@
     background: #e19b16;
   }
 
-  /* Tabela */
-/* Container geral centralizado e responsivo */
+  .btn-voltar {
+    background: #F8AD1E;
+    color: black;
+    font-weight: bold;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 15px;
+  }
+
+  .btn-voltar:hover {
+    background: #e19b16;
+  }
+
+  .btn-toggle-all {
+    background: #000;
+    color: #F8AD1E;
+    font-weight: bold;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 15px;
+  }
+
+  .btn-toggle-all:hover {
+    background: #222;
+  }
+
+  /* =========================
+     CONTAINER DAS TABELAS
+  ========================= */
 .container-tabelas {
-    width: 100%;
-    max-width: 1250px;   /* TAMANHO PADRÃO DE TODAS AS TABELAS */
-    margin: 0 auto;      /* Centraliza tudo */
-    padding-bottom: 40px;
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 20px 0 40px 0;
 }
 
-/* Mantém as tabelas alinhadas */
-table {
+  .card-wrapper {
+    width: 100%;
+    max-width: 1600px;   /* aumentado */
+    margin: 0 auto;
+  }
+
+  /* =========================
+     TABELA PRINCIPAL
+  ========================= */
+  table {
     width: 100% !important;
     border-collapse: collapse;
     background: white;
     border-radius: 10px;
     overflow: hidden;
     margin: 20px auto;
-}
+  }
 
-/* só a tabela principal começa escondida */
-#tabelaResultado {
+  #tabelaResultado {
     display: none;
-}
-
-/* Rolagem horizontal no mobile */
-@media (max-width: 900px) {
-    .container-tabelas {
-        padding: 0 10px;
-        overflow-x: auto;
-    }
-
-    table {
-        min-width: 900px; /* Mantém formato mesmo no celular */
-    }
-}
-
+  }
 
   th {
-    background: #444; 
+    background: #444;
     color: white;
     font-size: 14px;
     padding: 10px;
@@ -118,15 +162,16 @@ table {
     background: #f1f1f1;
   }
 
-  /* Tabela interna dos cards */
-.card-table {
+  /* =========================
+     TABELAS INTERNAS DOS CARDS
+  ========================= */
+  .card-table {
     width: 100% !important;
-    table-layout: fixed !important;  /* 🔥 PADRONIZA O TAMANHO DAS COLUNAS */
+    table-layout: fixed !important;
     border-collapse: collapse;
-}
+  }
 
-/* Padroniza os cabeçalhos das tabelas */
-.card-table th {
+  .card-table th {
     width: auto;
     text-align: left;
     background: #000000;
@@ -134,571 +179,595 @@ table {
     padding: 10px;
     font-size: 14px;
     font-weight: bold;
-}
+  }
 
-/* Padroniza as células */
-.card-table td {
+  .card-table td {
     padding: 10px;
     border-bottom: 1px solid #ddd;
-    word-wrap: break-word; /* 🔥 impede quebra feia */
-}
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    vertical-align: top;
+  }
 
-/* Centralizar todas as tabelas internas */
-.card-wrapper {
-    width: 100%;
-    max-width: 1250px;   /* 🔥 MESMO PADRÃO PARA TODAS */
-    margin: 0 auto;
-}
-.btn-voltar {
-    background: #F8AD1E;
-    color: black;
-    font-weight: bold;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 15px;
-    /* tiramos margin-left grande */
-}
+  /* =========================
+     LARGURAS DAS COLUNAS
+     Ordem esperada após remover Área e Responsável:
+     1 Indicador
+     2 Impacto DIRETO
+     3 Tipo N
+     4 Meta
+     5 Resultado
+     6 Mes texto
+     7 Ano
+     8 Status
+     9 Comentarios
+     10 Acoes
+  ========================= */
 
-.btn-voltar:hover {
-    background: #e19b16;
-}
+  /* Indicador */
+  .card-table th:nth-child(1),
+  .card-table td:nth-child(1) {
+    width: 150px;
+  }
 
-.btn-toggle-all {
-    background: #000;
-    color: #F8AD1E;
-    font-weight: bold;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 15px;
-}
+  /* Impacto DIRETO */
+  .card-table th:nth-child(2),
+  .card-table td:nth-child(2) {
+    width: 100px;
+  }
 
-.btn-toggle-all:hover {
-    background: #222;
-}
+  /* Tipo N */
+  .card-table th:nth-child(3),
+  .card-table td:nth-child(3) {
+    width: 70px;
+  }
 
+  /* Meta */
+  .card-table th:nth-child(4),
+  .card-table td:nth-child(4) {
+    width: 90px;
+  }
+
+  /* Resultado */
+  .card-table th:nth-child(5),
+  .card-table td:nth-child(5) {
+    width: 100px;
+  }
+
+  /* Mês texto */
+  .card-table th:nth-child(6),
+  .card-table td:nth-child(6) {
+    width: 95px;
+  }
+
+  /* Ano */
+  .card-table th:nth-child(7),
+  .card-table td:nth-child(7) {
+    width: 70px;
+  }
+
+  /* Status */
+  .card-table th:nth-child(8),
+  .card-table td:nth-child(8) {
+    width: 120px;
+  }
+
+  /* Comentários */
+  .card-table th:nth-child(9),
+  .card-table td:nth-child(9) {
+    width: 320px;
+    line-height: 1.4;
+  }
+
+  /* Ações */
+  .card-table th:nth-child(10),
+  .card-table td:nth-child(10) {
+    width: 260px;
+    line-height: 1.4;
+  }
+
+  /* =========================
+     RESPONSIVO
+  ========================= */
+  @media (max-width: 900px) {
+    .container-tabelas {
+      padding: 0 10px;
+      overflow-x: auto;
+    }
+
+    table {
+      min-width: 1300px;
+    }
+  }
 </style>
-
 </head>
+
 <body>
 
 <div class="topo">
   <h1>Filtro de Indicadores N3</h1>
 </div>
 
-<div class="filtros">
-  <label>Mês:</label>
-  <select id="filtroMes"></select>
+<div class="barra-filtros-fixa">
+  <div class="filtros">
+    <label>Mês:</label>
+    <select id="filtroMes"></select>
 
-  <label>Ano:</label>
-  <select id="filtroAno"></select>
+    <label>Ano:</label>
+    <select id="filtroAno"></select>
 
-    <!-- botão filtrAR removido <button onclick="filtrar()">Filtrar</button> -->
+    <button class="btn-voltar" onclick="window.location.href='index.html'">
+      ⬅ Voltar
+    </button>
 
-  <button class="btn-voltar" onclick="window.location.href='index.html'">
-    ⬅ Voltar
-</button>
-
-<button class="btn-toggle-all" onclick="toggleTodos()">
-    Expandir / Recolher Todos
-</button>
-
+    <button class="btn-toggle-all" onclick="toggleTodos()">
+      Expandir / Recolher Todos
+    </button>
+  </div>
 </div>
 
 <div class="container-tabelas">
-    <table id="tabelaResultado">
-        <thead id="cabecalho"></thead>
-        <tbody id="corpoTabela"></tbody>
-    </table>
+
+  <table id="tabelaResultado">
+    <thead id="cabecalho"></thead>
+    <tbody id="corpoTabela"></tbody>
+  </table>
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+
 <script>
-// Caminho do CSV direto do GitHub
-const CSV_URL = "https://raw.githubusercontent.com/SGIBIZA/Painel-de-Metas-BIZA/main/base_n3.csv";
+  // =============================
+  // CONFIGURAÇÕES GERAIS
+  // =============================
+  const CSV_URL = "https://raw.githubusercontent.com/SGIBIZA/Painel-de-Metas-BIZA/main/base_n3.csv";
 
-// Variáveis globais
-let dadosCSV = [];
-let cabecalhos = [];
+  let dadosCSV = [];
+  let cabecalhos = [];
 
-document.addEventListener("DOMContentLoaded", () => {
-  carregarCSV();
+  // =============================
+  // EVENTOS INICIAIS
+  // =============================
+  document.addEventListener("DOMContentLoaded", () => {
+    carregarCSV();
 
-  const filtroMes = document.getElementById("filtroMes");
-  const filtroAno = document.getElementById("filtroAno");
+    const filtroMes = document.getElementById("filtroMes");
+    const filtroAno = document.getElementById("filtroAno");
 
-  function aoMudarFiltro() {
-    const mes = filtroMes.value;
-    const ano = filtroAno.value;
+    function aoMudarFiltro() {
+      const mes = filtroMes.value;
+      const ano = filtroAno.value;
 
-    // só filtra se os DOIS estiverem preenchidos
-    if (mes && ano) {
+      if (mes && ano) {
+        filtrar();
+      }
+    }
+
+    filtroMes.addEventListener("change", aoMudarFiltro);
+    filtroAno.addEventListener("change", aoMudarFiltro);
+  });
+
+  // =============================
+  // 1) CARREGAR CSV
+  // =============================
+  function carregarCSV() {
+    fetch(CSV_URL)
+      .then(resp => resp.text())
+      .then(texto => {
+        processarCSV(texto);
+        preencherFiltros();
+      })
+      .catch(err => console.error("Erro ao carregar CSV:", err));
+  }
+
+  // =============================
+  // 2) PROCESSAR CSV
+  // =============================
+  function processarCSV(texto) {
+    const resultado = Papa.parse(texto, {
+      header: true,
+      delimiter: ";",
+      skipEmptyLines: true
+    });
+
+    if (resultado.errors.length) {
+      console.error("Erros ao processar CSV:", resultado.errors);
+    }
+
+    const headersOriginais = resultado.meta.fields || [];
+
+    const normalizarCabecalho = (txt) =>
+      txt
+        ?.replace(/^\uFEFF/, "")
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .replace(/[^\w ]/g, "")
+        .trim();
+
+    cabecalhos = headersOriginais.map(normalizarCabecalho);
+
+    dadosCSV = resultado.data.map(linha => {
+      const item = {};
+
+      headersOriginais.forEach((cabOriginal, i) => {
+        const cabNormalizado = cabecalhos[i];
+        let valor = linha[cabOriginal];
+
+        if (typeof valor === "string") {
+          valor = valor
+            .replace(/^"|"$/g, "")
+            .replace(/\r\n/g, "<br>")
+            .replace(/\n/g, "<br>")
+            .trim();
+        }
+
+        item[cabNormalizado] = valor || "";
+      });
+
+      return item;
+    });
+  }
+
+  // =============================
+  // 3) PREENCHER FILTROS
+  // =============================
+  function preencherFiltros() {
+    const filtroMes = document.getElementById("filtroMes");
+    const filtroAno = document.getElementById("filtroAno");
+
+    const meses = new Set();
+    const anos = new Set();
+
+    const mesKey = cabecalhos.find(c => c.toLowerCase().includes("mes texto"));
+    const anoKey = cabecalhos.find(c => c.toLowerCase().trim() === "ano");
+
+    dadosCSV.forEach(item => {
+      meses.add(item[mesKey]);
+      anos.add(item[anoKey]);
+    });
+
+    filtroMes.innerHTML = "<option value=''>Selecione</option>";
+    filtroAno.innerHTML = "<option value=''>Selecione</option>";
+
+    meses.forEach(m => {
+      filtroMes.innerHTML += `<option value="${m}">${m}</option>`;
+    });
+
+    anos.forEach(a => {
+      filtroAno.innerHTML += `<option value="${a}">${a}</option>`;
+    });
+
+    const hoje = new Date();
+    let mesAnterior = hoje.getMonth() - 1;
+    let anoAtual = hoje.getFullYear();
+
+    if (mesAnterior < 0) {
+      mesAnterior = 11;
+      anoAtual -= 1;
+    }
+
+    const nomesMeses = [
+      "Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho",
+      "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"
+    ];
+
+    const mesAnteriorTexto = nomesMeses[mesAnterior];
+
+    if ([...filtroMes.options].some(o => o.value === mesAnteriorTexto)) {
+      filtroMes.value = mesAnteriorTexto;
+    }
+
+    if ([...filtroAno.options].some(o => o.value === String(anoAtual))) {
+      filtroAno.value = String(anoAtual);
+    }
+
+    if (filtroMes.value && filtroAno.value) {
       filtrar();
     }
   }
 
-  filtroMes.addEventListener("change", aoMudarFiltro);
-  filtroAno.addEventListener("change", aoMudarFiltro);
-});
-
-// -----------------------------
-// 1) Carregar CSV do GitHub
-// -----------------------------
-function carregarCSV() {
-  fetch(CSV_URL)
-    .then(resp => resp.text())
-    .then(texto => {
-      processarCSV(texto);
-      preencherFiltros();
-    })
-    .catch(err => console.error("Erro ao carregar CSV:", err));
-}
-
-// -----------------------------
-// 2) Processar CSV
-// -----------------------------
-function processarCSV(texto) {
-  const linhas = texto.split("\n").map(l => l.trim()).filter(l => l);
-
-  // Remove BOM
-  let header = linhas[0].replace(/^\uFEFF/, '').split(";");
-
-  // Normalização dos nomes das colunas
-  cabecalhos = header.map(c =>
-    c.normalize("NFD")
-     .replace(/[\u0300-\u036f]/g, "") // remove acentos
-     .replace(/[^a-zA-Z0-9 ]/g, "")   // remove caracteres � e outros
-     .trim()
-  );
-
-  linhas.shift(); // remove a linha do cabeçalho
-
-  dadosCSV = linhas.map(linha => {
-    const colunas = linha.split(";");
-    const item = {};
-
-    cabecalhos.forEach((c, i) => {
-      item[c] = colunas[i] || "";
-    });
-
-    return item;
-  });
-}
-
-// -----------------------------
-// 3) Criar filtros de Mês e Ano
-// -----------------------------
-function preencherFiltros() {
-  const filtroMes = document.getElementById("filtroMes");
-  const filtroAno = document.getElementById("filtroAno");
-
-  let meses = new Set();
-  let anos = new Set();
-
-  // Descobre quais são as colunas de "Mês texto" e "Ano"
-  const mesKey = cabecalhos.find(c =>
-    c.toLowerCase().includes("mês texto") || c.toLowerCase().includes("mes texto")
-  );
-  const anoKey = cabecalhos.find(c =>
-    c.toLowerCase().trim() === "ano"
-  );
-
-  dadosCSV.forEach(item => {
-    meses.add(item[mesKey]);
-    anos.add(item[anoKey]);
-  });
-
-  filtroMes.innerHTML = "<option value=''>Selecione</option>";
-  filtroAno.innerHTML = "<option value=''>Selecione</option>";
-
-  meses.forEach(m => filtroMes.innerHTML += `<option value="${m}">${m}</option>`);
-  anos.forEach(a => filtroAno.innerHTML += `<option value="${a}">${a}</option>`);
-
-  // 🔹 DEFINIR MÊS ANTERIOR E ANO ATUAL AO ABRIR O SITE
-  const hoje = new Date();
-  let mesAnterior = hoje.getMonth() - 1; // 0 = Janeiro
-  let anoAtual = hoje.getFullYear();
-
-  if (mesAnterior < 0) {
-    mesAnterior = 11;       // Dezembro
-    anoAtual -= 1;
-  }
-
-  const nomesMeses = [
-    "Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho",
-    "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"
-  ];
-  const mesAnteriorTexto = nomesMeses[mesAnterior];
-
-  // Tenta aplicar os valores padrão (só se existirem nas opções)
-  if ([...filtroMes.options].some(o => o.value === mesAnteriorTexto)) {
-    filtroMes.value = mesAnteriorTexto;
-  }
-  if ([...filtroAno.options].some(o => o.value === String(anoAtual))) {
-    filtroAno.value = String(anoAtual);
-  }
-
-  // 🔹 JÁ CHAMA O FILTRAR UMA VEZ AO CARREGAR A PÁGINA
-  if (filtroMes.value && filtroAno.value) {
-    filtrar();
-  }
-}
-
-// -----------------------------
-// 4) Essa função interpreta o texto e devolve a cor certa
-// -----------------------------
-
-function gerarBadgeStatus(status) {
-    const s = status.toLowerCase().trim();
-
-    // status normalizado
-    if (s.includes("atingido") && !s.includes("não") && !s.includes("nao") && !s.includes("ñ")) {
-        return `<div style="display:flex; align-items:center; gap:6px;">
-                    <div style="width:14px; height:14px; background:#00B050; border-radius:50%;"></div>
-                    <span style="font-weight:bold;">Atingido</span>
-                </div>`;
-    }
-
-    if (s.includes("não") || s.includes("nao") || s.includes("ñ")) {
-        return `<div style="display:flex; align-items:center; gap:6px;">
-                    <div style="width:14px; height:14px; background:#FF0101; border-radius:50%;"></div>
-                    <span style="font-weight:bold;">Não Atingido</span>
-                </div>`;
-    }
-
-    // indefinido = amarelo
-    return `<div style="display:flex; align-items:center; gap:6px;">
-                <div style="width:14px; height:14px; background:#EEEE00; border-radius:50%;"></div>
-                <span style="font-weight:bold;">Indefinido</span>
-            </div>`;
-}
-
-// Criar função auxiliar que devolve a cor do STATUS
-
-function corDoStatus(status) {
+  // =============================
+  // 4) STATUS
+  // =============================
+  function gerarBadgeStatus(status) {
     const s = status.toLowerCase().trim();
 
     if (s.includes("atingido") && !s.includes("não") && !s.includes("nao") && !s.includes("ñ")) {
-        return "#00B050"; // verde
+      return `
+        <div style="display:flex; align-items:center; gap:6px;">
+          <div style="width:14px; height:14px; background:#00B050; border-radius:50%;"></div>
+          <span style="font-weight:bold;">Atingido</span>
+        </div>
+      `;
     }
+
     if (s.includes("não") || s.includes("nao") || s.includes("ñ")) {
-        return "#FF0101"; // vermelho
+      return `
+        <div style="display:flex; align-items:center; gap:6px;">
+          <div style="width:14px; height:14px; background:#FF0101; border-radius:50%;"></div>
+          <span style="font-weight:bold;">Não Atingido</span>
+        </div>
+      `;
     }
-    
-    return "#FFC000"; // indefinido = amarelo
-}
 
-// ==========================================================
-//  LISTAS DE INDICADORES COM FORMATAÇÃO CONTROLADA
-// ==========================================================
+    return `
+      <div style="display:flex; align-items:center; gap:6px;">
+        <div style="width:14px; height:14px; background:#EEEE00; border-radius:50%;"></div>
+        <span style="font-weight:bold;">Indefinido</span>
+      </div>
+    `;
+  }
 
-// Normaliza texto para comparação correta
-function normalizar(txt) {
+  function corDoStatus(status) {
+    const s = status.toLowerCase().trim();
+
+    if (s.includes("atingido") && !s.includes("não") && !s.includes("nao") && !s.includes("ñ")) {
+      return "#00B050";
+    }
+
+    if (s.includes("não") || s.includes("nao") || s.includes("ñ")) {
+      return "#FF0101";
+    }
+
+    return "#FFC000";
+  }
+
+  // =============================
+  // 5) NORMALIZAÇÃO
+  // =============================
+  function normalizar(txt) {
     return txt
-        ?.normalize("NFD")
-        .replace(/[\u0300-\u036f]/g, "")
-        .replace(/[^a-zA-Z0-9 ]/g, "")
-        .toLowerCase()
-        .trim();
-}
+      ?.normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .replace(/[^a-zA-Z0-9 ]/g, "")
+      .toLowerCase()
+      .trim();
+  }
 
-const LISTA_A_PERCENTUAL = [
-  "Índice de Garantia procedente BIZA",
-  "Refugo​ Interno",
-  "Percentual e Valores de Itens sem movimentação de Estoque a mais de um ano​​​",
-  "Absenteísmo Mês",
-  "Percentual de Turnover Mês​",
-  "Percentual de Itens Novos Produzidos no Mês​",
-  "Percentual de vendas marca BIZA",
-  "Quantidade e percentual de NC's encerradas dentro do prazo",
-  "Performance de entregas BIZA (Pedidos entregues no prazo)​",
-  "Programação de entrega Mensal​",
-  "Acuracidade de Estoque",
-  "Performance do Atendimento às Obrigações Legais Mês",
-  "GGF Salarial - Relatório Entradas de NF"
-].map(normalizar);
+  // =============================
+  // 6) LISTAS DE INDICADORES
+  // =============================
+  const LISTA_A_PERCENTUAL = [
+    "Índice de Garantia procedente BIZA",
+    "Refugo​ Interno",
+    "Percentual e Valores de Itens sem movimentação de Estoque a mais de um ano​​​",
+    "Absenteísmo Mês",
+    "Percentual de Turnover Mês​",
+    "Percentual de Itens Novos Produzidos no Mês​",
+    "Percentual de vendas marca BIZA",
+    "Quantidade e percentual de NC's encerradas dentro do prazo",
+    "Performance de entregas BIZA (Pedidos entregues no prazo)​",
+    "Programação de entrega Mensal​",
+    "Acuracidade de Estoque",
+    "Performance do Atendimento às Obrigações Legais Mês",
+    "GGF Salarial - Relatório Entradas de NF"
+  ].map(normalizar);
 
-const LISTA_B_FINANCEIRO = [
-  "Valor de Produção Mensal",
-  "Valores de venda Marca BIZA",
-  "Valor de Produção Acumulado",
-  "Valor total de itens terceirização por mês",
-  "Valor total de itens industrializados por mês​",
-  "Valor em estoque BIZA estratificado",
-  "Vendas Marca Biza (Últimos 3 anos)",
-  "Valores de Pedidos em Carteira"
-].map(normalizar);
+  const LISTA_B_FINANCEIRO = [
+    "Valor de Produção Mensal",
+    "Valores de venda Marca BIZA",
+    "Valor de Produção Acumulado",
+    "Valor total de itens terceirização por mês",
+    "Valor total de itens industrializados por mês​",
+    "Valor em estoque BIZA estratificado",
+    "Vendas Marca Biza (Últimos 3 anos)",
+    "Valores de Pedidos em Carteira"
+  ].map(normalizar);
 
-const LISTA_C_META_PERCENTUAL = [
-  "Índice de Garantia procedente BIZA",
-  "Refugo​ Interno",
-  "Percentual e Valores de Itens sem movimentação de Estoque a mais de um ano​​​",
-  "Absenteísmo Mês",
-  "Percentual de Turnover Mês​",
-  "Percentual de Itens Novos Produzidos no Mês​",
-  "Percentual de vendas marca BIZA",
-  "Quantidade e percentual de NC's encerradas dentro do prazo",
-  "Performance de entregas BIZA (Pedidos entregues no prazo)​",
-  "Programação de entrega Mensal​",
-  "Acuracidade de Estoque",
-  "Performance do Atendimento às Obrigações Legais Mês",
-  "GGF Salarial - Relatório Entradas de NF"
-].map(normalizar);
+  const LISTA_C_META_PERCENTUAL = [
+    "Índice de Garantia procedente BIZA",
+    "Refugo​ Interno",
+    "Percentual e Valores de Itens sem movimentação de Estoque a mais de um ano​​​",
+    "Absenteísmo Mês",
+    "Percentual de Turnover Mês​",
+    "Percentual de Itens Novos Produzidos no Mês​",
+    "Percentual de vendas marca BIZA",
+    "Quantidade e percentual de NC's encerradas dentro do prazo",
+    "Performance de entregas BIZA (Pedidos entregues no prazo)​",
+    "Programação de entrega Mensal​",
+    "Acuracidade de Estoque",
+    "Performance do Atendimento às Obrigações Legais Mês",
+    "GGF Salarial - Relatório Entradas de NF"
+  ].map(normalizar);
 
-// ==========================================================
-//  FORMATADORES ESPECÍFICOS
-// ==========================================================
-
-// -- formatar % --
-function formatarPercentual(valor) {
+  // =============================
+  // 7) FORMATADORES
+  // =============================
+  function formatarPercentual(valor) {
     if (!valor) return valor;
     if (valor.includes("%")) return valor;
 
     let num = parseFloat(valor.replace(",", "."));
     if (isNaN(num)) return valor;
 
-    // se vier 1.05 → 105%
     if (num <= 3) num = num * 100;
 
     return num.toFixed(2).replace(".", ",") + "%";
-}
+  }
 
-// -- formatar financeiro --
-function formatarFinanceiro(valor) {
+  function formatarFinanceiro(valor) {
     if (!valor) return valor;
+
     let num = parseFloat(valor.replace(",", "."));
     if (isNaN(num)) return valor;
 
-    if (num >= 1_000_000)
-        return (num / 1_000_000).toFixed(2).replace(".", ",") + " mi";
+    if (num >= 1_000_000) {
+      return (num / 1_000_000).toFixed(2).replace(".", ",") + " mi";
+    }
 
-    if (num >= 1000)
-        return (num / 1000).toFixed(2).replace(".", ",") + " mil";
+    if (num >= 1000) {
+      return (num / 1000).toFixed(2).replace(".", ",") + " mil";
+    }
 
     return num.toString().replace(".", ",");
-}
+  }
 
-// ==========================================================
-//  FUNÇÃO PRINCIPAL DE FORMATAÇÃO CONTROLADA
-// ==========================================================
-
-function formatarValor(indicador, coluna, valor) {
+  function formatarValor(indicador, coluna, valor) {
     if (!valor) return valor;
     if (!indicador) return valor;
 
     const indNorm = normalizar(indicador);
     const colNorm = coluna.toString().trim();
 
-    // -----------------------------------------
-    // LISTA A → Resultado em %  (Resultado)
-    // -----------------------------------------
     if (LISTA_A_PERCENTUAL.includes(indNorm) && colNorm === "Resultado") {
-        return formatarPercentual(valor);
+      return formatarPercentual(valor);
     }
 
-    // LISTA A → Meta também em %  (Meta)
     if (LISTA_A_PERCENTUAL.includes(indNorm) && colNorm === "Meta") {
-        return formatarPercentual(valor);
+      return formatarPercentual(valor);
     }
 
-    // -----------------------------------------
-    // LISTA B → Valores financeiros
-    // (apenas Meta e Resultado)
-    // -----------------------------------------
-    if (LISTA_B_FINANCEIRO.includes(indNorm) &&
-        (colNorm === "Meta" || colNorm === "Resultado")) {
-        return formatarFinanceiro(valor);
+    if (
+      LISTA_B_FINANCEIRO.includes(indNorm) &&
+      (colNorm === "Meta" || colNorm === "Resultado")
+    ) {
+      return formatarFinanceiro(valor);
     }
 
-    // -----------------------------------------
-    // LISTA C → Meta em %  (Meta)
-    // -----------------------------------------
     if (LISTA_C_META_PERCENTUAL.includes(indNorm) && colNorm === "Meta") {
-        return formatarPercentual(valor);
+      return formatarPercentual(valor);
     }
 
-     // -----------------------------------------
-    // NOVO: FORMATAR NÚMEROS INTEIROS PARA RESTANTE
-    // -----------------------------------------
     let num = parseFloat(valor.replace(",", "."));
     if (!isNaN(num)) {
-        return Math.round(num).toString(); // sem casas decimais
+      return Math.round(num).toString();
     }
-    
-    // -----------------------------------------
-    // CASO PADRÃO: devolve o valor original
-    // -----------------------------------------
+
     return valor;
-}
-
-// -----------------------------
-// 5) Filtrar e montar a tabela
-// -----------------------------
-function filtrar() {
-  const mes = document.getElementById("filtroMes").value;
-  const ano = document.getElementById("filtroAno").value;
-const indicadorKey = cabecalhos.find(c => c.toLowerCase().includes("indicador"));
-
-  if (!mes || !ano) {
-    alert("Selecione Mês e Ano para filtrar.");
-    return;
   }
 
-  const tabela = document.getElementById("tabelaResultado");
-  const cabeca = document.getElementById("cabecalho");
-  const corpo  = document.getElementById("corpoTabela");
+  // =============================
+  // 8) FILTRAR E MONTAR TABELA
+  // =============================
+  function filtrar() {
+    const mes = document.getElementById("filtroMes").value;
+    const ano = document.getElementById("filtroAno").value;
 
-  // Descobre as colunas pelos nomes reais do CSV
-  const mesKey = cabecalhos.find(c =>
-    c.toLowerCase().includes("mês texto") || c.toLowerCase().includes("mes texto")
-  );
-  const anoKey = cabecalhos.find(c =>
-    c.toLowerCase().trim() === "ano"
-  );
+    const indicadorKey = cabecalhos.find(c => c.toLowerCase().includes("indicador"));
 
-  const areaKey = cabecalhos.find(c =>
-    c.toLowerCase().startsWith("área") || c.toLowerCase().startsWith("area")
-  );
-  const respKey = cabecalhos.find(c =>
-    c.toLowerCase().startsWith("respons")
-  );
-
-  // Filtro
-  const filtrados = dadosCSV.filter(item =>
-    item[mesKey] === mes && item[anoKey] === ano
-  );
-
-  // Zera tabela principal
-  cabeca.innerHTML = "";
-  corpo.innerHTML  = "";
-
-  // Remove "Área" e "Responsável" da lista de colunas exibidas
-  const colunasCard = cabecalhos.filter(c => c !== areaKey && c !== respKey);
-
-  // Agrupamento por card
-  const grupos = {};
-  filtrados.forEach(item => {
-    const chave = `${item[areaKey]} – ${item[respKey]}`;
-    if (!grupos[chave]) grupos[chave] = [];
-    grupos[chave].push(item);
-  });
-
-  // Montagem dos cards
-  Object.keys(grupos).forEach(grupoNome => {
-
-    // 🔶 Linha de título do card
-    const linhaGrupo = document.createElement("tr");
-    linhaGrupo.innerHTML = `
-      <td colspan="${colunasCard.length}"
-          style="background:#333; color:#FFFFFF;
-                 cursor:pointer; padding:12px;
-                 font-size:20px; font-weight:bold;">
-        ▼ ${grupoNome}
-      </td>
-    `;
-    corpo.appendChild(linhaGrupo);
-
-    // 🔷 Tabela interna do card
-    const tabelaCard = document.createElement("table");
-    tabelaCard.classList.add("card-table");
-    tabelaCard.style.width = "100%";
-    tabelaCard.style.marginBottom = "25px";
-    tabelaCard.style.display = "none";   // 🔥 AGORA O CARD COMEÇA FECHADO
-
-    const thead = document.createElement("thead");
-    const tbody = document.createElement("tbody");
-
-    // Cabeçalho da tabela interna
-    const headerRow = document.createElement("tr");
-    headerRow.innerHTML = colunasCard
-      .map(c => `<th>${c}</th>`)
-      .join("");
-    thead.appendChild(headerRow);
-
-    // Linhas de dados
-    grupos[grupoNome].forEach(item => {
-      const linha = document.createElement("tr");
-
-  linha.innerHTML = colunasCard.map(c => {
-    let valor = item[c];
-
-    // STATUS COM BOLINHA
-    if (c.toLowerCase().includes("status")) {
-        return `<td>${gerarBadgeStatus(valor)}</td>`;
+    if (!mes || !ano) {
+      alert("Selecione Mês e Ano para filtrar.");
+      return;
     }
 
-    // RESULTADO COLORIDO
-    if (c.toLowerCase().includes("resultado")) {
-        const statusKey = cabecalhos.find(x =>
-            x.toLowerCase().includes("status")
-        );
-        const cor = corDoStatus(item[statusKey]);
+    const tabela = document.getElementById("tabelaResultado");
+    const cabeca = document.getElementById("cabecalho");
+    const corpo = document.getElementById("corpoTabela");
 
-        return `<td style="
-            background:${cor};
-            color:white;
-            font-weight:bold;
-            text-align:center;
-            border-radius:4px;
-        ">${formatarValor(item[indicadorKey], "Resultado", valor)
-}</td>`;
-    }
+    const mesKey = cabecalhos.find(c => c.toLowerCase().includes("mes texto"));
+    const anoKey = cabecalhos.find(c => c.toLowerCase().trim() === "ano");
 
-    // OUTRAS COLUNAS FORMATADAS
-   return `<td>${formatarValor(item[indicadorKey], c, valor)
-}</td>`;
-}).join("");
+    const areaKey = cabecalhos.find(c =>
+      c.toLowerCase().startsWith("área") || c.toLowerCase().startsWith("area")
+    );
 
-      tbody.appendChild(linha);
+    const respKey = cabecalhos.find(c =>
+      c.toLowerCase().startsWith("respons")
+    );
+
+    const filtrados = dadosCSV.filter(item =>
+      item[mesKey] === mes && item[anoKey] === ano
+    );
+
+    cabeca.innerHTML = "";
+    corpo.innerHTML = "";
+
+    const colunasCard = cabecalhos.filter(c => c !== areaKey && c !== respKey);
+
+    const grupos = {};
+    filtrados.forEach(item => {
+      const chave = `${item[areaKey]} – ${item[respKey]}`;
+      if (!grupos[chave]) grupos[chave] = [];
+      grupos[chave].push(item);
     });
 
-    tabelaCard.appendChild(thead);
-    tabelaCard.appendChild(tbody);
-    // Criar linha que vai conter a tabela interna
-const linhaTabela = document.createElement("tr");
-const tdTabela = document.createElement("td");
+    Object.keys(grupos).forEach(grupoNome => {
+      const linhaGrupo = document.createElement("tr");
+      linhaGrupo.innerHTML = `
+        <td colspan="${colunasCard.length}"
+            style="background:#333; color:#FFFFFF; cursor:pointer; padding:12px; font-size:20px; font-weight:bold;">
+          ▼ ${grupoNome}
+        </td>
+      `;
+      corpo.appendChild(linhaGrupo);
 
-// Faz a tabela ocupar toda a largura do card
-tdTabela.colSpan = colunasCard.length;
+      const tabelaCard = document.createElement("table");
+      tabelaCard.classList.add("card-table");
+      tabelaCard.style.width = "100%";
+      tabelaCard.style.marginBottom = "25px";
+      tabelaCard.style.display = "none";
 
-// Insere a tabela interna dentro do TD
-tdTabela.appendChild(tabelaCard);
+      const thead = document.createElement("thead");
+      const tbody = document.createElement("tbody");
 
-// Insere TD dentro do TR
-linhaTabela.appendChild(tdTabela);
+      const headerRow = document.createElement("tr");
+      headerRow.innerHTML = colunasCard.map(c => `<th>${c}</th>`).join("");
+      thead.appendChild(headerRow);
 
-// Insere o TR dentro do corpo da tabela principal
-corpo.appendChild(linhaTabela);
+      grupos[grupoNome].forEach(item => {
+        const linha = document.createElement("tr");
 
-    // Toggle abre/fecha a tabela interna
-    linhaGrupo.addEventListener("click", () => {
-      tabelaCard.style.display =
-        tabelaCard.style.display === "none" ? "" : "none";
+        linha.innerHTML = colunasCard.map(c => {
+          let valor = item[c];
+
+          if (c.toLowerCase().includes("status")) {
+            return `<td>${gerarBadgeStatus(valor)}</td>`;
+          }
+
+          if (c.toLowerCase().includes("resultado")) {
+            const statusKey = cabecalhos.find(x => x.toLowerCase().includes("status"));
+            const cor = corDoStatus(item[statusKey]);
+
+            return `<td style="
+              background:${cor};
+              color:white;
+              font-weight:bold;
+              text-align:center;
+              border-radius:4px;
+            ">${formatarValor(item[indicadorKey], "Resultado", valor)}</td>`;
+          }
+
+          return `<td>${String(formatarValor(item[indicadorKey], c, valor)).replace(/\n/g, "<br>")}</td>`;
+        }).join("");
+
+        tbody.appendChild(linha);
+      });
+
+      tabelaCard.appendChild(thead);
+      tabelaCard.appendChild(tbody);
+
+      const linhaTabela = document.createElement("tr");
+      const tdTabela = document.createElement("td");
+
+      tdTabela.colSpan = colunasCard.length;
+      tdTabela.appendChild(tabelaCard);
+      linhaTabela.appendChild(tdTabela);
+      corpo.appendChild(linhaTabela);
+
+      linhaGrupo.addEventListener("click", () => {
+        tabelaCard.style.display = tabelaCard.style.display === "none" ? "" : "none";
+      });
     });
-  });
 
-  tabela.style.display = "table";
-}
-function toggleTodos() {
-    // Seleciona todas as tabelas internas dos cards
+    tabela.style.display = "table";
+  }
+
+  // =============================
+  // 9) EXPANDIR / RECOLHER TODOS
+  // =============================
+  function toggleTodos() {
     const todasTabelas = document.querySelectorAll(".card-table");
 
     let temAlgumaAberta = false;
 
-    // Verifica se existe pelo menos uma aberta
     todasTabelas.forEach(t => {
-        if (t.style.display !== "none") temAlgumaAberta = true;
+      if (t.style.display !== "none") temAlgumaAberta = true;
     });
 
-    // Se existe aberta → fecha todas
-    // Se todas fechadas → abre todas
     todasTabelas.forEach(t => {
-        t.style.display = temAlgumaAberta ? "none" : "";
+      t.style.display = temAlgumaAberta ? "none" : "";
     });
-}
-
+  }
 </script>
 
 </body>
