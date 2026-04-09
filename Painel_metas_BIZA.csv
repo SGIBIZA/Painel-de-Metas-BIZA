@@ -1,14 +1,17 @@
 Mês;Código Mês;Meta;Descrição da Meta;Peso;Valor da meta;Resultado;Faixa atingida;MêsTexto;Ano;Status
 46023;1;Meta 1;Faturamento GHT;0.2;0.9201;0.8678;Faixa 1;Janeiro;2026;Não atingida;
 46023;1;Meta 2;Programação de entrega Mensal​;0.2;0.7001;0.871323529411765;Faixa 6;Janeiro;2026;Atingida além da meta;
-46023;1;Meta 3;GGF Salarial - Relatório Entradas de NF;0.2;1.05;0.792215385775708;Faixa 6;Janeiro;2026;Atingida além da meta;
+46023;1;Meta 3;GGF Salarial - Relatório Entradas de NF;0.2;1.05;0.592113125860046;Faixa 6;Janeiro;2026;Atingida além da meta;
 46023;1;Meta 4;Acuracidade de Estoque;0.15;0.9301;0.946808510638298;Faixa 4;Janeiro;2026;Atingida além da meta;
 46023;1;Meta 5;Índice de Garantia procedente BIZA;0.15;0.006;0.000420318725099602;Faixa 6;Janeiro;2026;Atingida além da meta;
 46023;1;Meta 6;Absenteísmo Mês;0.1;0.035;0.0237;Faixa 6;Janeiro;2026;Atingida além da meta;
 46054;2;Meta 1;Faturamento GHT;0.2;0.9201;0.7307;Faixa 1;Fevereiro;2026;Não atingida;
 46054;2;Meta 2;Programação de entrega Mensal​;0.2;0.7001;0.84390243902439;Faixa 5;Fevereiro;2026;Atingida além da meta;
-46054;2;Meta 3;GGF Salarial - Relatório Entradas de NF;0.2;1.05;1.13531868385446;Faixa 1;Fevereiro;2026;Não atingida;
+46054;2;Meta 3;GGF Salarial - Relatório Entradas de NF;0.2;1.05;0.848545886895081;Faixa 6;Fevereiro;2026;Atingida além da meta;
 46054;2;Meta 4;Acuracidade de Estoque;0.15;0.9301;0.971631205673759;Faixa 6;Fevereiro;2026;Atingida além da meta;
 46054;2;Meta 5;Índice de Garantia procedente BIZA;0.15;0.006;0.000854251018249402;Faixa 6;Fevereiro;2026;Atingida além da meta;
 46054;2;Meta 6;Absenteísmo Mês;0.1;0.035;0.0258;Faixa 6;Fevereiro;2026;Atingida além da meta;
-46082;3;Meta 3;GGF Salarial - Relatório Entradas de NF;0.2;1.05;1.05589428334194;Fora da regra;Março;2026;Não atingida;
+46082;3;Meta 2;Programação de entrega Mensal​;0.2;0.7001;0.82089552238806;Faixa 5;Março;2026;Atingida além da meta;
+46082;3;Meta 3;GGF Salarial - Relatório Entradas de NF;0.2;1.05;1.25518391204339;Faixa 1;Março;2026;Não atingida;
+46082;3;Meta 6;Absenteísmo Mês;0.1;0.035;0.0324;Faixa 5;Março;2026;Atingida além da meta;
+46113;4;Meta 3;GGF Salarial - Relatório Entradas de NF;0.2;1.05;0.0719986970230386;Faixa 6;Abril;2026;Atingida além da meta;

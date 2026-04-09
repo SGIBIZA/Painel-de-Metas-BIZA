@@ -1047,7 +1047,7 @@ Melhorias nos processos;"
 Organização do Setor Recebimento – Completando quadro de colaboradores)";"Distribuição das atividades;​
 Qualidade dentro do recebimento;"
 
-"Compras";"Laura Emanuele";"Performance de reposição de MP BIZA";"Produção";"N3";"-";"-";"Março";"2026";"-";"0";"0"
+"Compras";"Laura Emanuele";"Performance de reposição de MP BIZA";"Produção";"N3";"S/ Meta";"S/ Meta";"Março";"2026";"Indefinido";"0";"0"
 
 "Compras";"Laura Emanuele";"Performance de reposição de MP BIZA";"Produção";"N3";"-";"-";"Abril";"2026";"-";"0";"0"
 
@@ -1072,7 +1072,7 @@ Qualidade dentro do recebimento;"
 "Eng. Produto";"João Leopoldo";"Demanda Orçamentos de Internalização​";"Carteira Biza";"N2/N3";"0";"740";"Fevereiro";"2026";"Atingido";"Estamos seguindo com a lista atual.​
 Tivemos 6 orçamentos enviados em Fevereiro e 1 pedido recebido.";"xxx"
 
-"Eng. Produto";"João Leopoldo";"Demanda Orçamentos de Internalização​";"Carteira Biza";"N2/N3";"0";"-";"Março";"2026";"-";"0";"0"
+"Eng. Produto";"João Leopoldo";"Demanda Orçamentos de Internalização​";"Carteira Biza";"N2/N3";"0";"740";"Março";"2026";"Atingido";"0";"0"
 
 "Eng. Produto";"João Leopoldo";"Demanda Orçamentos de Internalização​";"Carteira Biza";"N2/N3";"0";"-";"Abril";"2026";"-";"0";"0"
 
@@ -1099,7 +1099,7 @@ Tivemos 6 orçamentos enviados em Fevereiro e 1 pedido recebido.";"xxx"
 R$ 1.317.337,00 Bloqueado na Engenharia.​
 40 itens ( vamos liberar 4 itens até o fim do dia )"
 
-"Eng. Produto";"João Leopoldo";"Percentual de Itens Novos Produzidos no Mês​";"Carteira Biza";"N3";"0.12";"-";"Março";"2026";"-";"0";"0"
+"Eng. Produto";"João Leopoldo";"Percentual de Itens Novos Produzidos no Mês​";"Carteira Biza";"N3";"0.12";"0.255695453135986";"Março";"2026";"Atingido";"0";"0"
 
 "Eng. Produto";"João Leopoldo";"Percentual de Itens Novos Produzidos no Mês​";"Carteira Biza";"N3";"0.12";"-";"Abril";"2026";"-";"0";"0"
 
@@ -1124,7 +1124,7 @@ R$ 1.317.337,00 Bloqueado na Engenharia.​
 "Eng. Produto";"João Leopoldo";"Demandas de Orçamentos Entregues no Mês";"Carteira Biza";"N3";"0";"51";"Fevereiro";"2026";"Atingido";"Carnaval / Férias e demanda de escadas com o Daniel colaboraram com redução de respostas de orçamento.​
 Poucas cotações solicitadas do Suprimentos / Comercial tambem.";"XXX"
 
-"Eng. Produto";"João Leopoldo";"Demandas de Orçamentos Entregues no Mês";"Carteira Biza";"N3";"0";"-";"Março";"2026";"Atingido";"0";"0"
+"Eng. Produto";"João Leopoldo";"Demandas de Orçamentos Entregues no Mês";"Carteira Biza";"N3";"0";"13";"Março";"2026";"Atingido";"0";"0"
 
 "Eng. Produto";"João Leopoldo";"Demandas de Orçamentos Entregues no Mês";"Carteira Biza";"N3";"0";"-";"Abril";"2026";"Atingido";"0";"0"
 
@@ -1175,7 +1175,7 @@ Apresentação agendada para 06/03 com a Engenheira da VALE.
  4. Caso PN 333-1207 (Polias)
 Terceiro caso mais antigo no indicador Concluir tratativas e finalizar o caso."
 
-"Qualidade Produto";"Rodrigo R.";"Índice de Garantia procedente BIZA";"Salário Variável";"N3";"0.006";"-";"Março";"2026";"-";"0";"0"
+"Qualidade Produto";"Rodrigo R.";"Índice de Garantia procedente BIZA";"Salário Variável";"N3";"0.006";"0.0011396383724267";"Março";"2026";"Atingido";"0";"0"
 
 "Qualidade Produto";"Rodrigo R.";"Índice de Garantia procedente BIZA";"Salário Variável";"N3";"0.006";"-";"Abril";"2026";"-";"0";"0"
 
@@ -1210,7 +1210,7 @@ Definir dentro do mês de Fevereiro nova equipe de implementadores; ✅​
 Definir meta anual para 2026; ✅​
 Definir se total de melhorias implementadas será ainda meta PLR para reforçar divulgação e engajamento da fábrica; ❌ Em definição com a gerência."
 
-"Melhoria e 5S";"Diogo Rosa";"Quantidade de melhorias – Meta PLR";"PLR";"N3";"3";"-";"Março";"2026";"-";"0";"0"
+"Melhoria e 5S";"Diogo Rosa";"Quantidade de melhorias – Meta PLR";"PLR";"N3";"3";"3";"Março";"2026";"Atingido";"0";"0"
 
 "Melhoria e 5S";"Diogo Rosa";"Quantidade de melhorias – Meta PLR";"PLR";"N3";"3";"-";"Abril";"2026";"-";"0";"0"
 
@@ -1246,7 +1246,12 @@ Definir se total de melhorias implementadas será ainda meta PLR para reforçar 
 • Concluir regularização dos 02 documentos vencidos e atualizar evidências no sistema.
 • Manter acompanhamento semanal das obrigações legais (cobranças e follow-up)."
 
-"SGA";"Diogo Rosa";"Performance do Atendimento as Obrigações Legais Mês​";"Conformidade Legal";"N3";"0.98";"1";"Março";"2026";"Atingido";"0";"0"
+"SGA";"Diogo Rosa";"Performance do Atendimento as Obrigações Legais Mês​";"Conformidade Legal";"N3";"0.98";"1";"Março";"2026";"Atingido";"• Obrigações legais mantidas sob controle, sem caracterização de descumprimento no período.​
+• Redução das NCs no âmbito (03 em acompanhamento), sem impacto no atendimento legal.​
+• Permanecem apenas 02 documentos vencidos no sistema, relacionados a inventários de resíduos, já com tratativas encaminhadas.​
+• Indicador mantém estabilidade e consistência em relação aos meses anteriores.";"• Atualizar imediatamente no SIGO registro do DMR já realizado.
+• Concluir regularização dos 02 documentos vencidos e atualizar evidências no sistema.
+• Manter acompanhamento semanal das obrigações legais (cobranças e follow-up)."
 
 "SGA";"Diogo Rosa";"Performance do Atendimento as Obrigações Legais Mês​";"Conformidade Legal";"N3";"0.98";"-";"Abril";"2026";"-";"0";"0"
 
@@ -1284,7 +1289,11 @@ Definir se total de melhorias implementadas será ainda meta PLR para reforçar 
 • Revisar fluxo de abertura de SS na inspeção autônoma.
 • Reforçar disciplina de acompanhamento gerencial das NCs críticas."
 
-"SGI";"Diogo Rosa";"Quantidade e percentual de NC's encerradas dentro do prazo";"Conformidade Legal";"N3";"0.8";"1";"Março";"2026";"Atingido";"0";"0"
+"SGI";"Diogo Rosa";"Quantidade e percentual de NC's encerradas dentro do prazo";"Conformidade Legal";"N3";"0.8";"1";"Março";"2026";"Atingido";"• 02 NCs previstas para o mês, ambas encerradas dentro do prazo (100%).
+• Resultado indica recuperação do indicador após desempenho abaixo da meta nos meses anteriores.
+• Encerramentos contemplam NCs de cliente (garantia), com tratativa dentro do prazo.
+• Observa-se também avanço na redução do passivo histórico, com encerramento de NCs antigas (auditorias e processos internos).
+• As NCs estruturais identificadas em meses anteriores foram tratadas e encerradas no período.";"•Continuar enviando e-mail já no início do mês, responsáveis e prazos das NCsque impactam diretamente o indicador N3 do próximo mês."
 
 "SGI";"Diogo Rosa";"Quantidade e percentual de NC's encerradas dentro do prazo";"Conformidade Legal";"N3";"0.8";"-";"Abril";"2026";"-";"0";"0"
 
@@ -1310,7 +1319,7 @@ Definir se total de melhorias implementadas será ainda meta PLR para reforçar 
 "Gestão de Resíduos";"Jorge Lanzoni";"Geração de Resíduos de Sucata​";"PGRS";"N3";"S/ Meta";"21560";"Fevereiro";"2026";"Indefinido";"Os resíduos de sucata no mês de FEV. Gerou uma receita de R$ 19.360,00
 Não tivemos vendas de sucatas especiais no mês.";"Manter ação de criação de novo indicador considerando sucatas especiais.​"
 
-"Gestão de Resíduos";"Jorge Lanzoni";"Geração de Resíduos de Sucata​";"PGRS";"N3";"S/ Meta";"-";"Março";"2026";"-";"0";"0"
+"Gestão de Resíduos";"Jorge Lanzoni";"Geração de Resíduos de Sucata​";"PGRS";"N3";"S/ Meta";"13460";"Março";"2026";"Indefinido";"0";"0"
 
 "Gestão de Resíduos";"Jorge Lanzoni";"Geração de Resíduos de Sucata​";"PGRS";"N3";"S/ Meta";"-";"Abril";"2026";"-";"0";"0"
 
@@ -1337,7 +1346,7 @@ Conscientizar líderes do correto descarte dos resíduos contaminados."
 "Gestão de Resíduos";"Jorge Lanzoni";"Geração de Resíduos Sólidos Contaminados​";"PGRS";"N3";"S/ Meta";"303";"Fevereiro";"2026";"Indefinido";"Duas coletas no mês de Fevereiro. ​";"Ideia para diminuir os gastos.​
 Colocar mais uma IBC para descarte de solido contaminado e fazer o descarte a cada três semanas."
 
-"Gestão de Resíduos";"Jorge Lanzoni";"Geração de Resíduos Sólidos Contaminados​";"PGRS";"N3";"S/ Meta";"-";"Março";"2026";"-";"0";"0"
+"Gestão de Resíduos";"Jorge Lanzoni";"Geração de Resíduos Sólidos Contaminados​";"PGRS";"N3";"S/ Meta";"271";"Março";"2026";"Indefinido";"0";"0"
 
 "Gestão de Resíduos";"Jorge Lanzoni";"Geração de Resíduos Sólidos Contaminados​";"PGRS";"N3";"S/ Meta";"-";"Abril";"2026";"-";"0";"0"
 
@@ -1365,7 +1374,7 @@ Substituir uma IBC de óleo para armazenar latas de tinta."
 "Gestão de Resíduos";"Jorge Lanzoni";"Geração de Resíduos Líquidos Contaminados";"PGRS";"N3";"S/ Meta";"1500";"Fevereiro";"2026";"Indefinido";"Foi realizado um descarte nos últimos 3 meses com custo de 997,50$ ou seja 0,66$ o litro. ​";"Encaminhadas amostras para análise óleo hidráulico (FILTROIL)​
 Aguardando retorno da análise e proposta paras os demais líquidos contaminados."
 
-"Gestão de Resíduos";"Jorge Lanzoni";"Geração de Resíduos Líquidos Contaminados";"PGRS";"N3";"S/ Meta";"-";"Março";"2026";"-";"0";"0"
+"Gestão de Resíduos";"Jorge Lanzoni";"Geração de Resíduos Líquidos Contaminados";"PGRS";"N3";"S/ Meta";"0";"Março";"2026";"Indefinido";"0";"0"
 
 "Gestão de Resíduos";"Jorge Lanzoni";"Geração de Resíduos Líquidos Contaminados";"PGRS";"N3";"S/ Meta";"-";"Abril";"2026";"-";"0";"0"
 
@@ -1396,7 +1405,7 @@ MP8884-83131400555-ADESIVO DE IDENTIFICAÇÃO";"Melhorar locação dos adesivos 
 "Gestão de Materiais";"Jesiel Lima";"Acuracidade de Estoque";"Salário Variável";"N2/N3";"0.94";"0.971631205673759";"Fevereiro";"2026";"Atingido";"Balde comprado para uso exclusivo alimentou saldo e não foi baixado.
 Material usado em dispositivo e não teve baixa no sistema. Nylon.";"Acompanhar para não alimentar saldo em material de compra exclusiva."
 
-"Gestão de Materiais";"Jesiel Lima";"Acuracidade de Estoque";"Salário Variável";"N2/N3";"0.94";"-";"Março";"2026";"-";"0";"0"
+"Gestão de Materiais";"Jesiel Lima";"Acuracidade de Estoque";"Salário Variável";"N2/N3";"0.94";"0.944827586206897";"Março";"2026";"Atingido";"0";"0"
 
 "Gestão de Materiais";"Jesiel Lima";"Acuracidade de Estoque";"Salário Variável";"N2/N3";"0.94";"-";"Abril";"2026";"-";"0";"0"
 
@@ -1424,7 +1433,7 @@ MP9645-377624 OXICORTE  - MT A516GR70 (R$4485,74)";"Manter armazenado até cair 
 
 "Gestão de Materiais";"Jesiel Lima";"Percentual e Valores de Itens sem movimentação de Estoque a mais de um ano​";"Custo de Estoque";"N2/N3";"0.02";"0.0206814982582183";"Fevereiro";"2026";"Ñ Atingido";"Valores expressivo em matéria prima.";"Manter a disponibilidade para futura fabricação."
 
-"Gestão de Materiais";"Jesiel Lima";"Percentual e Valores de Itens sem movimentação de Estoque a mais de um ano​";"Custo de Estoque";"N2/N3";"0.02";"0.0225436081015807";"Março";"2026";"Ñ Atingido";"0";"0"
+"Gestão de Materiais";"Jesiel Lima";"Percentual e Valores de Itens sem movimentação de Estoque a mais de um ano​";"Custo de Estoque";"N2/N3";"0.02";"0.0225435948291103";"Março";"2026";"Ñ Atingido";"0";"0"
 
 "Gestão de Materiais";"Jesiel Lima";"Percentual e Valores de Itens sem movimentação de Estoque a mais de um ano​";"Custo de Estoque";"N2/N3";"0.02";"-";"Abril";"2026";"-";"0";"0"
 
@@ -1448,7 +1457,7 @@ MP9645-377624 OXICORTE  - MT A516GR70 (R$4485,74)";"Manter armazenado até cair 
 
 "Gestão de Materiais";"Jesiel Lima";"Valor em estoque BIZA estratificado";"Custo de Estoque";"N2/N3";"S/ Meta";"145576.1";"Fevereiro";"2026";"Indefinido";"Foi identificado alguns itens que já foram utilizados e o saldo ainda consta nos estoques. (itens de Brindes – GHT/Biza )";"Fazer novo levantamento e consultar o real consumo do setor."
 
-"Gestão de Materiais";"Jesiel Lima";"Valor em estoque BIZA estratificado";"Custo de Estoque";"N2/N3";"S/ Meta";"169852.39";"Março";"2026";"Indefinido";"0";"0"
+"Gestão de Materiais";"Jesiel Lima";"Valor em estoque BIZA estratificado";"Custo de Estoque";"N2/N3";"S/ Meta";"169852.29";"Março";"2026";"Indefinido";"0";"0"
 
 "Gestão de Materiais";"Jesiel Lima";"Valor em estoque BIZA estratificado";"Custo de Estoque";"N2/N3";"S/ Meta";"0";"Abril";"2026";"Indefinido";"0";"0"
 
@@ -1502,7 +1511,7 @@ J001 – Teve uma para, onde havia entupido o sistema do jato de areia";" R002 �
  T023 – Máquina ainda parada; sistema hidráulico em averiguação.​
  S007 e J001 – Ocorrências resolvidas pontualmente."
 
-"Manutenção";"Alex Rodrigues";"Total de paradas por máquina x dias da máquina parada Mês​";"Disponibilidade de Máq.";"N2/N3";"";"";"Março";"2026";"-";"0";"0"
+"Manutenção";"Alex Rodrigues";"Total de paradas por máquina x dias da máquina parada Mês​";"Disponibilidade de Máq.";"N2/N3";"S/ Meta";"S/ Meta";"Março";"2026";"Indefinido";"0";"0"
 
 "Manutenção";"Alex Rodrigues";"Total de paradas por máquina x dias da máquina parada Mês​";"Disponibilidade de Máq.";"N2/N3";"";"";"Abril";"2026";"-";"0";"0"
 
@@ -1553,7 +1562,7 @@ Pedidos colocados em meses anteriores, não consideraram os 20 dias de coletivas
 "PCP";"Rodrigo Gustavo";"Performance de entregas BIZA (Pedidos entregues no prazo)​";"Prazo de Entrega";"N3";"0.78";"0.770212765957447";"Fevereiro";"2026";"Ñ Atingido";"Indicador de entrega com melhor desempenho em Fev/26 favorecido por menos linhas confirmadas com entrega em Fev/26 (96 linhas) bem como entregas antecipadas nos meses anteriores.";"Acompanhar / Revisar junto equipe de Planejamento GHT itens que necessitam antecipações / confirmações de entrega dentro do mês.
 Follow semanal com foco no planejamento de estoque com o objetivo de aumentar a disponibilidade de produtos BIZA para vendas imediatas."
 
-"PCP";"Rodrigo Gustavo";"Performance de entregas BIZA (Pedidos entregues no prazo)​";"Prazo de Entrega";"N3";"0.78";"-";"Março";"2026";"-";"0";"0"
+"PCP";"Rodrigo Gustavo";"Performance de entregas BIZA (Pedidos entregues no prazo)​";"Prazo de Entrega";"N3";"0.78";"0.667567567567568";"Março";"2026";"Ñ Atingido";"0";"0"
 
 "PCP";"Rodrigo Gustavo";"Performance de entregas BIZA (Pedidos entregues no prazo)​";"Prazo de Entrega";"N3";"0.78";"-";"Abril";"2026";"-";"0";"0"
 
@@ -1736,17 +1745,17 @@ Total Carteira: R$5,58 milhões";"Priorizar entrega de itens críticos para redu
 
 "PCP";"Rodrigo Gustavo";"Previsão de Produção Biza - 2025";"Carteira Biza";"N2";"S/ Meta";"S/ Meta";"Dezembro";"2026";"-";"0";"0"
 
-"Pessoas";"Laura Thais";"Percentual de Turnover Mês​";"Carteira Biza";"N2/N3";"S/ Meta";"0.00458715596330275";"Janeiro";"2026";"Indefinido";"Para início de ano, esse índice é zerado e, isoladamente, não indica um problema de rotatividade, ainda não há tendência formada. ";"Ações Contínuas​
+"Pessoas";"Laura Thais";"Percentual de Turnover Mês​";"Carteira Biza";"N2/N3";"S/ Meta";"0.00467289719626168";"Janeiro";"2026";"Indefinido";"Para início de ano, esse índice é zerado e, isoladamente, não indica um problema de rotatividade, ainda não há tendência formada. ";"Ações Contínuas​
 Revisar causas dos desligamentos para identificar padrões.​
 Reforçar critérios de seleção para aumentar aderência do perfil.​
 Acompanhar novos admitidos nos primeiros45/90 dias para evitar rotatividade precoce.​
 Alinhar com gestores expectativas de performance e feedbacks."
 
-"Pessoas";"Laura Thais";"Percentual de Turnover Mês​";"Carteira Biza";"N2/N3";"S/ Meta";"0.018348623853211";"Fevereiro";"2026";"Indefinido";" O turnover registrado em fevereiro foi de 1,80%, porém apenas uma saída representa perda real, pois um desligamento ocorreu por efetivação de aprendiz.​
+"Pessoas";"Laura Thais";"Percentual de Turnover Mês​";"Carteira Biza";"N2/N3";"S/ Meta";"0.0186915887850467";"Fevereiro";"2026";"Indefinido";" O turnover registrado em fevereiro foi de 1,80%, porém apenas uma saída representa perda real, pois um desligamento ocorreu por efetivação de aprendiz.​
 As admissões do período refletem aproveitamento interno e recontratação de colaborador, indicando reaproveitamento de talentos já conhecidos pela empresa.";"Acompanhar os motivos do pedido de desligamento, para identificar possíveis pontos de melhoria em gestão ou clima.​
 Manter práticas de efetivação e reaproveitamento de talentos, fortalecendo retenção e redução de custos de contratação."
 
-"Pessoas";"Laura Thais";"Percentual de Turnover Mês​";"Carteira Biza";"N2/N3";"S/ Meta";"0.027027027027027";"Março";"2026";"Indefinido";"0";"0"
+"Pessoas";"Laura Thais";"Percentual de Turnover Mês​";"Carteira Biza";"N2/N3";"S/ Meta";"0.0265486725663717";"Março";"2026";"Indefinido";"0";"0"
 
 "Pessoas";"Laura Thais";"Percentual de Turnover Mês​";"Carteira Biza";"N2/N3";"S/ Meta";"-";"Abril";"2026";"-";"0";"0"
 
@@ -1882,9 +1891,9 @@ Reforço das orientações preventivas em e treinamentos periódicos.​
 Atuação contínua da CIPA e da Brigada de Emergência.​
 Manutenção preventiva dos EPCs e revisão periódica dos procedimentos operacionais."
 
-"SST";"Elcio Pase";"Taxa de Gravidade";"Assiduidade";"N3";"1000";"246.812011517894";"Fevereiro";"2026";"Atingido";"XXX";"XXX"
+"SST";"Elcio Pase";"Taxa de Gravidade";"Assiduidade";"N3";"1000";"491.400491400491";"Fevereiro";"2026";"Atingido";"XXX";"XXX"
 
-"SST";"Elcio Pase";"Taxa de Gravidade";"Assiduidade";"N3";"1000";"162.822252374491";"Março";"2026";"Atingido";"0";"0"
+"SST";"Elcio Pase";"Taxa de Gravidade";"Assiduidade";"N3";"1000";"318.979266347687";"Março";"2026";"Atingido";"0";"0"
 
 "SST";"Elcio Pase";"Taxa de Gravidade";"Assiduidade";"N3";"1000";"";"Abril";"2026";"-";"0";"0"
 
@@ -1904,13 +1913,13 @@ Manutenção preventiva dos EPCs e revisão periódica dos procedimentos operaci
 
 "SST";"Elcio Pase";"Taxa de Gravidade";"Assiduidade";"N3";"1000";"";"Dezembro";"2026";"-";"0";"0"
 
-"Terceiros";"Leonard Robert";"Valor total de itens industrializados por mês​";"Carteira Biza";"N3";"S/ Meta";"125110.01022";"Janeiro";"2026";"Indefinido";"Industrialização 8,5% da produção
+"Terceiros";"Leonard Robert";"Valor total de itens industrializados por mês​";"Carteira Biza";"N3";"S/ Meta";"124956.19622";"Janeiro";"2026";"Indefinido";"Industrialização 8,5% da produção
 Principais Fornecedor, Normatic 52 ops , Parana Zinco 26 ops , Inkflex 32 ops , cromax 20 ops e D.M.S 2 ops, entre usimold, metalfim , sul corte  ";"XXX"
 
-"Terceiros";"Leonard Robert";"Valor total de itens industrializados por mês​";"Carteira Biza";"N3";"S/ Meta";"108139.2787";"Fevereiro";"2026";"Indefinido";"INDUSTRIALIZAÇÃO REFERENTE 8,4% DA PRODUÇÃO
+"Terceiros";"Leonard Robert";"Valor total de itens industrializados por mês​";"Carteira Biza";"N3";"S/ Meta";"129156.5469";"Fevereiro";"2026";"Indefinido";"INDUSTRIALIZAÇÃO REFERENTE 8,4% DA PRODUÇÃO
 PRINCIPAIS FORNECEDORES: NORMATIC 114 OPS / INKFLEX 36 OPS / CROMAX 31 OPS / PARANA ZINCO 31 OPS / DEMAIS FORNECEDORES, D.M.S, USIMOLD, SULCORTE, MAXESTAMPO, METALFIM ";"REATIVAMOS A NOVA ERA, PARA FORNECIMENTO DE CROMO, PARA DIMINUIR O PRAZO DE ENTREGA DE CROMO "
 
-"Terceiros";"Leonard Robert";"Valor total de itens industrializados por mês​";"Carteira Biza";"N3";"S/ Meta";"";"Março";"2026";"-";"0";"0"
+"Terceiros";"Leonard Robert";"Valor total de itens industrializados por mês​";"Carteira Biza";"N3";"S/ Meta";"187848.738";"Março";"2026";"Indefinido";"0";"0"
 
 "Terceiros";"Leonard Robert";"Valor total de itens industrializados por mês​";"Carteira Biza";"N3";"S/ Meta";"";"Abril";"2026";"-";"0";"0"
 
@@ -1936,7 +1945,7 @@ Um aumento na terceirização para o próximos mês, referente a parada do centr
 "Terceiros";"Leonard Robert";"Valor total de itens terceirização por mês";"Carteira Biza";"N3";"S/ Meta";"13636";"Fevereiro";"2026";"Indefinido";"TERCERIZADOS 3 LOTES DE PINOS COM A LS USINAGEM (LUCIANO)​
 TERCERIZADO AS CAPAS FUNDIDAS COM A.S.C (ALTAIR) ";"XXX"
 
-"Terceiros";"Leonard Robert";"Valor total de itens terceirização por mês";"Carteira Biza";"N3";"S/ Meta";"";"Março";"2026";"-";"0";"0"
+"Terceiros";"Leonard Robert";"Valor total de itens terceirização por mês";"Carteira Biza";"N3";"S/ Meta";"6000";"Março";"2026";"Indefinido";"0";"0"
 
 "Terceiros";"Leonard Robert";"Valor total de itens terceirização por mês";"Carteira Biza";"N3";"S/ Meta";"";"Abril";"2026";"-";"0";"0"
 
@@ -2228,7 +2237,7 @@ Refugo prestadores de serviços: Avaliar consistência das ações solicitadas. 
 Qualidade material: Agendada visita nas fundições para dia 17/03. Qualidade + Engenharia​
 Qualidade Cavilhas: Avaliar consistência das ações solicitadas"
 
-"Gerência Fabril";"Ricardo";"Refugo​ Interno";"Prazo de Entrega";"N2/N3";"0.0041";"-";"Março";"2026";"-";"0";"0"
+"Gerência Fabril";"Ricardo";"Refugo​ Interno";"Prazo de Entrega";"N2/N3";"0.0041";"0.00276135009807282";"Março";"2026";"Atingido";"0";"0"
 
 "Gerência Fabril";"Ricardo";"Refugo​ Interno";"Prazo de Entrega";"N2/N3";"0.0041";"-";"Abril";"2026";"-";"0";"0"
 
@@ -2268,7 +2277,7 @@ Refugo prestadores de serviços: Avaliar consistência das ações solicitadas. 
 Qualidade material: Agendada visita nas fundições para dia 17/03. Qualidade + Engenharia​
 Qualidade Cavilhas: Avaliar consistência das ações solicitadas"
 
-"Gerência Fabril";"Ricardo";"Refugo​ Estratificado";"Prazo de Entrega";"N2/N3";"S/ Meta";"S/ Meta";"Março";"2026";"-";"0";"0"
+"Gerência Fabril";"Ricardo";"Refugo​ Estratificado";"Prazo de Entrega";"N2/N3";"S/ Meta";"S/ Meta";"Março";"2026";"Indefinido";"0";"0"
 
 "Gerência Fabril";"Ricardo";"Refugo​ Estratificado";"Prazo de Entrega";"N2/N3";"S/ Meta";"S/ Meta";"Abril";"2026";"-";"0";"0"
 
@@ -2293,7 +2302,7 @@ Qualidade Cavilhas: Avaliar consistência das ações solicitadas"
 "Gerência Fabril";"Ricardo";"Valor de Produção Mensal";"Carteira Biza";"N2/N3";"1610096.77";"1286811.43";"Fevereiro";"2026";"Ñ Atingido";"Meta incompatível com carteira e ineficiência na programação e produção.​
 Peças com valor significativo não foram enviadas: suspensão traseira (Item estoque) 1473309 / itens refugados e não enviados";"Implementar análise dos itens programados e não enviados para entender as causas individualmente."
 
-"Gerência Fabril";"Ricardo";"Valor de Produção Mensal";"Carteira Biza";"N2/N3";"1610096.77";"0";"Março";"2026";"-";"0";"0"
+"Gerência Fabril";"Ricardo";"Valor de Produção Mensal";"Carteira Biza";"N2/N3";"2024307.63";"1986789";"Março";"2026";"Ñ Atingido";"0";"0"
 
 "Gerência Fabril";"Ricardo";"Valor de Produção Mensal";"Carteira Biza";"N2/N3";"1610096.77";"0";"Abril";"2026";"-";"0";"0"
 
@@ -2327,25 +2336,25 @@ Atualizar orçamento portal e/ou centro de usinagem X terceirização fixa até 
 Atuar focado nos gestores e colaboradores que não cumprem com as regras definidas. Ex: marcação ponto antes de pegar/tomar café.  Está aprovado o projeto da catraca – Ver prazo de implementação: Eberson
 Retomar atividades set up externo: Pendente colaborador no 2º turno na Central de ferramentas - Eberson .Peças, ferramentais, ferramentas /instrumentos pé máquina: Líderes devem solicitar cfe programação."
 
-"Gerência Fabril";"Ricardo";"Valor de Produção Acumulado";"Carteira Biza";"N2/N3";"4774984.53";"0";"Março";"2026";"-";"0";"0"
+"Gerência Fabril";"Ricardo";"Valor de Produção Acumulado";"Carteira Biza";"N2/N3";"5189195.39";"4780090.26";"Março";"2026";"Ñ Atingido";"0";"0"
 
-"Gerência Fabril";"Ricardo";"Valor de Produção Acumulado";"Carteira Biza";"N2/N3";"6385081.3";"0";"Abril";"2026";"-";"0";"0"
+"Gerência Fabril";"Ricardo";"Valor de Produção Acumulado";"Carteira Biza";"N2/N3";"6799292.16";"0";"Abril";"2026";"-";"0";"0"
 
-"Gerência Fabril";"Ricardo";"Valor de Produção Acumulado";"Carteira Biza";"N2/N3";"7995178.07";"0";"Maio";"2026";"-";"0";"0"
+"Gerência Fabril";"Ricardo";"Valor de Produção Acumulado";"Carteira Biza";"N2/N3";"8409388.93";"0";"Maio";"2026";"-";"0";"0"
 
-"Gerência Fabril";"Ricardo";"Valor de Produção Acumulado";"Carteira Biza";"N2/N3";"9605274.84";"0";"Junho";"2026";"-";"0";"0"
+"Gerência Fabril";"Ricardo";"Valor de Produção Acumulado";"Carteira Biza";"N2/N3";"10019485.7";"0";"Junho";"2026";"-";"0";"0"
 
-"Gerência Fabril";"Ricardo";"Valor de Produção Acumulado";"Carteira Biza";"N2/N3";"11215371.61";"0";"Julho";"2026";"-";"0";"0"
+"Gerência Fabril";"Ricardo";"Valor de Produção Acumulado";"Carteira Biza";"N2/N3";"11629582.47";"0";"Julho";"2026";"-";"0";"0"
 
-"Gerência Fabril";"Ricardo";"Valor de Produção Acumulado";"Carteira Biza";"N2/N3";"12825468.38";"0";"Agosto";"2026";"-";"0";"0"
+"Gerência Fabril";"Ricardo";"Valor de Produção Acumulado";"Carteira Biza";"N2/N3";"13239679.24";"0";"Agosto";"2026";"-";"0";"0"
 
-"Gerência Fabril";"Ricardo";"Valor de Produção Acumulado";"Carteira Biza";"N2/N3";"14435565.15";"0";"Setembro";"2026";"-";"0";"0"
+"Gerência Fabril";"Ricardo";"Valor de Produção Acumulado";"Carteira Biza";"N2/N3";"14849776.01";"0";"Setembro";"2026";"-";"0";"0"
 
-"Gerência Fabril";"Ricardo";"Valor de Produção Acumulado";"Carteira Biza";"N2/N3";"16045661.92";"0";"Outubro";"2026";"-";"0";"0"
+"Gerência Fabril";"Ricardo";"Valor de Produção Acumulado";"Carteira Biza";"N2/N3";"16459872.78";"0";"Outubro";"2026";"-";"0";"0"
 
-"Gerência Fabril";"Ricardo";"Valor de Produção Acumulado";"Carteira Biza";"N2/N3";"17655758.69";"0";"Novembro";"2026";"-";"0";"0"
+"Gerência Fabril";"Ricardo";"Valor de Produção Acumulado";"Carteira Biza";"N2/N3";"18069969.55";"0";"Novembro";"2026";"-";"0";"0"
 
-"Gerência Fabril";"Ricardo";"Valor de Produção Acumulado";"Carteira Biza";"N2/N3";"19265855.46";"0";"Dezembro";"2026";"-";"0";"0"
+"Gerência Fabril";"Ricardo";"Valor de Produção Acumulado";"Carteira Biza";"N2/N3";"19680066.32";"0";"Dezembro";"2026";"-";"0";"0"
 
 "Gerência Adm";"Eberson";"GGF - Relatório Controladoria";"Custos";"N2";"0.41";"0.810105893645495";"Janeiro";"2026";"Ñ Atingido";"Gastos abaixo da Média devido as férias coletivas!";"Revisar o Ponto de equilíbrio ( meta )​
 
@@ -2423,13 +2432,13 @@ Custos de ferramentas, insertos e EPis com aumento nos valores em relação a 20
 
 "Gerência Adm";"Eberson";"GGF Salarial - Relatório Entradas de NF";"Salário Variável";"N3";"1.05";"0.592113125860046";"Janeiro";"2026";"Atingido";"Ótimo Resultado devido as férias coletivas da planta!";"Redução de HE;"
 
-"Gerência Adm";"Eberson";"GGF Salarial - Relatório Entradas de NF";"Salário Variável";"N3";"1.05";"0.84854588689508";"Fevereiro";"2026";"Atingido";"Excesso de Horas Extras; (31K acima da Meta – 53k no Total)​
+"Gerência Adm";"Eberson";"GGF Salarial - Relatório Entradas de NF";"Salário Variável";"N3";"1.05";"0.848545886895081";"Fevereiro";"2026";"Atingido";"Excesso de Horas Extras; (31K acima da Meta – 53k no Total)​
 Compra de óleo; (15K acima da meta – 23K no Total)";"Completar o quadro de Colaboradores na Biza​
 Ação de Compra do óleo foi pontual"
 
-"Gerência Adm";"Eberson";"GGF Salarial - Relatório Entradas de NF";"Salário Variável";"N3";"1.05";"1.25518391204339";"Março";"2026";"Ñ Atingido";"0";"0"
+"Gerência Adm";"Eberson";"GGF Salarial - Relatório Entradas de NF";"Salário Variável";"N3";"1.05";"0.93228926054936";"Março";"2026";"Atingido";"0";"0"
 
-"Gerência Adm";"Eberson";"GGF Salarial - Relatório Entradas de NF";"Salário Variável";"N3";"1.05";"0.077508089370379";"Abril";"2026";"Atingido";"0";"0"
+"Gerência Adm";"Eberson";"GGF Salarial - Relatório Entradas de NF";"Salário Variável";"N3";"1.05";"0.168424978314859";"Abril";"2026";"Atingido";"0";"0"
 
 "Gerência Adm";"Eberson";"GGF Salarial - Relatório Entradas de NF";"Salário Variável";"N3";"1.05";"-";"Maio";"2026";"-";"0";"0"
 
