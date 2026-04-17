@@ -1146,7 +1146,7 @@ Orçamentos Exportação e inclusão de contrato grande porte.";"XXX"
 
 "Eng. Produto";"João Leopoldo";"Demandas de Orçamentos Entregues no Mês";"Carteira Biza";"N3";"0";"-";"Dezembro";"2026";"Atingido";"0";"0"
 
-"Qualidade Produto";"Rodrigo R.";"Índice de Garantia procedente BIZA";"Salário Variável";"N3";"0.006";"0.000420318725099601";"Janeiro";"2026";"Atingido";"No mês de janeiro, foram finalizados 03 itens, sendo 02 casos procedentese 01 caso improcedente, permanecendo 08 casos em aberto.
+"Qualidade Produto";"Rodrigo R.";"Índice de Garantia procedente BIZA";"Salário Variável";"N3";"0.006";"0.000420318725099602";"Janeiro";"2026";"Atingido";"No mês de janeiro, foram finalizados 03 itens, sendo 02 casos procedentese 01 caso improcedente, permanecendo 08 casos em aberto.
 Nos casos classificados como procedentes, destacam-se os itens PN-8W5092e PN-1381875, totalizando um valor de R$ 633,00.
 No caso classificado como improcedente, o item analisado foi a bucha de manganês PN-EHT1275.
 Reforçamos a importância do apoio dos nossos stakeholderse da atuação da equipe interna da Bza, visando análises mais robustas e resultados cada vez mais confiáveis.
@@ -1215,7 +1215,10 @@ Definir dentro do mês de Fevereiro nova equipe de implementadores; ✅​
 Definir meta anual para 2026; ✅​
 Definir se total de melhorias implementadas será ainda meta PLR para reforçar divulgação e engajamento da fábrica; ❌ Em definição com a gerência."
 
-"Melhoria e 5S";"Diogo Rosa";"Quantidade de melhorias – Meta PLR";"PLR";"N3";"3";"3";"Março";"2026";"Atingido";"0";"0"
+"Melhoria e 5S";"Diogo Rosa";"Quantidade de melhorias – Meta PLR";"PLR";"N3";"3";"3";"Março";"2026";"Atingido";"3 Ideias convertidas em melhoria no mês de Março:
+134 – Controle de peças com solicitação de medição na tridimensional;​
+142 - Reestruturação na gestão de calibradores de rosca;​
+173 - Reestruturação na gestão de calibradores de entalhado";"Sem ações para o período"
 
 "Melhoria e 5S";"Diogo Rosa";"Quantidade de melhorias – Meta PLR";"PLR";"N3";"3";"-";"Abril";"2026";"-";"0";"0"
 
@@ -1325,7 +1328,7 @@ Definir se total de melhorias implementadas será ainda meta PLR para reforçar 
 Não tivemos vendas de sucatas especiais no mês.";"Manter ação de criação de novo indicador considerando sucatas especiais.​"
 
 "Gestão de Resíduos";"Jorge Lanzoni";"Geração de Resíduos de Sucata​";"PGRS";"N3";"S/ Meta";"13460";"Março";"2026";"Indefinido";"   Os resíduos de sucata no mês de FEV. Gerou uma receita de 10.768,00$ ​
-   Não tivemos vendas de sucatas especiais no mês.";"0"
+   Não tivemos vendas de sucatas especiais no mês.";"Manter ação de criação de novo indicador considerando sucatas especiais.​"
 
 "Gestão de Resíduos";"Jorge Lanzoni";"Geração de Resíduos de Sucata​";"PGRS";"N3";"S/ Meta";"-";"Abril";"2026";"-";"0";"0"
 
@@ -1352,7 +1355,7 @@ Conscientizar líderes do correto descarte dos resíduos contaminados."
 "Gestão de Resíduos";"Jorge Lanzoni";"Geração de Resíduos Sólidos Contaminados​";"PGRS";"N3";"S/ Meta";"303";"Fevereiro";"2026";"Indefinido";"Duas coletas no mês de Fevereiro. ​";"Ideia para diminuir os gastos.​
 Colocar mais uma IBC para descarte de solido contaminado e fazer o descarte a cada três semanas."
 
-"Gestão de Resíduos";"Jorge Lanzoni";"Geração de Resíduos Sólidos Contaminados​";"PGRS";"N3";"S/ Meta";"271";"Março";"2026";"Indefinido";"0";"0"
+"Gestão de Resíduos";"Jorge Lanzoni";"Geração de Resíduos Sólidos Contaminados​";"PGRS";"N3";"S/ Meta";"271";"Março";"2026";"Indefinido";"Duas coletas no mês de março de resíduo solido contaminado.";"Colocar mais uma IBC para descarte de solido contaminado e fazer o descarte a cada três semanas."
 
 "Gestão de Resíduos";"Jorge Lanzoni";"Geração de Resíduos Sólidos Contaminados​";"PGRS";"N3";"S/ Meta";"-";"Abril";"2026";"-";"0";"0"
 
@@ -1380,7 +1383,7 @@ Substituir uma IBC de óleo para armazenar latas de tinta."
 "Gestão de Resíduos";"Jorge Lanzoni";"Geração de Resíduos Líquidos Contaminados";"PGRS";"N3";"S/ Meta";"1500";"Fevereiro";"2026";"Indefinido";"Foi realizado um descarte nos últimos 3 meses com custo de 997,50$ ou seja 0,66$ o litro. ​";"Encaminhadas amostras para análise óleo hidráulico (FILTROIL)​
 Aguardando retorno da análise e proposta paras os demais líquidos contaminados."
 
-"Gestão de Resíduos";"Jorge Lanzoni";"Geração de Resíduos Líquidos Contaminados";"PGRS";"N3";"S/ Meta";"0";"Março";"2026";"Indefinido";"0";"0"
+"Gestão de Resíduos";"Jorge Lanzoni";"Geração de Resíduos Líquidos Contaminados";"PGRS";"N3";"S/ Meta";"0";"Março";"2026";"Indefinido";"Foi realizado um descarte nos últimos 4 meses com custo de 997,50$ ou seja 0,66$ o litro.";"Agendada coleta para 09/04/26 cerca de 2.5000L"
 
 "Gestão de Resíduos";"Jorge Lanzoni";"Geração de Resíduos Líquidos Contaminados";"PGRS";"N3";"S/ Meta";"-";"Abril";"2026";"-";"0";"0"
 
@@ -1667,7 +1670,7 @@ Atualizar datas de entrega no sistema com base no plano para as devidas ações 
 
 "PCP";"Rodrigo Gustavo";"Status OTIF VALE em carteira inferior a 30 dias (Últimos 12 meses)";"Prazo de Entrega";"N2";"S/ Meta";"44";"Fevereiro";"2026";"Indefinido";"Foco no atendimento de itens críticos e Estoque Zero, reduzindo a quantidade de itens OTIF pendentes.";"Aumentar capacidade produtiva da fábrica (Novas contratações em andamento) para aumentar o Output de materiais, buscando reduzir cada vez mais os atrasos junto à Vale bem como aumentar a disponibilidade de produtos BIZA em estoque."
 
-"PCP";"Rodrigo Gustavo";"Status OTIF VALE em carteira inferior a 30 dias (Últimos 12 meses)";"Prazo de Entrega";"N2";"S/ Meta";"-";"Março";"2026";"-";"0";"0"
+"PCP";"Rodrigo Gustavo";"Status OTIF VALE em carteira inferior a 30 dias (Últimos 12 meses)";"Prazo de Entrega";"N2";"S/ Meta";"37";"Março";"2026";"Indefinido";"0";"0"
 
 "PCP";"Rodrigo Gustavo";"Status OTIF VALE em carteira inferior a 30 dias (Últimos 12 meses)";"Prazo de Entrega";"N2";"S/ Meta";"-";"Abril";"2026";"-";"0";"0"
 
@@ -1691,7 +1694,7 @@ Atualizar datas de entrega no sistema com base no plano para as devidas ações 
 
 "PCP";"Rodrigo Gustavo";"Status OTIF VALE em carteira";"Prazo de Entrega";"N2";"0.9";"0.63265306122449";"Fevereiro";"2026";"Ñ Atingido";"Definido junto a equipe de Planejamento GHT a divisão de produtos Regulares e Irregulares e definindo estratégias de planejamento dos produtos de forma mais assertiva.";"Priorizar itens críticos conforme alinhamento em reunião semanal – FUP BIZA."
 
-"PCP";"Rodrigo Gustavo";"Status OTIF VALE em carteira";"Prazo de Entrega";"N2";"0.9";"-";"Março";"2026";"-";"0";"0"
+"PCP";"Rodrigo Gustavo";"Status OTIF VALE em carteira";"Prazo de Entrega";"N2";"0.9";"0.565891472868217";"Março";"2026";"Ñ Atingido";"0";"0"
 
 "PCP";"Rodrigo Gustavo";"Status OTIF VALE em carteira";"Prazo de Entrega";"N2";"0.9";"-";"Abril";"2026";"-";"0";"0"
 
@@ -1779,7 +1782,9 @@ Alinhar com gestores expectativas de performance e feedbacks."
 As admissões do período refletem aproveitamento interno e recontratação de colaborador, indicando reaproveitamento de talentos já conhecidos pela empresa.";"Acompanhar os motivos do pedido de desligamento, para identificar possíveis pontos de melhoria em gestão ou clima.​
 Manter práticas de efetivação e reaproveitamento de talentos, fortalecendo retenção e redução de custos de contratação."
 
-"Pessoas";"Laura Thais";"Percentual de Turnover Mês​";"Carteira Biza";"N2/N3";"S/ Meta";"0.0265486725663717";"Março";"2026";"Indefinido";"0";"0"
+"Pessoas";"Laura Thais";"Percentual de Turnover Mês​";"Carteira Biza";"N2/N3";"S/ Meta";"0.0265486725663717";"Março";"2026";"Indefinido";"O turnover acumulado de 4,52% em março é reflexo de um mês de alta movimentação, porém a maior parte das admissões representa situações saudáveis: crescimento de quadro, reposição de efetivação de aprendiz e reposição de uma movimentação interna.​
+Das 6 admissões de março, apenas 1 representa desligamento real por comportamento, o que indica que a retenção da equipe está controlada esse mês.";"Reforçar no processo seletivo a avaliação de perfil comportamental e alinhamento com as normas de conduta e boas práticas, reduzindo o risco de contratações incompatíveis com a operação.​
+Reforçar o processo de onboarding dos 6 colaboradores admitidos em março, garantindo acompanhamento no período de experiência e reduzindo o risco de novas saídas no curto prazo."
 
 "Pessoas";"Laura Thais";"Percentual de Turnover Mês​";"Carteira Biza";"N2/N3";"S/ Meta";"-";"Abril";"2026";"-";"0";"0"
 
@@ -1809,7 +1814,10 @@ COLABORADOR 3: 35 HORAS DE ATESTADO";"Manter o monitoramento mensal do indicador
 Reforçar ações de acompanhamento da liderança.​
 Viagem Programada para a Biza: 23, 24 e 25 de Abril."
 
-"Pessoas";"Laura Thais";"Absenteísmo Mês";"Salário Variável";"N2/N3";"0.04";"0.0324";"Março";"2026";"Atingido";"0";"0"
+"Pessoas";"Laura Thais";"Absenteísmo Mês";"Salário Variável";"N2/N3";"0.04";"0.0324";"Março";"2026";"Atingido";"Colaborador 1: 114 horas de falta (13 dias) e 17 horas de atestado​
+Colaborador 2: 50,35 horas de atestado, 1 dia de abono e 2,33 horas de atestado​
+Colaborador 3: 44 horas de atestado​
+Colaborador 4: 34,87 horas de atestado";"Realizar acompanhamento individual com colaboradores que apresentam ausências recorrentes, promovendo escuta ativa para entender as causas e definir plano de ação personalizado com a liderança direta."
 
 "Pessoas";"Laura Thais";"Absenteísmo Mês";"Salário Variável";"N2/N3";"0.04";"-";"Abril";"2026";"-";"0";"0"
 
@@ -1851,7 +1859,14 @@ Falta completar a vaga na Engenharia de Desenhista​
 
 Falta completar no refeitório a vaga de auxiliar de cozinha 2º turno"
 
-"Pessoas";"Fernando Tryferis";"Quadro colaboradores BIZA";"Informativo";"N2";"S/ Meta";"S/ Meta";"Março";"2026";"Indefinido";"0";"0"
+"Pessoas";"Fernando Tryferis";"Quadro colaboradores BIZA";"Informativo";"N2";"S/ Meta";"S/ Meta";"Março";"2026";"Indefinido";"Total 1° Turno: 95​
+Total MO Direta 1° Turno: 36​
+Total MO Indireta 1° Turno: 60​
+Total 2° Turno: 20​
+Total MO Direta 2° Turno: 18​
+Total MO Indireta 2° Turno: 2​
+Total Funcionários BIZA: 116 (Base de 07/04)​
+Obs: Números não consideram CC do sistema.";"XXX"
 
 "Pessoas";"Fernando Tryferis";"Quadro colaboradores BIZA";"Informativo";"N2";"S/ Meta";"S/ Meta";"Abril";"2026";"-";"0";"0"
 
@@ -1885,7 +1900,7 @@ Fernando Padilha ACABAMENTO: Projeção de particulado no olho. Com afastamento 
 Acidente Marcelo: Formalizada instrução para liderança sobre necessidade de identificar itens que usam dispositivo fixo na placa e abrir SS à manutenção para que seja retirado pedal na produção destes itens.​
 Acidente Fernando: Avaliar possibilidade de garantir a obrigatoriedade de fazer uso dos óculos apropriados para a atividade de acabamento, sendo passível de advertência."
 
-"SST";"Elcio Pase";"Taxa de Frequência​";"Assiduidade";"N3";"40";"0";"Março";"2026";"Atingido";"0";"0"
+"SST";"Elcio Pase";"Taxa de Frequência​";"Assiduidade";"N3";"40";"0";"Março";"2026";"Atingido";"Sem ocorrências no mês de Março;";"Entrada do novo Téc. De Segurança - Marcelo Teodoro​"
 
 "SST";"Elcio Pase";"Taxa de Frequência​";"Assiduidade";"N3";"40";"";"Abril";"2026";"-";"0";"0"
 
@@ -1917,7 +1932,7 @@ Manutenção preventiva dos EPCs e revisão periódica dos procedimentos operaci
 
 "SST";"Elcio Pase";"Taxa de Gravidade";"Assiduidade";"N3";"1000";"491.400491400491";"Fevereiro";"2026";"Atingido";"XXX";"XXX"
 
-"SST";"Elcio Pase";"Taxa de Gravidade";"Assiduidade";"N3";"1000";"318.979266347687";"Março";"2026";"Atingido";"0";"0"
+"SST";"Elcio Pase";"Taxa de Gravidade";"Assiduidade";"N3";"1000";"318.979266347687";"Março";"2026";"Atingido";"Sem ocorrências no mês de Março;​";"Entrada do novo Téc. De Segurança - Marcelo Teodoro​"
 
 "SST";"Elcio Pase";"Taxa de Gravidade";"Assiduidade";"N3";"1000";"";"Abril";"2026";"-";"0";"0"
 
@@ -2314,7 +2329,8 @@ Refugo prestadores de serviços: Avaliar consistência das ações solicitadas. 
 Qualidade material: Agendada visita nas fundições para dia 17/03. Qualidade + Engenharia​
 Qualidade Cavilhas: Avaliar consistência das ações solicitadas"
 
-"Gerência Fabril";"Ricardo";"Refugo​ Interno";"Prazo de Entrega";"N2/N3";"0.0041";"0.00276135009807282";"Março";"2026";"Atingido";"0";"0"
+"Gerência Fabril";"Ricardo";"Refugo​ Interno";"Prazo de Entrega";"N2/N3";"0.0041";"0.00276135009807282";"Março";"2026";"Atingido";"Refugo interno dentro do planejado ​
+Atenção componente 6g4605 - 20 peças de baixo valor, porém fugindo sistemática ";"Sem ações específicas para refugo interno no mês.​"
 
 "Gerência Fabril";"Ricardo";"Refugo​ Interno";"Prazo de Entrega";"N2/N3";"0.0041";"-";"Abril";"2026";"-";"0";"0"
 
@@ -2354,7 +2370,8 @@ Refugo prestadores de serviços: Avaliar consistência das ações solicitadas. 
 Qualidade material: Agendada visita nas fundições para dia 17/03. Qualidade + Engenharia​
 Qualidade Cavilhas: Avaliar consistência das ações solicitadas"
 
-"Gerência Fabril";"Ricardo";"Refugo​ Estratificado";"Prazo de Entrega";"N2/N3";"S/ Meta";"S/ Meta";"Março";"2026";"Indefinido";"0";"0"
+"Gerência Fabril";"Ricardo";"Refugo​ Estratificado";"Prazo de Entrega";"N2/N3";"S/ Meta";"S/ Meta";"Março";"2026";"Indefinido";"Refugo interno dentro do planejado ​
+Atenção componente 6g4605 - 20 peças de baixo valor, porém fugindo sistemática ";"Sem ações específicas para refugo interno no mês.​"
 
 "Gerência Fabril";"Ricardo";"Refugo​ Estratificado";"Prazo de Entrega";"N2/N3";"S/ Meta";"S/ Meta";"Abril";"2026";"-";"0";"0"
 
@@ -2379,7 +2396,7 @@ Qualidade Cavilhas: Avaliar consistência das ações solicitadas"
 "Gerência Fabril";"Ricardo";"Valor de Produção Mensal";"Carteira Biza";"N2/N3";"1610096.77";"1286811.43";"Fevereiro";"2026";"Ñ Atingido";"Meta incompatível com carteira e ineficiência na programação e produção.​
 Peças com valor significativo não foram enviadas: suspensão traseira (Item estoque) 1473309 / itens refugados e não enviados";"Implementar análise dos itens programados e não enviados para entender as causas individualmente."
 
-"Gerência Fabril";"Ricardo";"Valor de Produção Mensal";"Carteira Biza";"N2/N3";"2024307.63";"1986789";"Março";"2026";"Ñ Atingido";"0";"0"
+"Gerência Fabril";"Ricardo";"Valor de Produção Mensal";"Carteira Biza";"N2/N3";"2024307.63";"1986789";"Março";"2026";"Ñ Atingido";"Resultado positivo em função do projeto grelha ";"Ações pontuais: Contratação para 2º turno em andamento "
 
 "Gerência Fabril";"Ricardo";"Valor de Produção Mensal";"Carteira Biza";"N2/N3";"1610096.77";"0";"Abril";"2026";"-";"0";"0"
 
@@ -2413,7 +2430,13 @@ Atualizar orçamento portal e/ou centro de usinagem X terceirização fixa até 
 Atuar focado nos gestores e colaboradores que não cumprem com as regras definidas. Ex: marcação ponto antes de pegar/tomar café.  Está aprovado o projeto da catraca – Ver prazo de implementação: Eberson
 Retomar atividades set up externo: Pendente colaborador no 2º turno na Central de ferramentas - Eberson .Peças, ferramentais, ferramentas /instrumentos pé máquina: Líderes devem solicitar cfe programação."
 
-"Gerência Fabril";"Ricardo";"Valor de Produção Acumulado";"Carteira Biza";"N2/N3";"5189195.39";"4780090.26";"Março";"2026";"Ñ Atingido";"0";"0"
+"Gerência Fabril";"Ricardo";"Valor de Produção Acumulado";"Carteira Biza";"N2/N3";"5189195.39";"4780090.26";"Março";"2026";"Ñ Atingido";"Baixa eficiência nos processos produção e nos processos de apoio ​
+Tomada de decisão lenta";"Implementação TBC (Time – Base Competition )- Velocidade como base de competição ​
+Velocidade no desenvolvimento​
+Velocidade Fabricação ​
+Velocidade solução de problemas ​
+Velocidade logística ​
+Resumindo : Velocidade em todos processos "
 
 "Gerência Fabril";"Ricardo";"Valor de Produção Acumulado";"Carteira Biza";"N2/N3";"6799292.16";"0";"Abril";"2026";"-";"0";"0"
 
@@ -2513,9 +2536,12 @@ Custos de ferramentas, insertos e EPis com aumento nos valores em relação a 20
 Compra de óleo; (15K acima da meta – 23K no Total)";"Completar o quadro de Colaboradores na Biza​
 Ação de Compra do óleo foi pontual"
 
-"Gerência Adm";"Eberson";"GGF Salarial - Relatório Entradas de NF";"Salário Variável";"N3";"1.05";"1.25518391204339";"Março";"2026";"Ñ Atingido";"0";"0"
+"Gerência Adm";"Eberson";"GGF Salarial - Relatório Entradas de NF";"Salário Variável";"N3";"1.05";"1.25518391204339";"Março";"2026";"Ñ Atingido";"Horas Extras impactando no resultado – 16K acima do planejado​
+Ferramentas Impactando no Resultado – 22k acima do planejado​
+Marcenaria – Impactando no Resultado – 8k acima do Planejado​
+Manutenção - Impactando no Resultado – 13k acima do planejado ";"Manutenção - Impactando no Resultado – 13k acima do planejado - Aberto um chamado para ver lançamento duplicado via fiscal"
 
-"Gerência Adm";"Eberson";"GGF Salarial - Relatório Entradas de NF";"Salário Variável";"N3";"1.05";"0.409896742219497";"Abril";"2026";"Atingido";"0";"0"
+"Gerência Adm";"Eberson";"GGF Salarial - Relatório Entradas de NF";"Salário Variável";"N3";"1.05";"0.510606036728248";"Abril";"2026";"Atingido";"0";"0"
 
 "Gerência Adm";"Eberson";"GGF Salarial - Relatório Entradas de NF";"Salário Variável";"N3";"1.05";"-";"Maio";"2026";"-";"0";"0"
 
