@@ -1670,7 +1670,7 @@ Atualizar datas de entrega no sistema com base no plano para as devidas ações 
 
 "PCP";"Rodrigo Gustavo";"Status OTIF VALE em carteira inferior a 30 dias (Últimos 12 meses)";"Prazo de Entrega";"N2";"S/ Meta";"44";"Fevereiro";"2026";"Indefinido";"Foco no atendimento de itens críticos e Estoque Zero, reduzindo a quantidade de itens OTIF pendentes.";"Aumentar capacidade produtiva da fábrica (Novas contratações em andamento) para aumentar o Output de materiais, buscando reduzir cada vez mais os atrasos junto à Vale bem como aumentar a disponibilidade de produtos BIZA em estoque."
 
-"PCP";"Rodrigo Gustavo";"Status OTIF VALE em carteira inferior a 30 dias (Últimos 12 meses)";"Prazo de Entrega";"N2";"S/ Meta";"37";"Março";"2026";"Indefinido";"0";"0"
+"PCP";"Rodrigo Gustavo";"Status OTIF VALE em carteira inferior a 30 dias (Últimos 12 meses)";"Prazo de Entrega";"N2";"S/ Meta";"37";"Março";"2026";"Indefinido";"Diminuição da quantidade de itens menores que 30 dias para atendimento ao OTIF.";"Alinhamento com comercial para atendimento a itens críticos a Vale.​"
 
 "PCP";"Rodrigo Gustavo";"Status OTIF VALE em carteira inferior a 30 dias (Últimos 12 meses)";"Prazo de Entrega";"N2";"S/ Meta";"-";"Abril";"2026";"-";"0";"0"
 
@@ -1694,7 +1694,7 @@ Atualizar datas de entrega no sistema com base no plano para as devidas ações 
 
 "PCP";"Rodrigo Gustavo";"Status OTIF VALE em carteira";"Prazo de Entrega";"N2";"0.9";"0.63265306122449";"Fevereiro";"2026";"Ñ Atingido";"Definido junto a equipe de Planejamento GHT a divisão de produtos Regulares e Irregulares e definindo estratégias de planejamento dos produtos de forma mais assertiva.";"Priorizar itens críticos conforme alinhamento em reunião semanal – FUP BIZA."
 
-"PCP";"Rodrigo Gustavo";"Status OTIF VALE em carteira";"Prazo de Entrega";"N2";"0.9";"0.565891472868217";"Março";"2026";"Ñ Atingido";"0";"0"
+"PCP";"Rodrigo Gustavo";"Status OTIF VALE em carteira";"Prazo de Entrega";"N2";"0.9";"0.565891472868217";"Março";"2026";"Ñ Atingido";"Grande quantidade de itens vendidos entregues no mês de março.​";"Alinhamento com o comercial dos itens mais críticos a Vale, dando a devida prioridade de produção conforme possível e fazendo follows de entrega semanais. "
 
 "PCP";"Rodrigo Gustavo";"Status OTIF VALE em carteira";"Prazo de Entrega";"N2";"0.9";"-";"Abril";"2026";"-";"0";"0"
 
@@ -1721,14 +1721,12 @@ Total da Carteira BIZ com itens liberados para Planejamento – R$4,93 milhões"
 Priorizações dos Projetos de itens novos para liberar o planejamento e produção destes produtos – Clientes AdecoAgro, Ternium, Taboca."
 
 "PCP";"Rodrigo Gustavo";"Valor da carteira Biza estratificada - 2025";"Carteira Biza";"N2";"S/ Meta";"S/ Meta";"Fevereiro";"2026";"Indefinido";"Definição de Itens Regulares e Irregulares – Trabalho Equipe Planejamento GHT – FUP BIZA​
-
 47% das Linhas de pedidos BIZA são Estoque Zero Irregulares – Representam R$3,21 milhões​
-
 19% das Linhas de pedidos BIZA são Estoque Zero Regulares – Representam R$0,91 milhões​
-
 Total Carteira: R$5,58 milhões";"Priorizar entrega de itens críticos para reduzir atrasos de itens Irregulares e assim planejar estoque de itens regulares para aumentar a disponibilidade de Itens BIZA."
 
-"PCP";"Rodrigo Gustavo";"Valor da carteira Biza estratificada - 2025";"Carteira Biza";"N2";"S/ Meta";"S/ Meta";"Março";"2026";"Indefinido";"0";"0"
+"PCP";"Rodrigo Gustavo";"Valor da carteira Biza estratificada - 2025";"Carteira Biza";"N2";"S/ Meta";"S/ Meta";"Março";"2026";"Indefinido";"Aproximadamente 50% da carteira são itens vendidos e/ou Estoque Zero​
+Aproximadamente 30% da carteira são itens de Estoque";"Estruturar com planejamento GTH para aumentar a programação de itens Regulares no estoque, aumentando a disponibilidade para 6 meses para esta característica de produto."
 
 "PCP";"Rodrigo Gustavo";"Valor da carteira Biza estratificada - 2025";"Carteira Biza";"N2";"S/ Meta";"-";"Abril";"2026";"-";"0";"0"
 
@@ -1752,7 +1750,9 @@ Total Carteira: R$5,58 milhões";"Priorizar entrega de itens críticos para redu
 
 "PCP";"Rodrigo Gustavo";"Previsão de Produção Biza - 2025";"Carteira Biza";"N2";"S/ Meta";"S/ Meta";"Fevereiro";"2026";"Indefinido";"Carteira BIZA com demandas mensais acima de curto prazo (primeiros 2 meses) acima da capacidade produtiva.";"Revisar carteira de entrega BIZA com o objetivo de distribuir o planejamento conforme capacidade de entrega (Go Live do Opcenter APS dará um grande suporte para este trabalho e assim termos o Sistema muito mais alinhado ao planejamento de entrega)."
 
-"PCP";"Rodrigo Gustavo";"Previsão de Produção Biza - 2025";"Carteira Biza";"N2";"S/ Meta";"S/ Meta";"Março";"2026";"Indefinido";"0";"0"
+"PCP";"Rodrigo Gustavo";"Previsão de Produção Biza - 2025";"Carteira Biza";"N2";"S/ Meta";"S/ Meta";"Março";"2026";"Indefinido";"Previsão de produção para Abr/26 com R$2,3 milhões. Necessário reprogramação de produtos para adequar ao plano Mensal.​
+13 itens na carteira representam aproximadamente R$2 milhões.​
+647 itens na carteira representam aproximadamente R$3,6 milhões.";"Focar na entrega dos itens antigos com o objetivo de zerar a carteira de passivos 2025 na carteira."
 
 "PCP";"Rodrigo Gustavo";"Previsão de Produção Biza - 2025";"Carteira Biza";"N2";"S/ Meta";"S/ Meta";"Abril";"2026";"-";"0";"0"
 
@@ -2460,7 +2460,9 @@ Resumindo : Velocidade em todos processos "
 
 Custos de ferramentas, insertos e EPis com aumento nos valores em relação a 2025"
 
-"Gerência Adm";"Eberson";"GGF - Relatório Controladoria";"Custos";"N2";"0.41";"1.12467277353917";"Fevereiro";"2026";"Ñ Atingido";"0";"0"
+"Gerência Adm";"Eberson";"GGF - Relatório Controladoria";"Custos";"N2";"0.41";"1.12467277353917";"Fevereiro";"2026";"Ñ Atingido";"Gastos do GGF dentro do Objetivo ​
+Maiores ofensores Hora Extra 24K e Óleos - 12K";"Redução das Horas Extras – Planejamento​
+Melhorias na Gestão do estoque - Óleos;"
 
 "Gerência Adm";"Eberson";"GGF - Relatório Controladoria";"Custos";"N2";"0.41";"-";"Março";"2026";"-";"0";"0"
 
@@ -2484,7 +2486,7 @@ Custos de ferramentas, insertos e EPis com aumento nos valores em relação a 20
 
 "Gerência Adm";"Eberson";"GGF - Relatório Controladoria Estratificado";"Custos";"N2";"S/ Meta";"1220.41629";"Janeiro";"2026";"Indefinido";"XXX";"XXX"
 
-"Gerência Adm";"Eberson";"GGF - Relatório Controladoria Estratificado";"Custos";"N2";"S/ Meta";"1462.58396";"Fevereiro";"2026";"Indefinido";"0";"0"
+"Gerência Adm";"Eberson";"GGF - Relatório Controladoria Estratificado";"Custos";"N2";"S/ Meta";"1462.58396";"Fevereiro";"2026";"Indefinido";"90% dos valores estão condicionados a folha de pagamento da Biza e Manutenção da estrutura;";"Realizando gestão do GGF e Inserido o controle para semanal;"
 
 "Gerência Adm";"Eberson";"GGF - Relatório Controladoria Estratificado";"Custos";"N2";"S/ Meta";"0";"Março";"2026";"-";"0";"0"
 
@@ -2508,7 +2510,7 @@ Custos de ferramentas, insertos e EPis com aumento nos valores em relação a 20
 
 "Gerência Adm";"Eberson";"GGF - Relatório Controladoria Pareto";"Custos";"N2";"S/ Meta";"1220.41629";"Janeiro";"2026";"Indefinido";"XXX";"XXX"
 
-"Gerência Adm";"Eberson";"GGF - Relatório Controladoria Pareto";"Custos";"N2";"S/ Meta";"1462.58396";"Fevereiro";"2026";"Indefinido";"0";"0"
+"Gerência Adm";"Eberson";"GGF - Relatório Controladoria Pareto";"Custos";"N2";"S/ Meta";"1462.58396";"Fevereiro";"2026";"Indefinido";"90% dos valores estão condicionados a folha de pagamento da Biza e Manutenção da estrutura;";"Realizando gestão do GGF e Inserido o controle para semanal;"
 
 "Gerência Adm";"Eberson";"GGF - Relatório Controladoria Pareto";"Custos";"N2";"S/ Meta";"0";"Março";"2026";"-";"0";"0"
 
@@ -2536,12 +2538,12 @@ Custos de ferramentas, insertos e EPis com aumento nos valores em relação a 20
 Compra de óleo; (15K acima da meta – 23K no Total)";"Completar o quadro de Colaboradores na Biza​
 Ação de Compra do óleo foi pontual"
 
-"Gerência Adm";"Eberson";"GGF Salarial - Relatório Entradas de NF";"Salário Variável";"N3";"1.05";"1.25518391204339";"Março";"2026";"Ñ Atingido";"Horas Extras impactando no resultado – 16K acima do planejado​
+"Gerência Adm";"Eberson";"GGF Salarial - Relatório Entradas de NF";"Salário Variável";"N3";"1.05";"1.04960765059219";"Março";"2026";"Atingido";"Horas Extras impactando no resultado – 16K acima do planejado​
 Ferramentas Impactando no Resultado – 22k acima do planejado​
 Marcenaria – Impactando no Resultado – 8k acima do Planejado​
 Manutenção - Impactando no Resultado – 13k acima do planejado ";"Manutenção - Impactando no Resultado – 13k acima do planejado - Aberto um chamado para ver lançamento duplicado via fiscal"
 
-"Gerência Adm";"Eberson";"GGF Salarial - Relatório Entradas de NF";"Salário Variável";"N3";"1.05";"0.53903363607993";"Abril";"2026";"Atingido";"0";"0"
+"Gerência Adm";"Eberson";"GGF Salarial - Relatório Entradas de NF";"Salário Variável";"N3";"1.05";"0.573714265091977";"Abril";"2026";"Atingido";"0";"0"
 
 "Gerência Adm";"Eberson";"GGF Salarial - Relatório Entradas de NF";"Salário Variável";"N3";"1.05";"-";"Maio";"2026";"-";"0";"0"
 
