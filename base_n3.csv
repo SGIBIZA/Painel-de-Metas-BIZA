@@ -1588,7 +1588,7 @@ Follow semanal com foco no planejamento de estoque com o objetivo de aumentar a 
 "PCP";"Rodrigo Gustavo";"Performance de entregas BIZA (Pedidos entregues no prazo)​";"Prazo de Entrega";"N3";"0.78";"0.667567567567568";"Março";"2026";"Ñ Atingido";"Foco no mês nas entregas de itens antigos, buscando reduzir a carteira de itens Passivos de 2025.​
 Com 165 linhas antigas entregues, ficou uma pendência maior em itens dentro do prazo.";"Priorizar dentro do plano de entrega de Abr/26 o máximo possível dos itens antigos com o objetivo de zerar a carteira de passivos."
 
-"PCP";"Rodrigo Gustavo";"Performance de entregas BIZA (Pedidos entregues no prazo)​";"Prazo de Entrega";"N3";"0.78";"-";"Abril";"2026";"-";"0";"0"
+"PCP";"Rodrigo Gustavo";"Performance de entregas BIZA (Pedidos entregues no prazo)​";"Prazo de Entrega";"N3";"0.78";"0.791666666666667";"Abril";"2026";"Atingido";"0";"0"
 
 "PCP";"Rodrigo Gustavo";"Performance de entregas BIZA (Pedidos entregues no prazo)​";"Prazo de Entrega";"N3";"0.78";"-";"Maio";"2026";"-";"0";"0"
 
@@ -1619,7 +1619,7 @@ Programar e reportar acompanhamento semanal de itens antigos para entregar os me
 "PCP";"Rodrigo Gustavo";"Programação de entrega Mensal​";"Salário Variável";"N2/N3";"0.7001";"0.82089552238806";"Março";"2026";"Atingido";"Mês de Mar/26 com mudança na estrutura do SPR para emissão de OFs impactando diretamente na análise do plano mensal, porém com a evolução do projeto APS para ajudar no planejamento e Sequenciamento da fábrica.​
 Definido o plano de entrega do mês com base nos itens passivos da carteira com OC emitidas até final de Nov/25.";"Identificar na produção as OFs antigas, mostrando a prioridade em cada processo produtivo e minimizando o passivo da carteira.​"
 
-"PCP";"Rodrigo Gustavo";"Programação de entrega Mensal​";"Salário Variável";"N2/N3";"0.7001";"-";"Abril";"2026";"-";"0";"0"
+"PCP";"Rodrigo Gustavo";"Programação de entrega Mensal​";"Salário Variável";"N2/N3";"0.7001";"0.914285714285714";"Abril";"2026";"Atingido";"0";"0"
 
 "PCP";"Rodrigo Gustavo";"Programação de entrega Mensal​";"Salário Variável";"N2/N3";"0.7001";"-";"Maio";"2026";"-";"0";"0"
 
@@ -1646,7 +1646,7 @@ Carteira com itens zero reduzindo conforme ações junto a produção";"Identifi
 62% de entrega entre itens Vendidos e Estoque Zero mantendo a média de entrega.​
 40% da carteira BIZA são de itens Estoque Zero e comportamento Irregular.";"Manter prioridade de entrega em itens Estoque zero, tendo o devido alinhamento com equipe de Planjemento/Suprimentos GHT dos itens mais críticos de entrega."
 
-"PCP";"Rodrigo Gustavo";"Itens entregues por Prioridade";"Prazo de Entrega";"N2/N3";"-";"-";"Abril";"2026";"-";"0";"0"
+"PCP";"Rodrigo Gustavo";"Itens entregues por Prioridade";"Prazo de Entrega";"N2/N3";"S/ Meta";"S/ Meta";"Abril";"2026";"Indefinido";"0";"0"
 
 "PCP";"Rodrigo Gustavo";"Itens entregues por Prioridade";"Prazo de Entrega";"N2/N3";"-";"-";"Maio";"2026";"-";"0";"0"
 
@@ -1672,7 +1672,7 @@ Atualizar datas de entrega no sistema com base no plano para as devidas ações 
 
 "PCP";"Rodrigo Gustavo";"Status OTIF VALE em carteira inferior a 30 dias (Últimos 12 meses)";"Prazo de Entrega";"N2";"S/ Meta";"37";"Março";"2026";"Indefinido";"Diminuição da quantidade de itens menores que 30 dias para atendimento ao OTIF.";"Alinhamento com comercial para atendimento a itens críticos a Vale.​"
 
-"PCP";"Rodrigo Gustavo";"Status OTIF VALE em carteira inferior a 30 dias (Últimos 12 meses)";"Prazo de Entrega";"N2";"S/ Meta";"-";"Abril";"2026";"-";"0";"0"
+"PCP";"Rodrigo Gustavo";"Status OTIF VALE em carteira inferior a 30 dias (Últimos 12 meses)";"Prazo de Entrega";"N2";"S/ Meta";"32";"Abril";"2026";"Indefinido";"0";"0"
 
 "PCP";"Rodrigo Gustavo";"Status OTIF VALE em carteira inferior a 30 dias (Últimos 12 meses)";"Prazo de Entrega";"N2";"S/ Meta";"-";"Maio";"2026";"-";"0";"0"
 
@@ -1696,7 +1696,7 @@ Atualizar datas de entrega no sistema com base no plano para as devidas ações 
 
 "PCP";"Rodrigo Gustavo";"Status OTIF VALE em carteira";"Prazo de Entrega";"N2";"0.9";"0.565891472868217";"Março";"2026";"Ñ Atingido";"Grande quantidade de itens vendidos entregues no mês de março.​";"Alinhamento com o comercial dos itens mais críticos a Vale, dando a devida prioridade de produção conforme possível e fazendo follows de entrega semanais. "
 
-"PCP";"Rodrigo Gustavo";"Status OTIF VALE em carteira";"Prazo de Entrega";"N2";"0.9";"-";"Abril";"2026";"-";"0";"0"
+"PCP";"Rodrigo Gustavo";"Status OTIF VALE em carteira";"Prazo de Entrega";"N2";"0.9";"0.743801652892562";"Abril";"2026";"Ñ Atingido";"0";"0"
 
 "PCP";"Rodrigo Gustavo";"Status OTIF VALE em carteira";"Prazo de Entrega";"N2";"0.9";"-";"Maio";"2026";"-";"0";"0"
 
@@ -1728,7 +1728,7 @@ Total Carteira: R$5,58 milhões";"Priorizar entrega de itens críticos para redu
 "PCP";"Rodrigo Gustavo";"Valor da carteira Biza estratificada - 2025";"Carteira Biza";"N2";"S/ Meta";"S/ Meta";"Março";"2026";"Indefinido";"Aproximadamente 50% da carteira são itens vendidos e/ou Estoque Zero​
 Aproximadamente 30% da carteira são itens de Estoque";"Estruturar com planejamento GTH para aumentar a programação de itens Regulares no estoque, aumentando a disponibilidade para 6 meses para esta característica de produto."
 
-"PCP";"Rodrigo Gustavo";"Valor da carteira Biza estratificada - 2025";"Carteira Biza";"N2";"S/ Meta";"-";"Abril";"2026";"-";"0";"0"
+"PCP";"Rodrigo Gustavo";"Valor da carteira Biza estratificada - 2025";"Carteira Biza";"N2";"S/ Meta";"S/ Meta";"Abril";"2026";"Indefinido";"0";"0"
 
 "PCP";"Rodrigo Gustavo";"Valor da carteira Biza estratificada - 2025";"Carteira Biza";"N2";"S/ Meta";"-";"Maio";"2026";"-";"0";"0"
 
@@ -1754,7 +1754,7 @@ Aproximadamente 30% da carteira são itens de Estoque";"Estruturar com planejame
 13 itens na carteira representam aproximadamente R$2 milhões.​
 647 itens na carteira representam aproximadamente R$3,6 milhões.";"Focar na entrega dos itens antigos com o objetivo de zerar a carteira de passivos 2025 na carteira."
 
-"PCP";"Rodrigo Gustavo";"Previsão de Produção Biza - 2025";"Carteira Biza";"N2";"S/ Meta";"S/ Meta";"Abril";"2026";"-";"0";"0"
+"PCP";"Rodrigo Gustavo";"Previsão de Produção Biza - 2025";"Carteira Biza";"N2";"S/ Meta";"S/ Meta";"Abril";"2026";"Indefinido";"0";"0"
 
 "PCP";"Rodrigo Gustavo";"Previsão de Produção Biza - 2025";"Carteira Biza";"N2";"S/ Meta";"S/ Meta";"Maio";"2026";"-";"0";"0"
 
@@ -1868,7 +1868,7 @@ Total MO Indireta 2° Turno: 2​
 Total Funcionários BIZA: 116 (Base de 07/04)​
 Obs: Números não consideram CC do sistema.";"XXX"
 
-"Pessoas";"Fernando Tryferis";"Quadro colaboradores BIZA";"Informativo";"N2";"S/ Meta";"S/ Meta";"Abril";"2026";"-";"0";"0"
+"Pessoas";"Fernando Tryferis";"Quadro colaboradores BIZA";"Informativo";"N2";"S/ Meta";"S/ Meta";"Abril";"2026";"Indefinido";"0";"0"
 
 "Pessoas";"Fernando Tryferis";"Quadro colaboradores BIZA";"Informativo";"N2";"S/ Meta";"S/ Meta";"Maio";"2026";"-";"0";"0"
 
@@ -2005,7 +2005,7 @@ TERCERIZADO AS CAPAS FUNDIDAS COM A.S.C (ALTAIR) ";"XXX"
 
 "Terceiros";"Leonard Robert";"Valor total de itens terceirização por mês";"Carteira Biza";"N3";"S/ Meta";"";"Dezembro";"2026";"-";"0";"0"
 
-"Vendas BIZA";"Messias";"Valores de venda Marca BIZA";"Carteira Biza";"N2/N3";"3207748.98";"2451880.62";"Janeiro";"2026";"Ñ Atingido";"Expectativa para janeiro seria de continuidade ao mês de Dezembro/2025.​
+"Vendas BIZA";"Messias";"Valores de venda Marca BIZA";"Carteira Biza";"N2/N3";"3481668.35";"2451880.62";"Janeiro";"2026";"Ñ Atingido";"Expectativa para janeiro seria de continuidade ao mês de Dezembro/2025.​
 Tivemos em Janeiro o pior faturamento nos últimos 5 anos. ​
 Temos hoje muitas pessoas sendo envolvidas para contribuir com a BIZA. Mas os pontos que tratamos em 2025 já fazem parte do 1º bimestre de 2026.";"Precisamos de assertividade nas informações.​
 Precisamos aumentar a produção BIZA-1ºe2º turno trabalhando 100%.​
@@ -2017,7 +2017,7 @@ Melhorar nossa comunicação para o GHT ""Treinamento"".​
 Melhorar nossa comunicação para o Mercado ""divulgação em feiras/revistas""​
 Ter acesso a matérias primas com custos melhores."
 
-"Vendas BIZA";"Messias";"Valores de venda Marca BIZA";"Carteira Biza";"N2/N3";"3346263.76";"2495615.56";"Fevereiro";"2026";"Ñ Atingido";"Continuamos com muita dificuldade em elevar o faturamento BIZA.​
+"Vendas BIZA";"Messias";"Valores de venda Marca BIZA";"Carteira Biza";"N2/N3";"3556463.91";"2495615.56";"Fevereiro";"2026";"Ñ Atingido";"Continuamos com muita dificuldade em elevar o faturamento BIZA.​
 Janeiro pior faturamento dos ultimos 5 anos. ​
 Fevereiro melhoramos em 43.734,94 nosso faturamento, chegando no 2º pior faturamento nos ultimos 5 anos.​
 Comparando FEV/2026 com FEV2025 faltou 845.129,31 para fazer o mesmo faturamento de 2025.​
@@ -2033,7 +2033,7 @@ Melhorar nossa comunicação para o GHT ""Treinamento"".​
 Melhorar nossa comunicação para o Mercado ""divulgação em feiras / revistas""​
 Ter acesso a matérias primas com custos melhores."
 
-"Vendas BIZA";"Messias";"Valores de venda Marca BIZA";"Carteira Biza";"N2/N3";"3857400.64";"3620944.81";"Março";"2026";"Ñ Atingido";"Neste mês tivemos algumas vendas de projetos que potencializou nosso faturamento;​
+"Vendas BIZA";"Messias";"Valores de venda Marca BIZA";"Carteira Biza";"N2/N3";"4106237.64";"3620944.81";"Março";"2026";"Ñ Atingido";"Neste mês tivemos algumas vendas de projetos que potencializou nosso faturamento;​
 Tivemos uma melhora em relação a Janeiro e Fevereiro;​
 Porém ficamos abaixo 22% em relação ao mesmo período de 2025;";"Continuo acreditando que os pontos abaixo são fundamentais para melhorarmos70% da BIZA​
  •Precisamos de assertividade nas informações.​
@@ -2046,23 +2046,23 @@ Porém ficamos abaixo 22% em relação ao mesmo período de 2025;";"Continuo acr
  •Melhorar nossa comunicação para o Mercado ""divulgação em feiras/revistas""​
  •Ter acesso a matérias primas com custos melhores."
 
-"Vendas BIZA";"Messias";"Valores de venda Marca BIZA";"Carteira Biza";"N2/N3";"4497636.1";"0";"Abril";"2026";"-";"0";"0"
+"Vendas BIZA";"Messias";"Valores de venda Marca BIZA";"Carteira Biza";"N2/N3";"4059000.21";"4181331.06";"Abril";"2026";"Atingido";"0";"0"
 
-"Vendas BIZA";"Messias";"Valores de venda Marca BIZA";"Carteira Biza";"N2/N3";"3909104.54";"0";"Maio";"2026";"-";"0";"0"
+"Vendas BIZA";"Messias";"Valores de venda Marca BIZA";"Carteira Biza";"N2/N3";"4106660.72";"0";"Maio";"2026";"-";"0";"0"
 
-"Vendas BIZA";"Messias";"Valores de venda Marca BIZA";"Carteira Biza";"N2/N3";"5364796.3";"0";"Junho";"2026";"-";"0";"0"
+"Vendas BIZA";"Messias";"Valores de venda Marca BIZA";"Carteira Biza";"N2/N3";"4739941.03";"0";"Junho";"2026";"-";"0";"0"
 
-"Vendas BIZA";"Messias";"Valores de venda Marca BIZA";"Carteira Biza";"N2/N3";"5535612.78";"0";"Julho";"2026";"-";"0";"0"
+"Vendas BIZA";"Messias";"Valores de venda Marca BIZA";"Carteira Biza";"N2/N3";"4933437.05";"0";"Julho";"2026";"-";"0";"0"
 
-"Vendas BIZA";"Messias";"Valores de venda Marca BIZA";"Carteira Biza";"N2/N3";"4809547.31";"0";"Agosto";"2026";"-";"0";"0"
+"Vendas BIZA";"Messias";"Valores de venda Marca BIZA";"Carteira Biza";"N2/N3";"6348217.31";"0";"Agosto";"2026";"-";"0";"0"
 
-"Vendas BIZA";"Messias";"Valores de venda Marca BIZA";"Carteira Biza";"N2/N3";"4747776.45";"0";"Setembro";"2026";"-";"0";"0"
+"Vendas BIZA";"Messias";"Valores de venda Marca BIZA";"Carteira Biza";"N2/N3";"4654330.57";"0";"Setembro";"2026";"-";"0";"0"
 
-"Vendas BIZA";"Messias";"Valores de venda Marca BIZA";"Carteira Biza";"N2/N3";"5294812.79";"0";"Outubro";"2026";"-";"0";"0"
+"Vendas BIZA";"Messias";"Valores de venda Marca BIZA";"Carteira Biza";"N2/N3";"4394529.07";"0";"Outubro";"2026";"-";"0";"0"
 
-"Vendas BIZA";"Messias";"Valores de venda Marca BIZA";"Carteira Biza";"N2/N3";"4413519.1";"0";"Novembro";"2026";"-";"0";"0"
+"Vendas BIZA";"Messias";"Valores de venda Marca BIZA";"Carteira Biza";"N2/N3";"3753004.86";"0";"Novembro";"2026";"-";"0";"0"
 
-"Vendas BIZA";"Messias";"Valores de venda Marca BIZA";"Carteira Biza";"N2/N3";"2952528.27";"0";"Dezembro";"2026";"-";"0";"0"
+"Vendas BIZA";"Messias";"Valores de venda Marca BIZA";"Carteira Biza";"N2/N3";"3117202.05";"0";"Dezembro";"2026";"-";"0";"0"
 
 "Vendas BIZA";"Messias";"Vendas Marca Biza por Segmento";"Carteira Biza";"N2/N3";"S/ Meta";"S/ Meta";"Janeiro";"2026";"Indefinido";"EQUIPE HENRIQUE​
 Votorantim: negociação para aumento da cesta de oportunidades;​
@@ -2103,7 +2103,7 @@ CSN = Projeto Foles 793 (Biza atrasou 2x a promessa de retorno) Retornamos somen
 CSN = Projeto Barra Eq D11 melhorada (apresentada hoje pelo Leandro Firme)Apresentado dia 02/04​
 ERO = Projeto Chapas (500k / a.a.) (em análise pela Engenharia do cliente)Aguardando retorno do cliente"
 
-"Vendas BIZA";"Messias";"Vendas Marca Biza por Segmento";"Carteira Biza";"N2/N3";"S/ Meta";"S/ Meta";"Abril";"2026";"-";"0";"0"
+"Vendas BIZA";"Messias";"Vendas Marca Biza por Segmento";"Carteira Biza";"N2/N3";"S/ Meta";"S/ Meta";"Abril";"2026";"Indefinido";"0";"0"
 
 "Vendas BIZA";"Messias";"Vendas Marca Biza por Segmento";"Carteira Biza";"N2/N3";"S/ Meta";"S/ Meta";"Maio";"2026";"-";"0";"0"
 
@@ -2180,7 +2180,7 @@ Pedidos recebidos e se possível adiantar produção:​
 R4239494 – ordem de compra Biza 187384​
 Grelha modular EHT4798 – ordem de compra Biza 188450"
 
-"Vendas BIZA";"Messias";"Vendas Marca Biza (Últimos 3 anos)";"Carteira Biza";"N2/N3";"S/ Meta";"0";"Abril";"2026";"-";"0";"0"
+"Vendas BIZA";"Messias";"Vendas Marca Biza (Últimos 3 anos)";"Carteira Biza";"N2/N3";"S/ Meta";"4181331.06";"Abril";"2026";"Indefinido";"0";"0"
 
 "Vendas BIZA";"Messias";"Vendas Marca Biza (Últimos 3 anos)";"Carteira Biza";"N2/N3";"S/ Meta";"0";"Maio";"2026";"-";"0";"0"
 
@@ -2250,7 +2250,7 @@ Revisão do portfólio BIZA (redução de itens de baixo giro) ​
 Redirecionamento para itens de maior criticidade e valor ​
 Evolução no modelo de follow-up e previsibilidade de entrega"
 
-"Vendas BIZA";"Messias";"Percentual de vendas marca BIZA";"Carteira Biza";"N2/N3";"0.08";"-";"Abril";"2026";"-";"0";"0"
+"Vendas BIZA";"Messias";"Percentual de vendas marca BIZA";"Carteira Biza";"N2/N3";"0.08";"0.0765498954447469";"Abril";"2026";"Ñ Atingido";"0";"0"
 
 "Vendas BIZA";"Messias";"Percentual de vendas marca BIZA";"Carteira Biza";"N2/N3";"0.08";"-";"Maio";"2026";"-";"0";"0"
 
@@ -2291,7 +2291,7 @@ Ter acesso a matérias primas com custos melhores."
 
 "Vendas BIZA";"Messias";"Valores de Pedidos em Carteira";"Carteira Biza";"N2/N3";"7500000";"5596307.54";"Março";"2026";"Ñ Atingido";"XXX";"XXX"
 
-"Vendas BIZA";"Messias";"Valores de Pedidos em Carteira";"Carteira Biza";"N2/N3";"7500000";"-";"Abril";"2026";"-";"0";"0"
+"Vendas BIZA";"Messias";"Valores de Pedidos em Carteira";"Carteira Biza";"N2/N3";"7500000";"4473885.17";"Abril";"2026";"Ñ Atingido";"0";"0"
 
 "Vendas BIZA";"Messias";"Valores de Pedidos em Carteira";"Carteira Biza";"N2/N3";"7500000";"-";"Maio";"2026";"-";"0";"0"
 
@@ -2532,20 +2532,20 @@ Melhorias na Gestão do estoque - Óleos;"
 
 "Gerência Adm";"Eberson";"GGF - Relatório Controladoria Pareto";"Custos";"N2";"S/ Meta";"0";"Dezembro";"2026";"-";"0";"0"
 
-"Gerência Adm";"Eberson";"GGF Salarial - Relatório Entradas de NF";"Salário Variável";"N3";"1.05";"0.592113125860046";"Janeiro";"2026";"Atingido";"Ótimo Resultado devido as férias coletivas da planta!";"Redução de HE;"
+"Gerência Adm";"Eberson";"GGF Salarial - Relatório Entradas de NF";"Salário Variável";"N3";"1.05";"0.653988449671657";"Janeiro";"2026";"Atingido";"Ótimo Resultado devido as férias coletivas da planta!";"Redução de HE;"
 
-"Gerência Adm";"Eberson";"GGF Salarial - Relatório Entradas de NF";"Salário Variável";"N3";"1.05";"0.848545886895081";"Fevereiro";"2026";"Atingido";"Excesso de Horas Extras; (31K acima da Meta – 53k no Total)​
+"Gerência Adm";"Eberson";"GGF Salarial - Relatório Entradas de NF";"Salário Variável";"N3";"1.05";"0.914484731135539";"Fevereiro";"2026";"Atingido";"Excesso de Horas Extras; (31K acima da Meta – 53k no Total)​
 Compra de óleo; (15K acima da meta – 23K no Total)";"Completar o quadro de Colaboradores na Biza​
 Ação de Compra do óleo foi pontual"
 
-"Gerência Adm";"Eberson";"GGF Salarial - Relatório Entradas de NF";"Salário Variável";"N3";"1.05";"1.04960765059219";"Março";"2026";"Atingido";"Horas Extras impactando no resultado – 16K acima do planejado​
+"Gerência Adm";"Eberson";"GGF Salarial - Relatório Entradas de NF";"Salário Variável";"N3";"1.05";"0.990476357636003";"Março";"2026";"Atingido";"Horas Extras impactando no resultado – 16K acima do planejado​
 Ferramentas Impactando no Resultado – 22k acima do planejado​
 Marcenaria – Impactando no Resultado – 8k acima do Planejado​
 Manutenção - Impactando no Resultado – 13k acima do planejado ";"Manutenção - Impactando no Resultado – 13k acima do planejado - Aberto um chamado para ver lançamento duplicado via fiscal"
 
-"Gerência Adm";"Eberson";"GGF Salarial - Relatório Entradas de NF";"Salário Variável";"N3";"1.05";"0.232043560921908";"Abril";"2026";"Atingido";"0";"0"
+"Gerência Adm";"Eberson";"GGF Salarial - Relatório Entradas de NF";"Salário Variável";"N3";"1.05";"1.32256248873463";"Abril";"2026";"Ñ Atingido";"0";"0"
 
-"Gerência Adm";"Eberson";"GGF Salarial - Relatório Entradas de NF";"Salário Variável";"N3";"1.05";"-";"Maio";"2026";"-";"0";"0"
+"Gerência Adm";"Eberson";"GGF Salarial - Relatório Entradas de NF";"Salário Variável";"N3";"1.05";"0.0150481495924618";"Maio";"2026";"Atingido";"0";"0"
 
 "Gerência Adm";"Eberson";"GGF Salarial - Relatório Entradas de NF";"Salário Variável";"N3";"1.05";"-";"Junho";"2026";"-";"0";"0"
 
